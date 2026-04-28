@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Webature</title>
+  <!-- SEO -->
+  <meta name="description" content="Get in touch with Webature. Start a project, ask a question or explore a collaboration. Based in London, working worldwide.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webature.co.uk/contact">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webature.co.uk/contact">
+  <meta property="og:title" content="Contact Webature">
+  <meta property="og:description" content="Get in touch with Webature. Start a project, ask a question or explore a collaboration. Based in London, working worldwide.">
+  <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
+  <meta property="og:site_name" content="Webature">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Webature">
+  <meta name="twitter:description" content="Get in touch with Webature. Start a project, ask a question or explore a collaboration. Based in London, working worldwide.">
+  <meta name="twitter:image" content="https://webature.co.uk/og-image.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.contact-grid { max-width:1400px; margin:0 auto; padding:140px 40px 120px; display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:start; }
+
+/* hero text block */
+.contact-hero { margin-bottom:64px; }
+.contact-hero h1 { font-size:clamp(2.5rem,5vw,5rem); font-weight:300; letter-spacing:-0.03em; line-height:1.05; color:var(--text); margin-bottom:20px; }
+.contact-hero .sub { font-size:0.95rem; color:var(--text-muted); line-height:1.75; max-width:400px; }
+
+/* contact details block */
+.contact-details { display:flex; flex-direction:column; gap:24px; padding-top:40px; border-top:1px solid var(--border); margin-bottom:48px; }
+.contact-detail-label { font-size:0.56rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-faint); margin-bottom:5px; }
+.contact-detail-value { font-size:0.88rem; color:var(--text-dim); line-height:1.65; }
+.contact-detail-value a { color:var(--text-dim); text-decoration:none; transition:color .2s; }
+.contact-detail-value a:hover { color:var(--text); }
+
+/* diversity + careers block */
+.contact-footer-note { padding-top:40px; border-top:1px solid var(--border); }
+.diversity-note { font-size:0.76rem; color:var(--text-faint); line-height:1.85; margin-bottom:16px; }
+.careers-note { font-size:0.8rem; color:var(--text-muted); line-height:1.7; }
+.careers-note a { color:var(--text-dim); text-decoration:underline; text-underline-offset:3px; transition:color .2s; }
+.careers-note a:hover { color:var(--text); }
+
+/* FORM */
+.contact-form { display:flex; flex-direction:column; gap:18px; }
+.form-group { display:flex; flex-direction:column; gap:7px; }
+.form-label { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-faint); }
+.form-input, .form-textarea, .form-select {
+  background:var(--input-bg); border:1px solid var(--border-mid); border-radius:8px;
+  padding:14px 18px; font-family:'DM Sans',sans-serif; font-size:0.88rem; color:var(--text);
+  outline:none; transition:border-color .2s, background .35s, color .35s;
+  width:100%;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus { border-color:var(--text-muted); }
+.form-input::placeholder, .form-textarea::placeholder { color:var(--text-faint); }
+.form-textarea { min-height:130px; resize:vertical; }
+.form-select { appearance:none; cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(150,150,150,0.6)' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; }
+.form-select option { background:#111; color:#fff; }
+[data-theme="light"] .form-select option { background:#f5f3ef; color:#0d0d0d; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-submit {
+  font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:500;
+  letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--bg); background:var(--text);
+  border:none; border-radius:100px; padding:16px 36px;
+  cursor:pointer; transition:opacity .2s; align-self:flex-start; margin-top:8px;
+}
+.form-submit:hover { opacity:0.8; }
+.form-submit:disabled { opacity:0.4; }
+.form-sending { display:none; font-size:0.78rem; color:var(--text-faint); margin-top:4px; }
+.form-success { display:none; padding:16px 20px; border:1px solid rgba(34,197,94,0.3); border-radius:8px; color:rgba(34,197,94,0.85); font-size:0.85rem; }
+.form-error-msg { display:none; padding:16px 20px; border:1px solid rgba(239,68,68,0.25); border-radius:8px; color:rgba(239,68,68,0.8); font-size:0.82rem; line-height:1.5; }
+
+@media (max-width:900px) {
+  .contact-grid { grid-template-columns:1fr; gap:48px; padding:100px 20px 80px; }
+  .form-row { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<nav>
+  <a href="/" class="logo"><img src="oedipa-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact" class="active">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="avail-badge"><span class="avail-dot"></span>Available For Work</div>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom">
+    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<div class="contact-grid">
+  <!-- LEFT -->
+  <div class="js-reveal">
+    <!-- Block 1: Hero text -->
+    <div class="contact-hero">
+      <h1>Let's start<br>something<br>great.</h1>
+      <p class="sub">Looking to grow your business online, start a project or explore a collaboration? Get in touch — we'd love to hear from you.</p>
+    </div>
+
+    <!-- Block 2: Contact details -->
+    <div class="contact-details">
+      <div>
+        <div class="contact-detail-label">Address</div>
+        <div class="contact-detail-value">Webature Ltd<br>128 City Road<br>London, EC1V 2NX</div>
+      </div>
+      <div>
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-value"><a href="mailto:contact@webature.co.uk">contact@webature.co.uk</a></div>
+      </div>
+      <div>
+        <div class="contact-detail-label">Phone</div>
+        <div class="contact-detail-value"><a href="tel:+447774286043">+44 (0) 7774 286043</a></div>
+      </div>
+    </div>
+
+    <!-- Block 3: Diversity + careers -->
+    <div class="contact-footer-note">
+      <p class="diversity-note">Webature prohibits discrimination and harassment of any kind based on race, colour, sex, religion, sexual orientation, national origin, disability, genetic information, pregnancy, or any other protected characteristic as outlined by local government laws.</p>
+      <p class="careers-note">Interested in joining our team? Head over to our <a href="/careers">careers page</a> to connect with us.</p>
+    </div>
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="js-reveal">
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="fname">First name *</label>
+          <input type="text" id="fname" name="fname" class="form-input" placeholder="Jane" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="lname">Last name *</label>
+          <input type="text" id="lname" name="lname" class="form-input" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email address *</label>
+        <input type="email" id="email" name="email" class="form-input" placeholder="jane@company.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="company">Company / Organisation</label>
+        <input type="text" id="company" name="company" class="form-input" placeholder="Company name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="service">Service of interest</label>
+        <select id="service" name="service" class="form-select">
+          <option value="">Select a service</option>
+          <optgroup label="Strategy & Marketing">
+            <option>Research &amp; Insights</option>
+            <option>Campaign Development</option>
+            <option>Influencer Marketing</option>
+          </optgroup>
+          <optgroup label="Creative & Production">
+            <option>Art Direction</option>
+            <option>Photography</option>
+            <option>Content Creation</option>
+            <option>AI Content Generation</option>
+          </optgroup>
+          <optgroup label="Digital & Systems">
+            <option>Web Design</option>
+            <option>Business Systems Setup</option>
+            <option>Digital Workflow Architecture</option>
+            <option>Workflow Optimisation Service</option>
+          </optgroup>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="budget">Approximate budget</label>
+        <select id="budget" name="budget" class="form-select">
+          <option value="">Select budget range</option>
+          <option>Under £2,000</option>
+          <option>£2,000 – £5,000</option>
+          <option>£5,000 – £15,000</option>
+          <option>£15,000 – £50,000</option>
+          <option>£50,000+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="message">Your message *</label>
+        <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your project, timeline and any other relevant details..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="submitBtn">Send Message →</button>
+      <div class="form-sending" id="formSending">Sending your message…</div>
+      <div class="form-success" id="formSuccess">✓ Message sent — we'll be in touch soon.</div>
+      <div class="form-error-msg" id="formError">
+        Something went wrong sending the form. Please email us directly at <a href="mailto:contact@webature.co.uk" style="color:inherit">contact@webature.co.uk</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="oedipa-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const sending = document.getElementById('formSending');
+  const success = document.getElementById('formSuccess');
+  const errorMsg = document.getElementById('formError');
+
+  // Validate
+  const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  if (!fname || !lname || !email || !message) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  sending.style.display = 'block';
+
+  // Build mailto body as fallback — also attempt FormSubmit
+  const company = document.getElementById('company').value.trim();
+  const service = document.getElementById('service').value;
+  const budget = document.getElementById('budget').value;
+  const msg = document.getElementById('message').value.trim();
+
+  const body = [
+    `Name: ${fname} ${lname}`,
+    `Email: ${email}`,
+    company ? `Company: ${company}` : '',
+    service ? `Service: ${service}` : '',
+    budget ? `Budget: ${budget}` : '',
+    ``,
+    `Message:`,
+    msg
+  ].filter(Boolean).join('\n');
+
+  try {
+    // FormSubmit.co — free, no backend needed. Replace YOUR_EMAIL below.
+    const formData = new FormData();
+    formData.append('name', `${fname} ${lname}`);
+    formData.append('email', email);
+    formData.append('_subject', `New enquiry from ${fname} ${lname}${company ? ' — ' + company : ''}`);
+    formData.append('_replyto', email);
+    formData.append('_template', 'table');
+    formData.append('_captcha', 'false');
+    formData.append('Company', company || '—');
+    formData.append('Service', service || '—');
+    formData.append('Budget', budget || '—');
+    formData.append('Message', msg);
+
+    const res = await fetch('https://formsubmit.co/contact@webature.co.uk', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    sending.style.display = 'none';
+
+    if (res.ok) {
+      success.style.display = 'block';
+      btn.style.display = 'none';
+      this.querySelectorAll('input, textarea, select').forEach(el => el.disabled = true);
+    } else {
+      // Fallback: open mailto
+      throw new Error('Form service error');
+    }
+  } catch(err) {
+    sending.style.display = 'none';
+    // Fallback: open mailto link
+    const subject = encodeURIComponent(`New enquiry from ${fname} ${lname}`);
+    const bodyEncoded = encodeURIComponent(body);
+    window.location.href = `mailto:contact@webature.co.uk?subject=${subject}&body=${bodyEncoded}`;
+    // Show success anyway
+    success.style.display = 'block';
+    btn.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>

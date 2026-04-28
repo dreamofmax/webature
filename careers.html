@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — Webature</title>
+  <!-- SEO -->
+  <meta name="description" content="Join the team at Webature. A London-based creative agency focused on photography, content and digital. No open roles right now — but we'd love to hear from you.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webature.co.uk/careers">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webature.co.uk/careers">
+  <meta property="og:title" content="Careers — Webature">
+  <meta property="og:description" content="Join the team at Webature. A London-based creative agency focused on photography, content and digital. No open roles right now — but we'd love to hear from you.">
+  <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
+  <meta property="og:site_name" content="Webature">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Careers — Webature">
+  <meta name="twitter:description" content="Join the team at Webature. A London-based creative agency focused on photography, content and digital. No open roles right now — but we'd love to hear from you.">
+  <meta name="twitter:image" content="https://webature.co.uk/og-image.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.careers-hero {
+  max-width: 1400px; margin: 0 auto;
+  padding: 140px 40px 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
+}
+.careers-hero h1 {
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 300; letter-spacing: -0.04em; line-height: 1;
+  color: var(--text); margin-bottom: 28px;
+}
+.careers-hero p {
+  font-size: 1rem; color: var(--text-muted); line-height: 1.75; max-width: 440px;
+  margin-bottom: 40px;
+}
+.careers-contact-nudge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-dim); text-decoration: none;
+  border-bottom: 1px solid var(--border-mid); padding-bottom: 4px;
+  transition: color .2s, border-color .2s, gap .3s;
+}
+.careers-contact-nudge:hover { color: var(--text); border-color: var(--text-muted); gap: 16px; }
+.careers-contact-nudge::after { content: '→'; font-size: 1rem; }
+
+/* VALUES */
+.values-section { max-width: 1400px; margin: 0 auto; padding: 0 40px 100px; }
+.values-label { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 48px; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.value-card { background: var(--bg); padding: 36px 28px; }
+.value-num { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 24px; }
+.value-title { font-size: 1rem; font-weight: 400; color: var(--text); margin-bottom: 12px; }
+.value-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; }
+
+/* JOBS SECTION */
+.jobs-section { max-width: 1400px; margin: 0 auto; padding: 0 40px 80px; }
+.jobs-header { display: flex; align-items: flex-end; justify-content: space-between; padding-top: 64px; border-top: 1px solid var(--border); margin-bottom: 48px; flex-wrap: wrap; gap: 16px; }
+.jobs-header h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; letter-spacing: -0.03em; color: var(--text); }
+
+.no-jobs {
+  padding: 80px 0 60px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
+}
+.no-jobs-icon {
+  width: 48px; height: 48px;
+  border: 1px solid var(--border-mid); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: var(--text-faint);
+  margin-bottom: 8px;
+}
+.no-jobs h3 { font-size: 1.1rem; font-weight: 400; color: var(--text); }
+.no-jobs p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; max-width: 460px; }
+.notify-form { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.notify-input {
+  background: var(--input-bg); border: 1px solid var(--border-mid);
+  border-radius: 8px; padding: 12px 18px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--text);
+  outline: none; transition: border-color .2s; width: 280px;
+}
+.notify-input:focus { border-color: var(--text-muted); }
+.notify-input::placeholder { color: var(--text-faint); }
+.notify-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--bg); background: var(--text);
+  border: none; border-radius: 8px; padding: 12px 24px;
+  cursor: pointer; transition: opacity .2s; white-space: nowrap;
+}
+.notify-btn:hover { opacity: 0.8; }
+.notify-success { font-size: 0.78rem; color: rgba(34,197,94,0.8); display: none; margin-top: 4px; }
+
+@media (max-width: 900px) {
+  .careers-hero { grid-template-columns: 1fr; gap: 48px; padding: 100px 20px 60px; }
+  .values-section { padding: 0 20px 80px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .jobs-section { padding: 0 20px 80px; }
+  .notify-input { width: 100%; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+
+<nav>
+  <a href="/" class="logo"><img src="oedipa-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="avail-badge"><span class="avail-dot"></span>Available For Work</div>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom">
+    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="careers-hero">
+  <div class="js-reveal">
+    <h1>Join the<br>team.</h1>
+    <p>We're a small, focused digital and marketing agency based in London. When we grow, we grow deliberately — bringing in people who are sharp, commercially minded and genuinely good at what they do.</p>
+    <a href="/contact" class="careers-contact-nudge">Send us a message</a>
+  </div>
+  <div class="js-reveal" style="padding-top: 8px;">
+    <p style="font-size:0.85rem; color:var(--text-faint); line-height:1.8; max-width:380px;">
+      We work across web, content, social media and digital strategy. If you're a digital marketer, web designer, content creator or strategist who gets results — we'd love to hear from you, even when there's no active role.
+    </p>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="values-section">
+  <div class="values-label js-reveal">What we look for</div>
+  <div class="values-grid">
+    <div class="value-card js-reveal">
+      <div class="value-num">01</div>
+      <div class="value-title">Results first</div>
+      <div class="value-desc">We care about work that actually moves the needle. Whatever your discipline, we want to see commercial thinking alongside genuine craft.</div>
+    </div>
+    <div class="value-card js-reveal">
+      <div class="value-num">02</div>
+      <div class="value-title">Initiative</div>
+      <div class="value-desc">We're a lean team. We value people who take ownership, ask the right questions and move things forward without waiting to be told.</div>
+    </div>
+    <div class="value-card js-reveal">
+      <div class="value-num">03</div>
+      <div class="value-title">Curiosity</div>
+      <div class="value-desc">The best work comes from people who stay curious — about platforms, algorithms, client industries and what's actually working right now.</div>
+    </div>
+  </div>
+</div>
+
+<!-- JOBS -->
+<div class="jobs-section">
+  <div class="jobs-header js-reveal">
+    <h2>Open Positions</h2>
+  </div>
+
+  <div class="no-jobs js-reveal">
+    <div class="no-jobs-icon">○</div>
+    <h3>No open roles right now</h3>
+    <p>We don't have any active vacancies at the moment. That said, we're always interested in hearing from talented people. Leave your email below and we'll reach out when something comes up.</p>
+    <div class="notify-form">
+      <input type="email" class="notify-input" id="notifyEmail" placeholder="your@email.com">
+      <button class="notify-btn" onclick="notifySubmit()">Notify me</button>
+    </div>
+    <div class="notify-success" id="notifySuccess">✓ We'll be in touch when a role opens up.</div>
+    <p style="margin-top: 24px; font-size: 0.8rem;">
+      Or send a speculative application to <a href="mailto:contact@webature.co.uk" style="color:var(--text-dim); text-decoration:underline; text-underline-offset:3px;">contact@webature.co.uk</a> — we read everything.
+    </p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="oedipa-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+function notifySubmit() {
+  const email = document.getElementById('notifyEmail').value.trim();
+  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+  document.getElementById('notifySuccess').style.display = 'block';
+  document.getElementById('notifyEmail').disabled = true;
+  document.querySelector('.notify-btn').disabled = true;
+  document.querySelector('.notify-btn').style.opacity = '0.4';
+}
+</script>
+</body>
+</html>

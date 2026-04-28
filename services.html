@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Webature</title>
+  <!-- SEO -->
+  <meta name="description" content="Creative services from Webature: photography, content creation, art direction, influencer marketing, campaign development, web design and digital workflow.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webature.co.uk/services">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webature.co.uk/services">
+  <meta property="og:title" content="Services — Webature">
+  <meta property="og:description" content="Creative services from Webature: photography, content creation, art direction, influencer marketing, campaign development, web design and digital workflow.">
+  <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
+  <meta property="og:site_name" content="Webature">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services — Webature">
+  <meta name="twitter:description" content="Creative services from Webature: photography, content creation, art direction, influencer marketing, campaign development, web design and digital workflow.">
+  <meta name="twitter:image" content="https://webature.co.uk/og-image.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+/* PAGE INTRO */
+.services-intro {
+  max-width: 1400px; margin: 0 auto;
+  padding: 140px 40px 80px;
+  border-bottom: 1px solid var(--border);
+}
+.services-intro h1 {
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 300; letter-spacing: -0.04em; line-height: 1;
+  color: var(--text); margin-bottom: 24px;
+}
+.services-intro p {
+  font-size: 1rem; color: var(--text-muted); line-height: 1.7;
+  max-width: 500px;
+}
+
+/* STICKY LAYOUT */
+.services-layout {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+/* LEFT STICKY NAV */
+.services-nav {
+  position: sticky;
+  top: 64px; /* nav height */
+  padding: 80px 0;
+  display: flex; flex-direction: column;
+  gap: 0;
+}
+.services-nav-item {
+  display: block;
+  padding: 14px 0;
+  font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  text-decoration: none;
+  border: none; background: none;
+  text-align: left; cursor: pointer;
+  transition: color 0.3s;
+  border-bottom: 1px solid transparent;
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+}
+.services-nav-item::before {
+  content: '';
+  position: absolute; left: -24px; top: 50%;
+  transform: translateY(-50%);
+  width: 8px; height: 1px;
+  background: var(--text);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.services-nav-item.active {
+  color: var(--text);
+}
+.services-nav-item.active::before {
+  opacity: 1;
+}
+
+/* GROUP LABEL under each nav item */
+.services-nav-sub {
+  font-size: 0.62rem; letter-spacing: 0.12em;
+  color: var(--text-faint);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s, max-height 0.3s;
+  padding-left: 0;
+}
+.services-nav-item.active + .services-nav-sub {
+  opacity: 0.5;
+  max-height: 40px;
+}
+
+/* RIGHT SCROLLABLE CONTENT */
+.services-content {
+  border-left: 1px solid var(--border);
+  padding-left: 80px;
+}
+
+.service-group {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+}
+.service-group:last-child { border-bottom: none; }
+
+.group-eyebrow {
+  font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 16px;
+}
+.group-heading {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 300; letter-spacing: -0.03em; line-height: 1.1;
+  color: var(--text); margin-bottom: 56px;
+}
+
+/* Individual services within group */
+.service-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+.service-item:last-child { border-bottom: 1px solid var(--border); }
+.service-item-name {
+  font-size: 0.88rem; font-weight: 500;
+  color: var(--text-dim);
+  padding: 22px 0; padding-right: 32px;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+.service-item-body {
+  padding: 22px 0;
+  border-left: 1px solid var(--border);
+  padding-left: 32px;
+}
+.service-item-desc {
+  font-size: 0.85rem; color: var(--text-muted); line-height: 1.75;
+}
+
+/* CTA */
+.services-cta-row {
+  max-width: 1400px; margin: 0 auto;
+  padding: 80px 40px 100px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px;
+}
+.services-cta-row p {
+  font-size: 1.1rem; font-weight: 300;
+  letter-spacing: -0.02em; color: var(--text);
+}
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text); text-decoration: none;
+  border: 1px solid var(--border-mid); border-radius: 100px;
+  padding: 16px 32px; transition: all .3s;
+}
+.cta-btn:hover { background: var(--text); color: var(--bg); }
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .services-intro { padding: 100px 20px 60px; }
+  .services-layout { grid-template-columns: 1fr; padding: 0 20px; }
+  .services-nav { display: none; }
+  .services-content { border-left: none; padding-left: 0; }
+  .service-group { padding: 52px 0; }
+  .service-item { grid-template-columns: 1fr; }
+  .service-item-body { border-left: none; padding-left: 0; padding-top: 0; }
+  .service-item-name { padding-bottom: 8px; }
+  .services-cta-row { padding: 60px 20px 80px; flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+
+<nav>
+  <a href="/" class="logo"><img src="oedipa-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services" class="active">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="avail-badge"><span class="avail-dot"></span>Available For Work</div>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom">
+    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<!-- PAGE INTRO -->
+<div class="services-intro js-reveal">
+  <h1>What we<br>do best</h1>
+  <p>Webature helps businesses build their online presence, attract clients and grow — across digital, content and strategy.</p>
+</div>
+
+<!-- STICKY LAYOUT -->
+<div class="services-layout">
+
+  <!-- LEFT NAV -->
+  <nav class="services-nav" aria-label="Service groups">
+    <a class="services-nav-item active" data-target="group-digital" href="#group-digital">Digital &amp; Systems</a>
+    <a class="services-nav-item" data-target="group-creative" href="#group-creative">Creative &amp; Content</a>
+    <a class="services-nav-item" data-target="group-strategy" href="#group-strategy">Strategy &amp; Marketing</a>
+  </nav>
+
+  <!-- RIGHT CONTENT -->
+  <div class="services-content">
+
+    <!-- GROUP 1: DIGITAL & SYSTEMS -->
+    <div class="service-group" id="group-digital">
+      <div class="group-eyebrow">01 — Digital &amp; Systems</div>
+      <div class="group-heading">Online Presence,<br>Growth &amp; Systems</div>
+
+      <div class="service-item">
+        <div class="service-item-name">Web Design</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Distinctive, fast websites built to convert visitors into clients. Clean design, mobile-first, and optimised for search from day one.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">SEO &amp; Online Visibility</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Getting your business found online — keyword strategy, on-page optimisation, local SEO and technical audits that move you up the rankings.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">Business Systems Setup</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">We assess and implement the right tools, CRMs and platforms to help your business run more efficiently and convert more leads from day one.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">Digital Workflow Architecture</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Designing the digital flows that connect your team, tools and clients — built for scale and clarity so nothing falls through the cracks.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">Workflow Optimisation</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Ongoing review and refinement of your operational workflows, eliminating bottlenecks and improving throughput across the business.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROUP 2: CREATIVE & CONTENT -->
+    <div class="service-group" id="group-creative">
+      <div class="group-eyebrow">02 — Creative &amp; Content</div>
+      <div class="group-heading">Content That Works<br>For Your Business</div>
+
+      <div class="service-item">
+        <div class="service-item-name">Content Creation</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Platform-native content — short-form video, photography, graphics and copy — produced consistently and built to perform across your channels.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">Social Media Marketing</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">End-to-end social management — strategy, content calendar, posting, community management and performance reporting across Instagram, LinkedIn and beyond.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">AI Content Generation</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Scaling content output using AI-assisted pipelines — without losing your brand voice or visual identity. Faster production, consistent quality.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">Photography</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Professional photography for websites, social media and marketing — product, lifestyle, team and brand shoots that make your business look its best.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROUP 3: STRATEGY & MARKETING -->
+    <div class="service-group" id="group-strategy">
+      <div class="group-eyebrow">03 — Strategy &amp; Marketing</div>
+      <div class="group-heading">Clients Online,<br>Growth That Lasts</div>
+
+      <div class="service-item">
+        <div class="service-item-name">Research &amp; Insights</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Audience research, competitor analysis and market insights that give your marketing a solid foundation. Know who you're talking to before you spend a penny.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">Campaign Development</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Full-cycle campaign planning and execution — from the core idea through to paid media, content and reporting. Designed to bring in clients, not just impressions.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">Influencer Marketing</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Strategic creator partnerships that put your brand in front of the right audience. We handle identification, outreach, briefs and performance tracking.</div>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-name">Social Media Marketing</div>
+        <div class="service-item-body">
+          <div class="service-item-desc">Paid and organic social strategy aligned with your business goals — audience targeting, A/B testing and monthly reporting that shows real ROI.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /services-content -->
+</div><!-- /services-layout -->
+
+<!-- CTA -->
+<div class="services-cta-row js-reveal">
+  <p>Ready to work together?</p>
+  <a href="/contact" class="cta-btn">Get in touch →</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="oedipa-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+// Sticky left nav — highlight active group on scroll
+(function () {
+  const navItems = document.querySelectorAll('.services-nav-item');
+  const groups = document.querySelectorAll('.service-group');
+
+  if (!navItems.length || !groups.length) return;
+
+  function setActive(id) {
+    navItems.forEach(item => {
+      item.classList.toggle('active', item.dataset.target === id);
+    });
+  }
+
+  // IntersectionObserver — watch each group
+  const io = new IntersectionObserver((entries) => {
+    // Find the topmost intersecting group
+    let topEntry = null;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!topEntry || entry.boundingClientRect.top < topEntry.boundingClientRect.top) {
+          topEntry = entry;
+        }
+      }
+    });
+    if (topEntry) setActive(topEntry.target.id);
+  }, {
+    rootMargin: '-30% 0px -60% 0px',
+    threshold: 0
+  });
+
+  groups.forEach(g => io.observe(g));
+
+  // Click: smooth scroll
+  navItems.forEach(item => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(item.dataset.target);
+      if (target) {
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

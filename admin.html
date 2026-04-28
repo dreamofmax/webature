@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Webature</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+body { cursor: auto; }
+#cur { display: none; }
+
+/* LOGIN */
+.login-screen { position:fixed; inset:0; background:var(--bg); display:flex; align-items:center; justify-content:center; z-index:999; }
+.login-box { width:100%; max-width:360px; padding:0 24px; }
+.login-logo { margin-bottom:40px; text-align:center; }
+.login-logo img { height:20px; opacity:0.5; }
+[data-theme="light"] .login-logo img { filter:invert(1); }
+.login-title { font-size:0.95rem; font-weight:400; margin-bottom:24px; color:var(--text-muted); text-align:center; }
+.login-input { width:100%; background:var(--input-bg); border:1px solid var(--border-mid); border-radius:8px; padding:14px 18px; font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--text); outline:none; margin-bottom:12px; transition:border-color .2s; }
+.login-input:focus { border-color:var(--text-muted); }
+.login-btn { width:100%; background:var(--text); color:var(--bg); border:none; border-radius:8px; padding:14px; font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; transition:opacity .2s; }
+.login-btn:hover { opacity:0.8; }
+.login-error { color:rgba(239,68,68,0.8); font-size:0.75rem; text-align:center; margin-top:10px; display:none; }
+
+/* ADMIN */
+.admin-panel { display:none; padding-bottom:80px; }
+.admin-top-bar { position:fixed; top:0; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--border); padding:0 32px; height:56px; display:flex; align-items:center; justify-content:space-between; z-index:100; }
+.admin-top-bar-logo img { height:18px; opacity:0.45; }
+[data-theme="light"] .admin-top-bar-logo img { filter:invert(1); }
+.admin-top-bar-title { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-faint); }
+.admin-top-bar-right { display:flex; align-items:center; gap:10px; }
+.admin-logout { font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); background:none; border:1px solid var(--border-mid); border-radius:100px; padding:6px 14px; cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif; }
+.admin-logout:hover { color:var(--text); border-color:var(--text-faint); }
+
+.admin-body { max-width:900px; margin:0 auto; padding:76px 32px 0; }
+
+/* SETUP NOTICE */
+.setup-notice { background:var(--surface); border:1px solid var(--border-mid); border-radius:10px; padding:20px 24px; margin-bottom:36px; }
+.setup-notice h3 { font-size:0.82rem; font-weight:500; margin-bottom:8px; color:var(--text); }
+.setup-notice p { font-size:0.75rem; color:var(--text-muted); line-height:1.7; }
+.setup-notice code { background:var(--card-bg); border:1px solid var(--border); border-radius:4px; padding:2px 6px; font-size:0.72rem; color:var(--text-dim); font-family:monospace; }
+.setup-notice .setup-steps { margin-top:12px; display:flex; flex-direction:column; gap:6px; counter-reset:steps; }
+.setup-step { font-size:0.75rem; color:var(--text-muted); line-height:1.6; padding-left:20px; position:relative; }
+.setup-step::before { content:counter(steps)'.'; counter-increment:steps; position:absolute; left:0; color:var(--text-faint); font-size:0.7rem; }
+.setup-notice input { margin-top:12px; width:100%; background:var(--input-bg); border:1px solid var(--border-mid); border-radius:6px; padding:10px 14px; font-family:'DM Sans',sans-serif; font-size:0.82rem; color:var(--text); outline:none; transition:border-color .2s; }
+.setup-notice input:focus { border-color:var(--text-muted); }
+.setup-save-btn { margin-top:8px; background:var(--text); color:var(--bg); border:none; border-radius:6px; padding:9px 20px; font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; cursor:pointer; transition:opacity .2s; }
+.setup-save-btn:hover { opacity:0.8; }
+.sheets-status { font-size:0.72rem; margin-top:8px; display:none; }
+.sheets-status.ok { color:rgba(34,197,94,0.8); }
+.sheets-status.err { color:rgba(239,68,68,0.7); }
+
+.section-title { font-size:1rem; font-weight:400; color:var(--text); margin-bottom:6px; }
+.section-sub { font-size:0.76rem; color:var(--text-faint); margin-bottom:22px; }
+
+/* FORM */
+.add-form { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:28px; margin-bottom:48px; }
+.frow { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+.fgroup { display:flex; flex-direction:column; gap:6px; }
+.fgroup.full { grid-column:span 2; }
+.flabel { font-size:0.56rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-faint); }
+.finput, .fselect, .ftextarea { background:var(--input-bg); border:1px solid var(--border-mid); border-radius:6px; padding:11px 14px; font-family:'DM Sans',sans-serif; font-size:0.85rem; color:var(--text); outline:none; transition:border-color .2s; width:100%; }
+.finput:focus, .fselect:focus, .ftextarea:focus { border-color:var(--text-muted); }
+.finput::placeholder, .ftextarea::placeholder { color:var(--text-faint); }
+.fselect { appearance:none; cursor:pointer; }
+.ftextarea { min-height:80px; resize:vertical; }
+.tags-grid { display:flex; flex-wrap:wrap; gap:8px; }
+.tag-check { display:flex; align-items:center; gap:6px; font-size:0.75rem; color:var(--text-muted); cursor:pointer; }
+.tag-check input { accent-color:var(--text); }
+
+/* MULTI-IMAGE UPLOADER */
+.image-uploader { border:1px dashed var(--border-mid); border-radius:8px; padding:20px; }
+.image-uploader-top { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+.image-add-btn { display:inline-flex; align-items:center; gap:6px; background:none; border:1px solid var(--border-mid); border-radius:6px; padding:8px 16px; font-family:'DM Sans',sans-serif; font-size:0.72rem; color:var(--text-muted); cursor:pointer; transition:all .2s; }
+.image-add-btn:hover { color:var(--text); border-color:var(--text-faint); }
+.image-add-btn input { display:none; }
+.image-count-label { font-size:0.7rem; color:var(--text-faint); }
+.image-previews { display:grid; grid-template-columns:repeat(auto-fill,minmax(100px,1fr)); gap:8px; }
+.image-thumb { position:relative; aspect-ratio:4/3; border-radius:6px; overflow:hidden; background:var(--bg2); border:1px solid var(--border); }
+.image-thumb img { width:100%; height:100%; object-fit:cover; }
+.image-thumb-remove { position:absolute; top:4px; right:4px; width:20px; height:20px; background:rgba(0,0,0,0.6); border:none; border-radius:50%; color:#fff; font-size:0.7rem; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1; }
+.image-thumb-remove:hover { background:rgba(239,68,68,0.8); }
+.image-thumb-primary { position:absolute; bottom:4px; left:4px; font-size:0.55rem; letter-spacing:0.1em; text-transform:uppercase; background:rgba(0,0,0,0.65); color:rgba(255,255,255,0.8); padding:2px 6px; border-radius:3px; }
+.image-uploader-note { font-size:0.68rem; color:var(--text-faint); margin-top:10px; line-height:1.5; }
+
+/* URL inputs for images (alternative to upload) */
+.url-inputs { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+.url-input-row { display:flex; gap:8px; align-items:center; }
+.url-input-row .finput { flex:1; }
+.url-remove-btn { background:none; border:1px solid var(--border-mid); border-radius:6px; padding:10px 12px; color:var(--text-faint); cursor:pointer; font-size:0.75rem; transition:all .2s; white-space:nowrap; font-family:'DM Sans',sans-serif; }
+.url-remove-btn:hover { color:rgba(239,68,68,0.8); border-color:rgba(239,68,68,0.3); }
+.add-url-btn { background:none; border:1px dashed var(--border-mid); border-radius:6px; padding:9px; font-family:'DM Sans',sans-serif; font-size:0.72rem; color:var(--text-faint); cursor:pointer; transition:all .2s; text-align:center; }
+.add-url-btn:hover { color:var(--text); border-color:var(--text-faint); }
+
+.input-method-tabs { display:flex; gap:8px; margin-bottom:12px; }
+.method-tab { font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:4px; border:1px solid var(--border-mid); background:none; color:var(--text-faint); cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
+.method-tab.active { background:var(--text); color:var(--bg); border-color:var(--text); }
+
+.form-actions { display:flex; gap:10px; margin-top:20px; align-items:center; flex-wrap:wrap; }
+.btn-add { background:var(--text); color:var(--bg); border:none; border-radius:100px; padding:11px 26px; font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:opacity .2s; }
+.btn-add:hover { opacity:0.8; }
+.btn-clear { background:none; color:var(--text-faint); border:1px solid var(--border-mid); border-radius:100px; padding:11px 20px; font-family:'DM Sans',sans-serif; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; transition:all .2s; }
+.btn-clear:hover { color:var(--text); border-color:var(--text-faint); }
+.save-notice { font-size:0.72rem; color:rgba(34,197,94,0.8); display:none; }
+
+/* PROJECT LIST */
+.project-list-admin { display:flex; flex-direction:column; gap:8px; }
+.admin-project-row { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:16px 20px; display:grid; grid-template-columns:72px 1fr auto auto; gap:14px; align-items:center; }
+.admin-proj-thumb { width:72px; aspect-ratio:4/3; background:var(--bg2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.admin-proj-thumb img { width:100%; height:100%; object-fit:cover; }
+.admin-proj-name { font-size:0.82rem; font-weight:400; margin-bottom:3px; color:var(--text); }
+.admin-proj-meta { font-size:0.68rem; color:var(--text-faint); }
+.admin-proj-tag { font-size:0.58rem; background:var(--surface); border:1px solid var(--border-mid); border-radius:100px; padding:3px 10px; color:var(--text-muted); white-space:nowrap; }
+.btn-delete { background:none; border:1px solid rgba(239,68,68,0.2); border-radius:100px; color:rgba(239,68,68,0.5); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; padding:6px 12px; cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif; }
+.btn-delete:hover { background:rgba(239,68,68,0.08); border-color:rgba(239,68,68,0.5); color:rgba(239,68,68,0.9); }
+.empty-admin { color:var(--text-faint); font-size:0.8rem; padding:32px 0; text-align:center; }
+.image-count-badge { font-size:0.58rem; background:var(--surface); border:1px solid var(--border); border-radius:3px; padding:1px 6px; color:var(--text-faint); margin-left:4px; }
+
+@media (max-width:600px) { .frow{grid-template-columns:1fr} .fgroup.full{grid-column:span 1} .admin-project-row{grid-template-columns:60px 1fr} .admin-proj-tag,.btn-delete{display:none} }
+</style>
+</head>
+<body>
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo"><img src="oedipa-logo.png" alt="Webature"></div>
+    <div class="login-title">Admin Access</div>
+    <input type="password" class="login-input" id="passInput" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-error" id="loginError">Incorrect password.</div>
+  </div>
+</div>
+
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-top-bar">
+    <a href="/" class="admin-top-bar-logo"><img src="oedipa-logo.png" alt="Webature"></a>
+    <span class="admin-top-bar-title">Project Manager</span>
+    <div class="admin-top-bar-right">
+      <button class="theme-toggle" aria-label="Toggle theme" style="position:static;box-shadow:none;width:36px;height:36px"><span class="theme-toggle-icon">🌙</span></button>
+      <button class="admin-logout" onclick="logout()">Sign Out</button>
+    </div>
+  </div>
+
+  <div class="admin-body">
+
+    <!-- GOOGLE SHEETS SETUP -->
+    <div class="setup-notice" id="setupNotice">
+      <h3>⚡ Connect Google Sheets for cross-device sync</h3>
+      <p>Your projects can sync across all devices using a free Google Sheet as a database. Without it, projects are stored in this browser only.</p>
+      <div class="setup-steps">
+        <div class="setup-step">Go to <strong>script.google.com</strong> → New Project → paste the Apps Script code below → Deploy as Web App (access: Anyone)</div>
+        <div class="setup-step">Copy the Web App URL and paste it here:</div>
+      </div>
+      <input type="url" id="sheetsUrl" placeholder="https://script.google.com/macros/s/.../exec" oninput="saveSheetsUrl()">
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button class="setup-save-btn" onclick="testSheets()">Test Connection</button>
+        <button class="setup-save-btn" style="opacity:0.6" onclick="showScript()">Show Apps Script Code</button>
+      </div>
+      <div class="sheets-status" id="sheetsStatus"></div>
+      <div id="scriptCode" style="display:none;margin-top:12px">
+        <div style="font-size:0.7rem;color:var(--text-faint);margin-bottom:6px">Copy this into your Google Apps Script project:</div>
+        <textarea readonly style="width:100%;height:140px;background:var(--bg);border:1px solid var(--border-mid);border-radius:6px;padding:10px;font-family:monospace;font-size:0.65rem;color:var(--text-muted);resize:none" onclick="this.select()">function doGet(e){const ss=SpreadsheetApp.getActiveSpreadsheet(),sh=ss.getSheetByName('Projects')||ss.insertSheet('Projects');if(e.parameter.action==='get'){const rows=sh.getDataRange().getValues();const projects=rows.slice(1).map(r=>({id:r[0],title:r[1],client:r[2],year:r[3],category:r[4],desc:r[5],tags:r[6]?r[6].split(','):[],link:r[7],images:r[8]?r[8].split(','):[]}));return ContentService.createTextOutput(JSON.stringify(projects)).setMimeType(ContentService.MimeType.JSON);}if(e.parameter.action==='add'){const d=JSON.parse(e.parameter.data);sh.appendRow([d.id,d.title,d.client,d.year,d.category,d.desc,(d.tags||[]).join(','),d.link,(d.images||[]).join(',')]);return ContentService.createTextOutput('ok');}if(e.parameter.action==='delete'){const id=e.parameter.id;const data=sh.getDataRange().getValues();for(let i=data.length-1;i>=1;i--){if(data[i][0]===id){sh.deleteRow(i+1);break;}}return ContentService.createTextOutput('ok');}}</textarea>
+      </div>
+    </div>
+
+    <!-- ADD PROJECT -->
+    <div class="section-title">Add New Project</div>
+    <div class="section-sub">Fills automatically on the Work page and homepage.</div>
+
+    <div class="add-form">
+      <div class="frow">
+        <div class="fgroup"><label class="flabel">Project Title *</label><input type="text" class="finput" id="fTitle" placeholder="e.g. Spring Campaign — Nike"></div>
+        <div class="fgroup"><label class="flabel">Client Name</label><input type="text" class="finput" id="fClient" placeholder="e.g. Nike"></div>
+      </div>
+      <div class="frow">
+        <div class="fgroup"><label class="flabel">Year *</label><input type="text" class="finput" id="fYear" placeholder="2025"></div>
+        <div class="fgroup"><label class="flabel">Primary Category *</label>
+          <select class="fselect" id="fCategory">
+            <option value="">Select…</option>
+            <option>Photography</option><option>Content Creation</option><option>Art Direction</option>
+            <option>Influencer Marketing</option><option>Campaign Development</option>
+            <option>Web Design</option><option>Research &amp; Insights</option>
+          </select>
+        </div>
+      </div>
+      <div class="frow">
+        <div class="fgroup full"><label class="flabel">Short Description</label><textarea class="ftextarea" id="fDesc" placeholder="Brief description of the project and what you delivered…"></textarea></div>
+      </div>
+      <div class="frow">
+        <div class="fgroup full"><label class="flabel">Service Tags</label>
+          <div class="tags-grid">
+            <label class="tag-check"><input type="checkbox" value="Photography"> Photography</label>
+            <label class="tag-check"><input type="checkbox" value="Content Creation"> Content Creation</label>
+            <label class="tag-check"><input type="checkbox" value="Art Direction"> Art Direction</label>
+            <label class="tag-check"><input type="checkbox" value="Influencer Marketing"> Influencer Marketing</label>
+            <label class="tag-check"><input type="checkbox" value="Campaign Development"> Campaign Development</label>
+            <label class="tag-check"><input type="checkbox" value="Web Design"> Web Design</label>
+            <label class="tag-check"><input type="checkbox" value="Research &amp; Insights"> Research &amp; Insights</label>
+          </div>
+        </div>
+      </div>
+      <div class="frow">
+        <div class="fgroup"><label class="flabel">Case Study Link (optional)</label><input type="url" class="finput" id="fLink" placeholder="https://…"></div>
+      </div>
+
+      <!-- IMAGES -->
+      <div class="frow">
+        <div class="fgroup full">
+          <label class="flabel">Project Images</label>
+          <div style="margin-bottom:10px;margin-top:2px">
+            <div class="input-method-tabs">
+              <button class="method-tab active" onclick="switchMethod('url',this)">Image URLs</button>
+              <button class="method-tab" onclick="switchMethod('upload',this)">Upload Files</button>
+            </div>
+          </div>
+
+          <!-- URL METHOD -->
+          <div id="methodUrl">
+            <div class="image-uploader-note" style="margin-bottom:10px">Paste direct image URLs (Imgur, Cloudinary, your own CDN). First image is the thumbnail shown in lists.</div>
+            <div class="url-inputs" id="urlInputs">
+              <div class="url-input-row">
+                <input type="url" class="finput" placeholder="https://i.imgur.com/example.jpg">
+                <button class="url-remove-btn" onclick="removeUrlRow(this)">Remove</button>
+              </div>
+            </div>
+            <button class="add-url-btn" onclick="addUrlRow()" style="margin-top:8px;width:100%">+ Add another image URL</button>
+          </div>
+
+          <!-- UPLOAD METHOD -->
+          <div id="methodUpload" style="display:none">
+            <div class="image-uploader">
+              <div class="image-uploader-top">
+                <label class="image-add-btn">
+                  <input type="file" accept="image/*" multiple onchange="handleFiles(this.files)">
+                  + Add Images
+                </label>
+                <span class="image-count-label" id="imgCountLabel">No images added</span>
+              </div>
+              <div class="image-previews" id="imagePreviews"></div>
+              <div class="image-uploader-note">First image = thumbnail on Work page. Click × to remove. Max ~2MB per image recommended.<br><strong>Note:</strong> uploaded images are stored as base64 — use URL method for better performance.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-add" onclick="addProject()">Add Project →</button>
+        <button class="btn-clear" onclick="clearForm()">Clear</button>
+        <span class="save-notice" id="saveNotice">✓ Saved!</span>
+      </div>
+    </div>
+
+    <!-- PROJECT LIST -->
+    <div class="section-title">Your Projects</div>
+    <div class="section-sub" id="projectSourceLabel">Loading…</div>
+    <div id="adminProjectList" class="project-list-admin"></div>
+
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>
+const ADMIN_PASSWORD = 'oedipa2026'; // ← change this
+
+// ── AUTH ──
+function doLogin(){
+  if(document.getElementById('passInput').value===ADMIN_PASSWORD){
+    sessionStorage.setItem('wb_admin','1');
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('adminPanel').style.display='block';
+    init();
+  } else {
+    document.getElementById('loginError').style.display='block';
+  }
+}
+function logout(){ sessionStorage.removeItem('wb_admin'); location.reload(); }
+if(sessionStorage.getItem('wb_admin')==='1'){
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('adminPanel').style.display='block';
+}
+
+// ── GOOGLE SHEETS ──
+const SHEETS_KEY = 'oedipa_sheets_url';
+function getSheetsUrl(){ return localStorage.getItem(SHEETS_KEY)||''; }
+function saveSheetsUrl(){
+  const url = document.getElementById('sheetsUrl').value.trim();
+  localStorage.setItem(SHEETS_KEY, url);
+}
+function showScript(){ document.getElementById('scriptCode').style.display = document.getElementById('scriptCode').style.display==='none'?'block':'none'; }
+
+async function testSheets(){
+  const url = getSheetsUrl();
+  const status = document.getElementById('sheetsStatus');
+  if(!url){ status.textContent='Please enter a URL first.'; status.className='sheets-status err'; status.style.display='block'; return; }
+  status.textContent='Testing…'; status.className='sheets-status'; status.style.display='block';
+  try {
+    const res = await fetch(`${url}?action=get`);
+    const data = await res.json();
+    status.textContent=`✓ Connected — ${data.length} project(s) found.`;
+    status.className='sheets-status ok';
+    loadProjects();
+  } catch(e) {
+    status.textContent='✗ Could not connect. Check the URL and make sure the script is deployed as "Anyone".';
+    status.className='sheets-status err';
+  }
+}
+
+// ── PROJECTS (local fallback + sheets) ──
+function getLocal(){ return JSON.parse(localStorage.getItem('webature_projects')||'[]'); }
+function saveLocal(p){ localStorage.setItem('webature_projects',JSON.stringify(p)); }
+
+async function fetchFromSheets(){
+  const url = getSheetsUrl();
+  if(!url) return null;
+  try {
+    const res = await fetch(`${url}?action=get`);
+    return await res.json();
+  } catch(e){ return null; }
+}
+
+async function pushToSheets(project){
+  const url = getSheetsUrl();
+  if(!url) return false;
+  try {
+    await fetch(`${url}?action=add&data=${encodeURIComponent(JSON.stringify(project))}`);
+    return true;
+  } catch(e){ return false; }
+}
+
+async function deleteFromSheets(id){
+  const url = getSheetsUrl();
+  if(!url) return;
+  try { await fetch(`${url}?action=delete&id=${id}`); } catch(e){}
+}
+
+async function loadProjects(){
+  const label = document.getElementById('projectSourceLabel');
+  label.textContent = 'Loading projects…';
+  const fromSheets = await fetchFromSheets();
+  if(fromSheets !== null){
+    label.textContent = `${fromSheets.length} project(s) — synced from Google Sheets`;
+    renderAdminList(fromSheets);
+  } else {
+    const local = getLocal();
+    label.textContent = local.length
+      ? `${local.length} project(s) — stored in this browser only (connect Sheets to sync)`
+      : 'No projects yet. Add one above. Connect Google Sheets to sync across devices.';
+    renderAdminList(local);
+  }
+}
+
+// ── IMAGE HANDLING ──
+let uploadedImages = []; // [{dataUrl, name}]
+let currentMethod = 'url';
+
+function switchMethod(method, btn){
+  currentMethod = method;
+  document.querySelectorAll('.method-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('methodUrl').style.display = method==='url' ? 'block' : 'none';
+  document.getElementById('methodUpload').style.display = method==='upload' ? 'block' : 'none';
+}
+
+function addUrlRow(){
+  const row = document.createElement('div');
+  row.className='url-input-row';
+  row.innerHTML=`<input type="url" class="finput" placeholder="https://i.imgur.com/example.jpg"><button class="url-remove-btn" onclick="removeUrlRow(this)">Remove</button>`;
+  document.getElementById('urlInputs').appendChild(row);
+}
+function removeUrlRow(btn){
+  const rows = document.querySelectorAll('.url-input-row');
+  if(rows.length>1) btn.parentElement.remove();
+  else btn.previousElementSibling.value = '';
+}
+
+function handleFiles(files){
+  Array.from(files).forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = e => {
+      uploadedImages.push({dataUrl:e.target.result, name:file.name});
+      renderPreviews();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+function removeUploadedImage(i){
+  uploadedImages.splice(i,1);
+  renderPreviews();
+}
+function renderPreviews(){
+  const container = document.getElementById('imagePreviews');
+  document.getElementById('imgCountLabel').textContent = uploadedImages.length ? `${uploadedImages.length} image(s)` : 'No images added';
+  container.innerHTML = uploadedImages.map((img,i)=>`
+    <div class="image-thumb">
+      <img src="${img.dataUrl}" alt="${img.name}">
+      <button class="image-thumb-remove" onclick="removeUploadedImage(${i})">×</button>
+      ${i===0?'<span class="image-thumb-primary">Cover</span>':''}
+    </div>`).join('');
+}
+
+function getImages(){
+  if(currentMethod==='url'){
+    return [...document.querySelectorAll('#urlInputs input')].map(i=>i.value.trim()).filter(Boolean);
+  } else {
+    return uploadedImages.map(i=>i.dataUrl);
+  }
+}
+
+// ── ADD PROJECT ──
+async function addProject(){
+  const title = document.getElementById('fTitle').value.trim();
+  const year  = document.getElementById('fYear').value.trim();
+  const cat   = document.getElementById('fCategory').value;
+  if(!title||!year||!cat){ alert('Please fill in Title, Year and Category.'); return; }
+
+  const tags = [...document.querySelectorAll('.tags-grid input:checked')].map(i=>i.value);
+  const images = getImages();
+
+  const proj = {
+    id: 'p_'+Date.now(),
+    title,
+    client: document.getElementById('fClient').value.trim(),
+    year,
+    category: cat,
+    desc: document.getElementById('fDesc').value.trim(),
+    tags: tags.length ? tags : [cat],
+    link: document.getElementById('fLink').value.trim(),
+    images,
+    image: images[0]||'', // first image as thumbnail
+  };
+
+  const notice = document.getElementById('saveNotice');
+
+  // Try Sheets first
+  const sheetsOk = await pushToSheets(proj);
+  if(!sheetsOk){
+    // Fallback: local
+    const local = getLocal();
+    local.unshift(proj);
+    saveLocal(local);
+  }
+
+  notice.textContent = sheetsOk ? '✓ Saved to Google Sheets!' : '✓ Saved locally (connect Sheets to sync)';
+  notice.style.display='inline';
+  setTimeout(()=>notice.style.display='none',3000);
+  clearForm();
+  loadProjects();
+}
+
+function clearForm(){
+  ['fTitle','fClient','fYear','fDesc','fLink'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('fCategory').value='';
+  document.querySelectorAll('.tags-grid input').forEach(i=>i.checked=false);
+  uploadedImages=[];
+  renderPreviews();
+  document.querySelectorAll('#urlInputs input').forEach((el,i)=>{ if(i>0) el.parentElement.remove(); else el.value=''; });
+}
+
+async function deleteProject(id, fromSheets){
+  if(!confirm('Delete this project?')) return;
+  if(fromSheets){
+    await deleteFromSheets(id);
+  } else {
+    saveLocal(getLocal().filter(p=>p.id!==id));
+  }
+  loadProjects();
+}
+
+function renderAdminList(projects){
+  const list = document.getElementById('adminProjectList');
+  const sheetsConnected = !!getSheetsUrl();
+  if(!projects.length){
+    list.innerHTML='<div class="empty-admin">No projects yet. Add one above.</div>';
+    return;
+  }
+  list.innerHTML = projects.map(p=>{
+    const thumb = (p.images&&p.images[0]) || p.image || '';
+    const imgCount = (p.images||[]).length;
+    return `<div class="admin-project-row">
+      <div class="admin-proj-thumb">${thumb?`<img src="${thumb}" alt="${p.title}">`:'<span style="font-size:1.2rem;opacity:0.2">○</span>'}</div>
+      <div>
+        <div class="admin-proj-name">${p.title}${imgCount>1?`<span class="image-count-badge">${imgCount} imgs</span>`:''}</div>
+        <div class="admin-proj-meta">${p.client||'—'} · ${p.year}</div>
+      </div>
+      <span class="admin-proj-tag">${p.category}</span>
+      <button class="btn-delete" onclick="deleteProject('${p.id}', ${sheetsConnected})">Delete</button>
+    </div>`;
+  }).join('');
+}
+
+function init(){
+  const saved = getSheetsUrl();
+  if(saved) document.getElementById('sheetsUrl').value = saved;
+  loadProjects();
+}
+
+if(sessionStorage.getItem('wb_admin')==='1') init();
+</script>
+</body>
+</html>
