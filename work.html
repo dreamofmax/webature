@@ -49,6 +49,7 @@
 .project-cta { display:inline-flex; align-items:center; gap:8px; font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; border:1px solid var(--border-mid); border-radius:100px; padding:10px 18px; transition:all .25s; white-space:nowrap; justify-self:end; font-family:'DM Sans',sans-serif; background:none; cursor:pointer; }
 .project-cta:hover { color:var(--text); border-color:var(--text-muted); }
 .empty-state { padding:80px 0; text-align:center; color:var(--text-faint); font-size:0.85rem; letter-spacing:0.1em; }
+.img-extra-count { position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.55); color:#fff; font-size:0.6rem; letter-spacing:0.08em; border-radius:4px; padding:3px 8px; pointer-events:none; }
 @media (max-width:900px) {
   .filter-bar { padding:0 20px 32px; }
   .project-list { padding:0 20px 80px; }
@@ -93,7 +94,6 @@
     <button class="filter-btn" data-filter="Content Creation">Content</button>
     <button class="filter-btn" data-filter="SEO &amp; Online Visibility">SEO</button>
     <button class="filter-btn" data-filter="Campaign Development">Campaigns</button>
-    <button class="filter-btn" data-filter="Golf">Golf</button>
   </div>
 </div>
 
@@ -122,24 +122,32 @@
 <script src="shared.js"></script>
 <script>
 const defaultProjects=[
-  {id:'d1',title:'Web Design — Business Website Rebuild',client:'Client Name',desc:'Full website redesign focused on conversion — clean layout, mobile-first build, and SEO structure from day one.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2025',image:'',link:''},
-  {id:'d2',title:'Social Media — Monthly Content System',client:'Client Name',desc:'End-to-end social media management across Instagram and LinkedIn — strategy, content calendar, and monthly reporting.',category:'Social Media Marketing',tags:['Social Media Marketing','Content Creation'],year:'2025',image:'',link:''},
-  {id:'d3',title:'Campaign — Lead Generation for Local Business',client:'Client Name',desc:'Paid social campaign targeting local audience — from strategy through creative to reporting. Delivered 3x ROI in 60 days.',category:'Campaign Development',tags:['Campaign Development','Social Media Marketing'],year:'2024',image:'',link:''},
-  {id:'d4',title:'Golf Club — Course & Brand Photography',client:'Client Name',desc:'Professional photography for a golf club website and social channels — course, lifestyle and team photography that showcases the full club experience.',category:'Golf',tags:['Golf','Content Creation'],year:'2024',image:'',link:''},
+  {id:'d1',title:'Golf Club — Full Website Build',client:'Golf Club',desc:'End-to-end website design and build for a golf club — clean layout, membership-focused structure, mobile-first, and optimised for local search from day one.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2025',images:['project-golf-club-1.jpg','project-golf-club-2.jpg','project-golf-club-3.jpg'],image:'project-golf-club-1.jpg',link:''},
+  {id:'d2',title:'Web Design — Business Website Rebuild',client:'Client Name',desc:'Full website redesign focused on conversion — clean layout, mobile-first build, and SEO structure from day one.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2025',images:[],image:'',link:''},
+  {id:'d3',title:'Social Media — Monthly Content System',client:'Client Name',desc:'End-to-end social media management across Instagram and LinkedIn — strategy, content calendar, and monthly reporting.',category:'Social Media Marketing',tags:['Social Media Marketing','Content Creation'],year:'2025',images:[],image:'',link:''},
+  {id:'d4',title:'Campaign — Lead Generation for Local Business',client:'Client Name',desc:'Paid social campaign targeting local audience — from strategy through creative to reporting. Delivered 3x ROI in 60 days.',category:'Campaign Development',tags:['Campaign Development','Social Media Marketing'],year:'2024',images:[],image:'',link:''},
+  {id:'d5',title:'Photography — Brand & Course Shoot',client:'Client Name',desc:'Professional photography for a website and social channels — course, lifestyle and team photography that showcases the full brand experience.',category:'Content Creation',tags:['Content Creation','Photography'],year:'2024',images:[],image:'',link:''},
 ];
 function getProjects(){return[...defaultProjects,...JSON.parse(localStorage.getItem('webature_projects')||'[]')];}
 function renderProjects(filter){
   const list=document.getElementById('projectList');
   const projects=getProjects().filter(p=>filter==='all'||p.tags.includes(filter)||p.category===filter);
   if(!projects.length){list.innerHTML='<div class="empty-state">No projects in this category yet.</div>';return;}
-  list.innerHTML=projects.map(p=>`
-    <div class="project-row">
-      <div><div class="project-logo-box">${p.image?`<img src="${p.image}" alt="${p.title}">`:`<div class="project-logo-placeholder">${(p.client||p.title.split('—')[0]).trim()}</div>`}</div></div>
+  list.innerHTML=projects.map(p=>{
+    const thumb = (p.images&&p.images[0]) || p.image || '';
+    const allImgs = p.images && p.images.length ? p.images : (p.image ? [p.image] : []);
+    const imgEl = thumb
+      ? `<img src="${thumb}" alt="${p.title}">`
+      : `<div class="project-logo-placeholder">${(p.client||p.title.split('—')[0]).trim()}</div>`;
+    const extraCount = allImgs.length > 1 ? `<div class="img-extra-count">+${allImgs.length-1}</div>` : '';
+    return `<div class="project-row">
+      <div><div class="project-logo-box" style="position:relative">${imgEl}${extraCount}</div></div>
       <div><div class="project-name">${p.title}</div><div class="project-desc">${p.desc}</div></div>
       <div class="project-tags">${(p.tags||[p.category]).map(t=>`<span class="project-tag">${t}</span>`).join('')}</div>
       <div class="project-year">${p.year}</div>
       ${p.link?`<a href="${p.link}" target="_blank" class="project-cta">See Case Study →</a>`:`<span style="opacity:0"></span>`}
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
