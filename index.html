@@ -52,28 +52,12 @@
 .hero { position:relative; width:100vw; height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 40px 52px; overflow:hidden; }
 .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 55% at 50% 40%, rgba(128,128,128,0.04) 0%, transparent 70%); pointer-events:none; z-index:0; }
 .hero-bg { position:absolute; inset:0; z-index:0; background:var(--bg); overflow:hidden; }
-.img-grid {
+.hero-video {
   position:absolute; inset:0;
-  display:flex; flex-wrap:wrap;
-  gap:3px; padding:3px;
-  align-content:flex-start;
-  overflow:hidden;
-}
-.img-grid-item {
-  flex:0 0 auto;
-  width:calc(8.33% - 3px);
-  aspect-ratio:1/1;
-  overflow:hidden;
-  background:var(--card-bg);
-}
-.img-grid-item img {
   width:100%; height:100%;
   object-fit:cover;
   display:block;
-  opacity:0;
-  transition:opacity 0.4s;
 }
-.img-grid-item img.loaded { opacity:1; }
 /* dark overlay so text reads over grid */
 .hero-bg::after {
   content:'';
@@ -197,10 +181,10 @@
 
 <section class="hero">
   <div class="hero-bg">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="your-video.mp4" type="video/mp4">
-  </video>
-</div>
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-text">
     <div class="hero-line1">Webature.</div>
     <div class="hero-line2">Grow your business online.</div>
@@ -286,71 +270,7 @@
 </footer>
 
 <script src="shared.js"></script>
-<script>
-// ── IMAGE GRID ──
-// Add your own image URLs to this array.
-// Use direct image links (Imgur, Cloudinary, your server, etc.)
-// Aim for 60–120 images for a dense grid feel.
-const GRID_IMAGES = [
-  // Replace these placeholder URLs with your own images.
-  // Example: 'https://i.imgur.com/abc123.jpg',
-  // You can use any direct image URL.
-  // Placeholders shown below will be replaced by grey boxes until you add real images.
-];
 
-// Placeholder colours shown when no images are provided
-const PLACEHOLDER_TONES = [
-  '#111','#161616','#1a1a1a','#141414','#0e0e0e',
-  '#191919','#121212','#0d0d0d','#181818','#101010',
-];
-
-(function(){
-  const grid = document.getElementById('imgGrid');
-  if(!grid) return;
-
-  // Work out how many cells we need to fill the hero
-  function buildGrid(){
-    grid.innerHTML = '';
-    const W = grid.offsetWidth;
-    const H = grid.offsetHeight;
-    const cellSize = Math.floor(W / 12) - 3; // 12 cols
-    const cols = Math.ceil(W / (cellSize + 3));
-    const rows = Math.ceil(H / (cellSize + 3)) + 1;
-    const total = cols * rows;
-
-    // If we have real images, loop them; otherwise use placeholders
-    const hasImages = GRID_IMAGES.length > 0;
-
-    for(let i = 0; i < total; i++){
-      const cell = document.createElement('div');
-      cell.className = 'img-grid-item';
-      cell.style.width = cellSize + 'px';
-      cell.style.aspectRatio = '1/1';
-
-      if(hasImages){
-        const src = GRID_IMAGES[i % GRID_IMAGES.length];
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = '';
-        img.loading = 'lazy';
-        img.onload = () => img.classList.add('loaded');
-        img.onerror = () => { img.remove(); cell.style.background = PLACEHOLDER_TONES[i % PLACEHOLDER_TONES.length]; };
-        cell.appendChild(img);
-      } else {
-        // Placeholder — subtle dark/light tile
-        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-        cell.style.background = isDark
-          ? PLACEHOLDER_TONES[i % PLACEHOLDER_TONES.length]
-          : '#e8e6e2';
-      }
-
-      grid.appendChild(cell);
-    }
-  }
-
-  buildGrid();
-  window.addEventListener('resize', buildGrid);
-})();
 
 </script>
 </html>
