@@ -48,6 +48,11 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
+/* AVAIL BADGE LINK */
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+
 /* HERO */
 .hero { position:relative; width:100vw; height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 40px 52px; overflow:hidden; }
 .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 55% at 50% 40%, rgba(128,128,128,0.04) 0%, transparent 70%); pointer-events:none; z-index:0; }
@@ -83,12 +88,12 @@
 .hero-line1 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:400; line-height:1.05; letter-spacing:-0.02em; color:var(--text); animation:fadeSlideUp .9s .1s both; }
 .hero-line2 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:300; line-height:1.05; letter-spacing:-0.02em; color:var(--text-muted); animation:fadeSlideUp .9s .25s both; }
 @keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-.scroll-hint { display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.22; }
+.scroll-hint { position:absolute; right:40px; top:50%; transform:translateY(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.22; }
 .scroll-hint span { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; writing-mode:vertical-rl; transform:rotate(180deg); color:var(--text); }
 .scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,var(--text),transparent); animation:scrollPulse 2s ease-in-out infinite; }
 @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
-.hero-bottom-right { position:absolute; bottom:52px; right:40px; z-index:2; display:flex; flex-direction:column; align-items:flex-end; gap:20px; }
-.hero-start-btn { font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border:none; border-radius:100px; padding:13px 24px; text-decoration:none; transition:opacity .2s; white-space:nowrap; }
+.hero-bottom-right { position:absolute; bottom:52px; right:40px; z-index:2; }
+.hero-start-btn { font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border:none; border-radius:100px; padding:13px 24px; text-decoration:none; transition:opacity .2s; white-space:nowrap; display:inline-block; }
 .hero-start-btn:hover { opacity:0.85; }
 
 /* MARQUEE */
@@ -166,7 +171,7 @@
     <li><a href="/contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="/contact" class="avail-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
     <span id="clock">00:00 GMT</span>
     <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -192,8 +197,8 @@
     <div class="hero-line1">Webature</div>
     <div class="hero-line2">Grow your business online</div>
   </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
   <div class="hero-bottom-right">
-    <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
     <a href="/contact" class="hero-start-btn">Start a project →</a>
   </div>
 </section>
