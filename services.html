@@ -28,10 +28,6 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-/* AVAIL BADGE LINK */
-a.avail-badge--link { text-decoration:none; }
-a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
-[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
 
 /* PAGE INTRO */
 .services-intro {
@@ -205,7 +201,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
     <li><a href="/contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <div class="avail-badge"><span class="avail-dot"></span>Available For Work</div>
     <span id="clock">00:00 GMT</span>
     <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -216,7 +212,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   <a href="/services" class="mob-drawer-link">Services</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
   <div class="mob-drawer-bottom">
-    <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
+    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
   </div>
 </div>
@@ -232,18 +228,17 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 
   <!-- LEFT NAV -->
   <nav class="services-nav" aria-label="Service groups">
-    <a class="services-nav-item active" data-target="group-digital" href="#group-digital">Digital &amp; Systems</a>
-    <a class="services-nav-item" data-target="group-creative" href="#group-creative">Creative &amp; Content</a>
-    <a class="services-nav-item" data-target="group-strategy" href="#group-strategy">Strategy &amp; Marketing</a>
+    <a class="services-nav-item active" data-target="group-web" href="#group-web">Web Design &amp; Development</a>
+    <a class="services-nav-item" data-target="group-marketing" href="#group-marketing">Digital Marketing</a>
   </nav>
 
   <!-- RIGHT CONTENT -->
   <div class="services-content">
 
-    <!-- GROUP 1: DIGITAL & SYSTEMS -->
-    <div class="service-group" id="group-digital">
-      <div class="group-eyebrow">01 — Digital &amp; Systems</div>
-      <div class="group-heading">Online Presence,<br>Growth &amp; Systems</div>
+    <!-- GROUP 1: WEB DESIGN & DEVELOPMENT -->
+    <div class="service-group" id="group-web">
+      <div class="group-eyebrow">01 — Web Design &amp; Development</div>
+      <div class="group-heading">Build Your Online<br>Presence</div>
 
       <div class="service-item">
         <div class="service-item-name">Web Design</div>
@@ -258,79 +253,17 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
           <div class="service-item-desc">Getting your business found online — keyword strategy, on-page optimisation, local SEO and technical audits that move you up the rankings.</div>
         </div>
       </div>
-
-      <div class="service-item">
-        <div class="service-item-name">Business Systems Setup</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">We assess and implement the right tools, CRMs and platforms to help your business run more efficiently and convert more leads from day one.</div>
-        </div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-item-name">Digital Workflow Architecture</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Designing the digital flows that connect your team, tools and clients — built for scale and clarity so nothing falls through the cracks.</div>
-        </div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-item-name">Workflow Optimisation</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Ongoing review and refinement of your operational workflows, eliminating bottlenecks and improving throughput across the business.</div>
-        </div>
-      </div>
     </div>
 
-    <!-- GROUP 2: CREATIVE & CONTENT -->
-    <div class="service-group" id="group-creative">
-      <div class="group-eyebrow">02 — Creative &amp; Content</div>
-      <div class="group-heading">Content That Works<br>For Your Business</div>
-
-      <div class="service-item">
-        <div class="service-item-name">Content Creation</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Platform-native content — short-form video, photography, graphics and copy — produced consistently and built to perform across your channels.</div>
-        </div>
-      </div>
+    <!-- GROUP 2: DIGITAL MARKETING -->
+    <div class="service-group" id="group-marketing">
+      <div class="group-eyebrow">02 — Digital Marketing</div>
+      <div class="group-heading">Grow Your Audience,<br>Win More Clients</div>
 
       <div class="service-item">
         <div class="service-item-name">Social Media Marketing</div>
         <div class="service-item-body">
           <div class="service-item-desc">End-to-end social management — strategy, content calendar, posting, community management and performance reporting across Instagram, LinkedIn and beyond.</div>
-        </div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-item-name">AI Content Generation</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Scaling content output using AI-assisted pipelines — without losing your brand voice or visual identity. Faster production, consistent quality.</div>
-        </div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-item-name">Photography</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Professional photography for websites, social media and marketing — product, lifestyle, team and brand shoots that make your business look its best.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- GROUP 3: STRATEGY & MARKETING -->
-    <div class="service-group" id="group-strategy">
-      <div class="group-eyebrow">03 — Strategy &amp; Marketing</div>
-      <div class="group-heading">Clients Online,<br>Growth That Lasts</div>
-
-      <div class="service-item">
-        <div class="service-item-name">Research &amp; Insights</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Audience research, competitor analysis and market insights that give your marketing a solid foundation. Know who you're talking to before you spend a penny.</div>
-        </div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-item-name">Campaign Development</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Full-cycle campaign planning and execution — from the core idea through to paid media, content and reporting. Designed to bring in clients, not just impressions.</div>
         </div>
       </div>
 
@@ -342,9 +275,9 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
       </div>
 
       <div class="service-item">
-        <div class="service-item-name">Social Media Marketing</div>
+        <div class="service-item-name">Campaign Development</div>
         <div class="service-item-body">
-          <div class="service-item-desc">Paid and organic social strategy aligned with your business goals — audience targeting, A/B testing and monthly reporting that shows real ROI.</div>
+          <div class="service-item-desc">Full-cycle campaign planning and execution — from the core idea through to paid media, content and reporting. Designed to bring in clients, not just impressions.</div>
         </div>
       </div>
     </div>
