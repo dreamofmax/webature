@@ -208,27 +208,7 @@ footer { background: var(--footer-bg); border-top: 1px solid var(--border); padd
 .nav-has-dropdown {
   position: relative;
 }
-.nav-has-dropdown > a {
-  display: inline-flex; align-items: center; gap: 5px;
-}
-/* small chevron */
-.nav-has-dropdown > a::before {
-  content: '';
-  display: inline-block;
-  width: 6px; height: 6px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg) translateY(-1.5px);
-  opacity: 0.5;
-  transition: transform .25s, opacity .2s;
-  order: 2;
-  flex-shrink: 0;
-}
-.nav-has-dropdown:hover > a::before,
-.nav-has-dropdown:focus-within > a::before {
-  transform: rotate(225deg) translateY(-1.5px);
-  opacity: 0.8;
-}
+
 /* don't show the underline ::after on dropdown parent */
 .nav-has-dropdown > a::after { display: none; }
 
