@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/services/web-design", "destination": "/services-web.html" },
+    { "source": "/services/digital-marketing", "destination": "/services-marketing.html" }
+  ],
   "redirects": [
     {
       "source": "/:path*",
