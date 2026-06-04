@@ -149,15 +149,30 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .work-title { font-size:1.1rem; font-weight:400; color:#fff; }
 .work-number { position:absolute; top:24px; left:30px; font-size:0.58rem; letter-spacing:0.2em; color:var(--text-faint); }
 
-@media (max-width:900px) {
-  .reel-inner { grid-template-columns:1fr; gap:40px; padding:60px 20px; }
-  .services-preview { padding:0 20px 80px; }
-  .service-groups { grid-template-columns:1fr; }
-  .work-section { padding:0 20px 80px; }
-  .work-grid { grid-template-columns:1fr; }
-  .work-item:first-child { grid-column:span 1; aspect-ratio:4/3; }
-  .section-header { padding:60px 0 0; margin-bottom:40px; }
+/* FAQ */
+.faq-section { background:var(--bg); padding:0 40px 120px; }
+.faq-inner { max-width:1400px; margin:0 auto; }
+.faq-header { display:flex; align-items:flex-end; justify-content:space-between; padding-top:80px; border-top:1px solid var(--border); margin-bottom:48px; flex-wrap:wrap; gap:20px; }
+.faq-header h2 { font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; letter-spacing:-0.03em; color:var(--text); }
+.faq-list { display:flex; flex-direction:column; }
+.faq-item { border-top:1px solid var(--border); }
+.faq-item:last-child { border-bottom:1px solid var(--border); }
+.faq-q {
+  width:100%; background:none; border:none; text-align:left; cursor:pointer;
+  font-family:'DM Sans',sans-serif; font-size:0.95rem; font-weight:400;
+  color:var(--text); padding:24px 0;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  transition:color .2s;
 }
+.faq-q:hover { color:var(--text-muted); }
+.faq-icon { flex-shrink:0; width:20px; height:20px; position:relative; }
+.faq-icon::before, .faq-icon::after { content:''; position:absolute; background:var(--text-faint); transition:transform .3s, opacity .3s; }
+.faq-icon::before { width:12px; height:1px; top:50%; left:50%; transform:translate(-50%,-50%); }
+.faq-icon::after  { width:1px; height:12px; top:50%; left:50%; transform:translate(-50%,-50%); }
+.faq-item.open .faq-icon::after { transform:translate(-50%,-50%) rotate(90deg); opacity:0; }
+.faq-a { display:none; font-size:0.87rem; color:var(--text-muted); line-height:1.8; max-width:680px; padding-bottom:24px; }
+.faq-item.open .faq-a { display:block; }
+@media (max-width:900px) { .faq-section { padding:0 20px 80px; } }
 </style>
 </head>
 <body>
@@ -262,6 +277,140 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header js-reveal">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list js-reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What does a digital agency in London do?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">A London digital agency helps businesses build and grow their online presence. At Webature, that means designing and building your website, getting you ranking on Google through SEO, and running your social media marketing and campaigns — so you attract more clients online without having to manage it yourself.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How much does a website design cost in the UK?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">Website costs vary depending on scope and complexity. A professional business website designed and built by Webature typically starts from £2,000. That includes design, development, mobile optimisation and basic SEO setup. We'll always give you a clear quote upfront — no surprises.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How long does it take to build a website?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">Most websites we build are live within 3–6 weeks from the project start date. The timeline depends on the size of the site and how quickly we receive content, feedback and approvals from your side. We'll agree a clear schedule before we begin.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What is SEO and why does my business need it?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">SEO (Search Engine Optimisation) is what determines how high your business appears when people search on Google. If your website isn't optimised, potential clients are finding your competitors instead of you. Webature handles keyword research, on-page SEO, local search and technical audits — making sure your business shows up where it matters.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you work with small businesses?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">Yes. We work with businesses of all sizes — from independent traders and startups to established brands. Whether you need a first website, a rebrand, or a full digital marketing strategy, we scope the work to fit your budget and goals.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What social media marketing services do you offer?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">We offer end-to-end social media management — strategy, content planning, posting, community management and monthly reporting. We also run paid social campaigns and influencer partnerships for brands looking to grow their audience faster. Platforms include Instagram, LinkedIn, TikTok and more.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Where is Webature based?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">We're based in London, EC1V. We work with clients across the UK and internationally — most of our projects are managed remotely, so location is never a barrier. If you'd prefer to meet in person, we're happy to arrange that too.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does a digital agency in London do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A London digital agency helps businesses build and grow their online presence. At Webature, that means designing and building your website, getting you ranking on Google through SEO, and running your social media marketing and campaigns — so you attract more clients online without having to manage it yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a website design cost in the UK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Website costs vary depending on scope and complexity. A professional business website designed and built by Webature typically starts from £2,000. That includes design, development, mobile optimisation and basic SEO setup. We'll always give you a clear quote upfront — no surprises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most websites we build are live within 3–6 weeks from the project start date. The timeline depends on the size of the site and how quickly we receive content, feedback and approvals from your side. We'll agree a clear schedule before we begin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is SEO and why does my business need it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO (Search Engine Optimisation) is what determines how high your business appears when people search on Google. If your website isn't optimised, potential clients are finding your competitors instead of you. Webature handles keyword research, on-page SEO, local search and technical audits — making sure your business shows up where it matters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with small businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We work with businesses of all sizes — from independent traders and startups to established brands. Whether you need a first website, a rebrand, or a full digital marketing strategy, we scope the work to fit your budget and goals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What social media marketing services do you offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer end-to-end social media management — strategy, content planning, posting, community management and monthly reporting. We also run paid social campaigns and influencer partnerships for brands looking to grow their audience faster. Platforms include Instagram, LinkedIn, TikTok and more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Webature based?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We're based in London, EC1V. We work with clients across the UK and internationally — most of our projects are managed remotely, so location is never a barrier. If you'd prefer to meet in person, we're happy to arrange that too."
+      }
+    }
+  ]
+}
+</script>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -283,7 +432,21 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 </footer>
 
 <script src="shared.js"></script>
-
-
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 </script>
 </html>
