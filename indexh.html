@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webature — Digital Studio for progressive brands</title>
+  <!-- SEO -->
+  <meta name="description" content="Webature is a London-based digital studio helping businesses grow online — with web design, SEO, influencer marketing, content and digital strategy.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webature.co.uk/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webature.co.uk/">
+  <meta property="og:title" content="Webature — Digital Studio for progressive brands">
+  <meta property="og:description" content="Webature is a London-based digital studio helping businesses grow online — with web design, SEO, influencer marketing, content and digital strategy.">
+  <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
+  <meta property="og:site_name" content="Webature">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Webature — Digital Studio for progressive brands">
+  <meta name="twitter:description" content="Webature is a London-based digital studio helping businesses grow online — with web design, SEO, influencer marketing, content and digital strategy.">
+  <meta name="twitter:image" content="https://webature.co.uk/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Webature",
+  "url": "https://webature.co.uk",
+  "logo": "https://webature.co.uk/webature-logo.png",
+  "description": "London-based digital studio helping businesses grow online — web design, SEO, influencer marketing, content creation and digital strategy.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "128 City Road",
+    "addressLocality": "London",
+    "postalCode": "EC1V 2NX",
+    "addressCountry": "GB"
+  },
+  "telephone": "+447774286043",
+  "email": "contact@webature.co.uk",
+  "areaServed": "Worldwide",
+  "serviceType": ["Web Design", "Search Engine Optimization (SEO)", "Social Media Marketing", "Content Creation", "Digital Strategy", "Brand Marketing"]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* AVAIL BADGE LINK */
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+
+/* HERO */
+.hero { position:relative; width:100vw; height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 40px 52px; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 55% at 50% 40%, rgba(128,128,128,0.04) 0%, transparent 70%); pointer-events:none; z-index:0; }
+.hero-bg { position:absolute; inset:0; z-index:0; background:var(--bg); overflow:hidden; }
+.hero-video {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+/* dark overlay so text reads over grid */
+.hero-bg::after {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(
+    to top,
+    var(--bg) 0%,
+    rgba(0,0,0,0.55) 40%,
+    rgba(0,0,0,0.3) 100%
+  );
+  z-index:1;
+  pointer-events:none;
+}
+[data-theme="light"] .hero-bg::after {
+  background:linear-gradient(
+    to top,
+    var(--bg) 0%,
+    rgba(255,255,255,0.5) 40%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
+.hero-text { position:relative; z-index:2; }
+.hero-line1 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:400; line-height:1.05; letter-spacing:-0.02em; color:var(--text); animation:fadeSlideUp .9s .1s both; }
+.hero-line2 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:300; line-height:1.05; letter-spacing:-0.02em; color:var(--text-muted); animation:fadeSlideUp .9s .25s both; }
+@keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+.scroll-hint { position:absolute; right:40px; top:50%; transform:translateY(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.22; }
+.scroll-hint span { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; writing-mode:vertical-rl; transform:rotate(180deg); color:var(--text); }
+.scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,var(--text),transparent); animation:scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+.hero-bottom-right { position:absolute; bottom:52px; right:40px; z-index:2; }
+.hero-start-btn { font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border:none; border-radius:100px; padding:13px 24px; text-decoration:none; transition:opacity .2s; white-space:nowrap; display:inline-block; }
+.hero-start-btn:hover { opacity:0.85; }
+
+/* MARQUEE */
+.marquee-strip { border-top:1px solid var(--border); border-bottom:1px solid var(--border); overflow:hidden; padding:18px 0; background:var(--bg); }
+.marquee-inner { display:flex; width:max-content; animation:mq 34s linear infinite; }
+.marquee-inner span { font-size:0.62rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-faint); padding:0 36px; white-space:nowrap; }
+.marquee-inner span.sep { color:var(--border-mid); padding:0 12px; }
+@keyframes mq { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ABOUT */
+.reel { background:var(--bg); border-top:1px solid var(--border); }
+.reel-inner { max-width:1400px; margin:0 auto; padding:100px 40px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.reel-label { font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-faint); margin-bottom:20px; }
+.reel-heading { font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; line-height:1.2; letter-spacing:-0.02em; color:var(--text); }
+.reel-heading strong { font-weight:500; }
+.reel-body { font-size:0.93rem; color:var(--text-muted); line-height:1.8; max-width:420px; margin-bottom:36px; }
+.reel-cta { display:inline-flex; align-items:center; gap:12px; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:4px; transition:color .2s, border-color .2s, gap .3s; }
+.reel-cta:hover { color:var(--text); border-color:var(--text-muted); gap:20px; }
+.reel-cta::after { content:'→'; font-size:1rem; }
+
+/* SERVICES PREVIEW */
+.services-preview { background:var(--bg); padding:0 40px 120px; }
+.section-header { max-width:1400px; margin:0 auto 60px; display:flex; align-items:flex-end; justify-content:space-between; padding-top:80px; border-top:1px solid var(--border); flex-wrap:wrap; gap:20px; }
+.section-header h2 { font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; letter-spacing:-0.03em; color:var(--text); }
+.see-all { font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-faint); text-decoration:none; transition:color .2s; }
+.see-all:hover { color:var(--text); }
+.service-groups { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+.service-group { background:var(--bg); padding:40px 32px; transition:background .3s; }
+.service-group:hover { background:var(--card-hover); }
+.group-label { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-faint); margin-bottom:24px; }
+.group-name { font-size:1.1rem; font-weight:400; margin-bottom:20px; line-height:1.3; color:var(--text); }
+.group-items { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.group-items li { font-size:0.8rem; color:var(--text-muted); padding-left:12px; position:relative; line-height:1.5; }
+.group-items li::before { content:'—'; position:absolute; left:0; color:var(--text-faint); }
+
+/* WORK */
+.work-section { background:var(--bg); padding:0 40px 120px; }
+.work-grid { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:2px; }
+.work-item { position:relative; overflow:hidden; aspect-ratio:4/3; background:var(--card-bg); }
+.work-item:first-child { grid-column:span 2; aspect-ratio:8/3; }
+.work-item-bg { position:absolute; inset:0; transition:transform .7s cubic-bezier(.16,1,.3,1); }
+.work-item:hover .work-item-bg { transform:scale(1.04); }
+.bg-a { background:linear-gradient(135deg,var(--card-bg) 0%,var(--card-hover) 100%); }
+.bg-b { background:linear-gradient(135deg,var(--bg) 0%,var(--card-bg) 100%); }
+.bg-c { background:linear-gradient(135deg,var(--card-bg) 0%,var(--bg2) 100%); }
+.bg-d { background:linear-gradient(135deg,var(--bg2) 0%,var(--card-bg) 100%); }
+.work-item canvas { position:absolute; inset:0; width:100%; height:100%; opacity:0.4; pointer-events:none; }
+.work-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.75; transition:opacity .4s; }
+.work-item:hover .work-img { opacity:0.9; }
+.work-meta { position:absolute; bottom:0; left:0; right:0; padding:32px 36px; background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 100%); transform:translateY(8px); opacity:0; transition:transform .4s, opacity .4s; }
+.work-item:hover .work-meta { transform:translateY(0); opacity:1; }
+.work-tag { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:6px; }
+.work-title { font-size:1.1rem; font-weight:400; color:#fff; }
+.work-number { position:absolute; top:24px; left:30px; font-size:0.58rem; letter-spacing:0.2em; color:var(--text-faint); }
+
+@media (max-width:900px) {
+  .reel-inner { grid-template-columns:1fr; gap:40px; padding:60px 20px; }
+  .services-preview { padding:0 20px 80px; }
+  .service-groups { grid-template-columns:1fr; }
+  .work-section { padding:0 20px 80px; }
+  .work-grid { grid-template-columns:1fr; }
+  .work-item:first-child { grid-column:span 1; aspect-ratio:4/3; }
+  .section-header { padding:60px 0 0; margin-bottom:40px; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+
+<nav>
+  <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom">
+    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-bg">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-text">
+    <div class="hero-line1">Webature</div>
+    <div class="hero-line2">Grow your business online</div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
+  <div class="hero-bottom-right">
+    <a href="/contact" class="hero-start-btn">Start a project →</a>
+  </div>
+</section>
+
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Web Design</span><span class="sep">✦</span><span>SEO &amp; Online Visibility</span><span class="sep">✦</span><span>Social Media Marketing</span><span class="sep">✦</span><span>Influencer Marketing</span><span class="sep">✦</span><span>Campaign Development</span><span class="sep">✦</span>
+    <span>Web Design</span><span class="sep">✦</span><span>SEO &amp; Online Visibility</span><span class="sep">✦</span><span>Social Media Marketing</span><span class="sep">✦</span><span>Influencer Marketing</span><span class="sep">✦</span><span>Campaign Development</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<section class="reel" id="about">
+  <div class="reel-inner js-reveal">
+    <div>
+      <div class="reel-label">Who we are</div>
+      <h2 class="reel-heading"><strong>We put businesses</strong><br>online and get<br>them clients.</h2>
+    </div>
+    <div>
+      <p class="reel-body">Webature helps businesses build a powerful online presence — from the website and the content to the strategy behind it all. We work with ambitious brands that want to grow online and keep growing.</p>
+      <a href="/work" class="reel-cta">View our work</a>
+    </div>
+  </div>
+</section>
+
+<section class="services-preview">
+  <div class="section-header js-reveal">
+    <h2>What We Do</h2>
+    <a href="/services" class="see-all">All services →</a>
+  </div>
+  <div class="service-groups">
+    <div class="service-group js-reveal">
+      <div class="group-label">Web Design &amp; Development</div>
+      <div class="group-name">Build Your Online Presence</div>
+      <ul class="group-items">
+        <li>Web Design</li>
+        <li>SEO &amp; Online Visibility</li>
+      </ul>
+    </div>
+    <div class="service-group js-reveal">
+      <div class="group-label">Digital Marketing</div>
+      <div class="group-name">Grow Your Audience, Win More Clients</div>
+      <ul class="group-items">
+        <li>Social Media Marketing</li>
+        <li>Influencer Marketing</li>
+        <li>Campaign Development</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="work-section">
+  <div class="section-header js-reveal">
+    <h2>Selected Work</h2>
+    <a href="/work" class="see-all">See all →</a>
+  </div>
+  <div class="work-grid" id="homeWorkGrid">
+    <div class="work-item js-reveal"><div class="work-item-bg bg-a"></div><canvas class="noise-c"></canvas><div class="work-number">01</div><div class="work-meta"><div class="work-tag">Content · Campaign · 2025</div><div class="work-title">Brand — Season Campaign</div></div></div>
+    <div class="work-item js-reveal"><div class="work-item-bg bg-b"></div><canvas class="noise-c"></canvas><div class="work-number">02</div><div class="work-meta"><div class="work-tag">Content Creation · 2025</div><div class="work-title">Brand — Social Content System</div></div></div>
+    <div class="work-item js-reveal"><div class="work-item-bg bg-c"></div><canvas class="noise-c"></canvas><div class="work-number">03</div><div class="work-meta"><div class="work-tag">Brand · Digital · 2024</div><div class="work-title">Digital Identity &amp; Direction</div></div></div>
+    <div class="work-item js-reveal"><div class="work-item-bg bg-d"></div><canvas class="noise-c"></canvas><div class="work-number">04</div><div class="work-meta"><div class="work-tag">Marketing · 2024</div><div class="work-title">Launch — Influencer Campaign</div></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="webature-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+
+
+</script>
+</html>
