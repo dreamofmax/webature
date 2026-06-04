@@ -28,6 +28,11 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
+/* AVAIL BADGE LINK */
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+
 .filter-bar { max-width:1400px; margin:0 auto; padding:0 40px 40px; }
 .filter-inner { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 .filter-btn { font-size:0.72rem; font-weight:400; letter-spacing:0.06em; color:var(--text-muted); background:none; border:1px solid var(--border-mid); border-radius:100px; padding:8px 18px; cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif; }
@@ -78,7 +83,7 @@
     <li><a href="/contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <div class="avail-badge"><span class="avail-dot"></span>Available For Work</div>
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
     <span id="clock">00:00 GMT</span>
     <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -88,7 +93,7 @@
   <a href="/services" class="mob-drawer-link">Services</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
   <div class="mob-drawer-bottom">
-    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
+    <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
   </div>
 </div>
