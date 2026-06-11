@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Marketing — Webature</title>
+  <!-- SEO -->
+  <meta name="description" content="Digital marketing services from Webature: social media management, influencer marketing and full-cycle campaign development that brings in clients, not just impressions.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webature.co.uk/services/digital-marketing">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webature.co.uk/services/digital-marketing">
+  <meta property="og:title" content="Digital Marketing — Webature">
+  <meta property="og:description" content="Digital marketing services from Webature: social media management, influencer marketing and full-cycle campaign development that brings in clients, not just impressions.">
+  <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
+  <meta property="og:site_name" content="Webature">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Digital Marketing — Webature">
+  <meta name="twitter:description" content="Digital marketing services from Webature: social media management, influencer marketing and full-cycle campaign development that brings in clients, not just impressions.">
+  <meta name="twitter:image" content="https://webature.co.uk/og-image.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<link rel="stylesheet" href="/service-page.css">
+<style>
+/* AVAIL BADGE LINK */
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+
+/* SERVICE ANCHORS (so hash links offset for fixed nav) */
+.sp-anchor {
+  display: block;
+  position: relative;
+  top: -90px;
+  visibility: hidden;
+}
+
+/* STATS ROW */
+.sp-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 60px;
+}
+.sp-stat {
+  background: var(--bg);
+  padding: 36px 28px;
+}
+.sp-stat-value {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 300; letter-spacing: -0.04em;
+  color: var(--text); line-height: 1; margin-bottom: 8px;
+}
+.sp-stat-label {
+  font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;
+}
+
+/* SERVICE SUB-SECTIONS */
+.sp-service-block {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sp-service-block:last-of-type {
+  border-bottom: none;
+}
+.sp-service-block-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+.sp-service-block-eyebrow {
+  font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 12px;
+}
+.sp-service-block-title {
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-weight: 300; letter-spacing: -0.03em;
+  color: var(--text); line-height: 1.15;
+}
+.sp-service-block-desc {
+  font-size: 0.9rem; color: var(--text-muted); line-height: 1.8;
+  padding-top: 8px;
+}
+
+/* PLATFORMS ROW */
+.platforms-row {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+.platforms-row h2 {
+  font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 20px;
+}
+.platform-pills {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.platform-pill {
+  font-size: 0.78rem; color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  padding: 8px 18px;
+  transition: border-color .2s, color .2s;
+}
+.platform-pill:hover {
+  border-color: var(--text-faint);
+  color: var(--text);
+}
+
+/* RETAINER CALLOUT */
+.retainer-callout {
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: 12px;
+  padding: 32px;
+  margin-top: 48px;
+}
+.retainer-callout-label {
+  font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 12px;
+}
+.retainer-callout-text {
+  font-size: 0.92rem; color: var(--text-dim); line-height: 1.75; max-width: 560px;
+}
+.retainer-callout-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-faint); text-decoration: none;
+  border-bottom: 1px solid var(--border-mid); padding-bottom: 3px; margin-top: 16px;
+  transition: color .2s, border-color .2s, gap .25s;
+}
+.retainer-callout-link:hover { color: var(--text); border-color: var(--text-muted); gap: 14px; }
+.retainer-callout-link::after { content: '→'; font-size: 0.9rem; }
+
+@media (max-width: 900px) {
+  .sp-stats { grid-template-columns: 1fr; }
+  .sp-service-block-header { grid-template-columns: 1fr; gap: 20px; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+
+<nav>
+  <a href="/" class="logo"><img src="/webature-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li class="nav-has-dropdown">
+      <a href="/services" class="active">Services</a>
+      <div class="nav-dropdown">
+        <a href="/services/web-design" class="nav-dropdown-item">Web Design &amp; Development</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
+      </div>
+    </li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services/web-design" class="mob-drawer-link">Web Design &amp; Dev</a>
+  <a href="/services/digital-marketing" class="mob-drawer-link">Digital Marketing</a>
+  <a href="/about" class="mob-drawer-link">About</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom">
+    <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="sp-hero">
+  <div class="sp-hero-inner js-reveal">
+    <div class="sp-breadcrumb">
+      <a href="/services">Services</a> &nbsp;/&nbsp; Digital Marketing
+    </div>
+    <h1>Grow your audience.<br>Win more clients.</h1>
+    <p class="sp-hero-sub">From social media management to influencer partnerships and full campaign builds — we run digital marketing that brings in real results, not just metrics.</p>
+    <a href="/contact" class="sp-cta-btn">Start a project →</a>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="sp-body">
+  <div class="sp-body-inner">
+
+    <!-- INTRO -->
+    <div class="sp-intro">
+      <h2 class="js-reveal">Marketing that moves the needle — not just the vanity metrics.</h2>
+      <p class="js-reveal">Impressions, followers and likes are easy to generate. Revenue is harder. We focus on the marketing activities that actually drive enquiries, bookings and sales for your business — built around your audience, your product and your goals.</p>
+      <p class="js-reveal">Whether you need ongoing social management, a one-off campaign or a creator partnership programme, we build the strategy first and the content second. No scatter-gun posting — every piece of content has a job to do.</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="sp-stats js-reveal">
+      <div class="sp-stat">
+        <div class="sp-stat-value">3×</div>
+        <div class="sp-stat-label">Average ROI on paid social campaigns we've managed</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-stat-value">5+</div>
+        <div class="sp-stat-label">Platforms managed, from Instagram to LinkedIn to TikTok</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-stat-value">60</div>
+        <div class="sp-stat-label">Days — typical time to measurable results for new clients</div>
+      </div>
+    </div>
+
+    <!-- SERVICE 1: SOCIAL MEDIA -->
+    <span class="sp-anchor" id="social"></span>
+    <div class="sp-service-block">
+      <div class="sp-service-block-header">
+        <div class="js-reveal">
+          <div class="sp-service-block-eyebrow">01 — Social Media Marketing</div>
+          <div class="sp-service-block-title">Your brand, showing up consistently — and compellingly.</div>
+        </div>
+        <p class="sp-service-block-desc js-reveal">End-to-end social media management across Instagram, LinkedIn, TikTok and beyond. We handle strategy, content planning, creation, scheduling, community management and monthly performance reporting — so you can focus on running your business.</p>
+      </div>
+      <div class="sp-items">
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">01</div>
+          <div>
+            <div class="sp-item-title">Social Media Strategy</div>
+            <div class="sp-item-desc">Audience analysis, competitor benchmarking and a clear content strategy that tells us what to post, when to post it and why. Strategy first, content second — always.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">02</div>
+          <div>
+            <div class="sp-item-title">Content Calendar &amp; Planning</div>
+            <div class="sp-item-desc">A rolling monthly content plan that balances brand building, engagement and conversion content. No scrambling for ideas — everything is planned, approved and ready to go.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">03</div>
+          <div>
+            <div class="sp-item-title">Content Creation</div>
+            <div class="sp-item-desc">Copy, graphics, Reels, carousels and Stories — all created to the standard of your brand. We can work from your assets or produce content independently, depending on your setup.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">04</div>
+          <div>
+            <div class="sp-item-title">Community Management</div>
+            <div class="sp-item-desc">Responding to comments, DMs and mentions in a voice that's authentic to your brand. We keep your community engaged and your inbox managed — no comment left ignored.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">05</div>
+          <div>
+            <div class="sp-item-title">Monthly Reporting</div>
+            <div class="sp-item-desc">A clear monthly report covering reach, engagement, follower growth and conversions. We cut the noise and focus on the numbers that matter to your business.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">06</div>
+          <div>
+            <div class="sp-item-title">Paid Social</div>
+            <div class="sp-item-desc">When organic alone isn't enough, we layer in paid — Meta Ads, LinkedIn Ads, TikTok Ads — to amplify the content that's already working and drive it in front of your exact target audience.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="retainer-callout js-reveal">
+        <div class="retainer-callout-label">Monthly Retainer</div>
+        <p class="retainer-callout-text">Social media works best as an ongoing commitment. We offer monthly retainer packages that give you a consistent presence, a clear strategy and a team that knows your brand inside out — without you having to manage it.</p>
+        <a href="/contact" class="retainer-callout-link">Enquire about a retainer</a>
+      </div>
+    </div>
+
+    <!-- SERVICE 2: INFLUENCER -->
+    <span class="sp-anchor" id="influencer"></span>
+    <div class="sp-service-block">
+      <div class="sp-service-block-header">
+        <div class="js-reveal">
+          <div class="sp-service-block-eyebrow">02 — Influencer Marketing</div>
+          <div class="sp-service-block-title">Your brand, in the right hands — in front of the right audience.</div>
+        </div>
+        <p class="sp-service-block-desc js-reveal">Strategic creator partnerships that put your brand in front of an engaged, relevant audience. We handle the entire process: finding the right creators, negotiating the deal, briefing the content and tracking the performance.</p>
+      </div>
+      <div class="sp-items">
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">01</div>
+          <div>
+            <div class="sp-item-title">Creator Identification &amp; Vetting</div>
+            <div class="sp-item-desc">We research and identify creators whose audience genuinely matches yours — not just on follower count, but on engagement quality, content style and audience demographics. No spray-and-pray approach.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">02</div>
+          <div>
+            <div class="sp-item-title">Outreach &amp; Deal Negotiation</div>
+            <div class="sp-item-desc">We manage the outreach and negotiate the partnership terms on your behalf — rates, deliverables, timelines and usage rights. You get the deal you want without the back-and-forth.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">03</div>
+          <div>
+            <div class="sp-item-title">Brief Writing &amp; Creative Direction</div>
+            <div class="sp-item-desc">A clear brief that gives creators the context and guidelines they need to produce content that's on-brand, without stifling their voice. The balance between creative freedom and brand consistency is everything.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">04</div>
+          <div>
+            <div class="sp-item-title">Campaign Management &amp; Reporting</div>
+            <div class="sp-item-desc">We track the content, log the performance data and deliver a clear post-campaign report — reach, impressions, engagement, conversions and what we'd do differently next time.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 3: CAMPAIGNS -->
+    <span class="sp-anchor" id="campaigns"></span>
+    <div class="sp-service-block">
+      <div class="sp-service-block-header">
+        <div class="js-reveal">
+          <div class="sp-service-block-eyebrow">03 — Campaign Development</div>
+          <div class="sp-service-block-title">Full-cycle campaigns — from the idea to the outcome.</div>
+        </div>
+        <p class="sp-service-block-desc js-reveal">We plan and execute campaigns that are built around a clear objective — a product launch, a seasonal push, a lead generation drive. Strategy, creative, paid media, content and reporting, all joined up and working together.</p>
+      </div>
+      <div class="sp-items">
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">01</div>
+          <div>
+            <div class="sp-item-title">Campaign Strategy &amp; Concept</div>
+            <div class="sp-item-desc">We start with the objective, the audience and the budget — then build a campaign concept that's distinctive, deliverable and commercially focused. Not ideas for the sake of ideas.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">02</div>
+          <div>
+            <div class="sp-item-title">Creative Production</div>
+            <div class="sp-item-desc">Ad creatives, social content, landing page copy, email sequences — everything the campaign needs to run. Produced in-house and built around the platform and the audience.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">03</div>
+          <div>
+            <div class="sp-item-title">Paid Media Management</div>
+            <div class="sp-item-desc">Paid social and paid search — Meta, Google, LinkedIn, TikTok. We set up, run and optimise your ads to hit the performance targets we agreed at the start. No set-and-forget.</div>
+          </div>
+        </div>
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">04</div>
+          <div>
+            <div class="sp-item-title">Campaign Reporting &amp; Analysis</div>
+            <div class="sp-item-desc">A full debrief at campaign end — what worked, what didn't, what it cost and what it generated. A clear picture of return on investment and what we'd iterate on next time.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLATFORMS -->
+    <div class="platforms-row js-reveal">
+      <h2>Platforms we work across</h2>
+      <div class="platform-pills">
+        <span class="platform-pill">Instagram</span>
+        <span class="platform-pill">LinkedIn</span>
+        <span class="platform-pill">TikTok</span>
+        <span class="platform-pill">Facebook</span>
+        <span class="platform-pill">X / Twitter</span>
+        <span class="platform-pill">YouTube</span>
+        <span class="platform-pill">Pinterest</span>
+        <span class="platform-pill">Meta Ads</span>
+        <span class="platform-pill">Google Ads</span>
+        <span class="platform-pill">LinkedIn Ads</span>
+        <span class="platform-pill">TikTok Ads</span>
+      </div>
+    </div>
+
+    <!-- SUITABLE FOR -->
+    <div class="sp-suitable">
+      <h2 class="js-reveal">Who this is for</h2>
+      <div class="sp-tags">
+        <span>Brands with no current social strategy</span>
+        <span>Businesses with stagnant social growth</span>
+        <span>Product brands launching to new audiences</span>
+        <span>E-commerce &amp; DTC brands</span>
+        <span>Hospitality &amp; leisure brands</span>
+        <span>Golf clubs &amp; sports brands</span>
+        <span>Businesses running their first paid campaign</span>
+        <span>Brands who've tried influencers before and got burned</span>
+      </div>
+    </div>
+
+    <!-- OTHER SERVICES -->
+    <div class="sp-other js-reveal">
+      <h2>Also from Webature</h2>
+      <div class="sp-other-links">
+        <a href="/services/web-design">Web Design &amp; Development →</a>
+        <a href="/services/web-design#seo">SEO &amp; Online Visibility →</a>
+        <a href="/services/web-design#local-seo">Local SEO →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA SECTION -->
+<div class="sp-cta-section">
+  <div class="sp-cta-inner js-reveal">
+    <h2>Let's build something<br>that performs.</h2>
+    <p>Whether it's social management, an influencer campaign or a full marketing build — get in touch and we'll tell you what we'd do and what it would cost.</p>
+    <a href="/contact" class="sp-cta-btn">Get in touch →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="/webature-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/shared.js"></script>
+</body>
+</html>

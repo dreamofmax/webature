@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Design &amp; Development — Webature</title>
+  <!-- SEO -->
+  <meta name="description" content="Professional web design and SEO services from Webature. We build fast, distinctive websites that convert visitors into clients — and get them found on Google.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webature.co.uk/services/web-design">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webature.co.uk/services/web-design">
+  <meta property="og:title" content="Web Design &amp; Development — Webature">
+  <meta property="og:description" content="Professional web design and SEO services from Webature. We build fast, distinctive websites that convert visitors into clients — and get them found on Google.">
+  <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
+  <meta property="og:site_name" content="Webature">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Design &amp; Development — Webature">
+  <meta name="twitter:description" content="Professional web design and SEO services from Webature. We build fast, distinctive websites that convert visitors into clients — and get them found on Google.">
+  <meta name="twitter:image" content="https://webature.co.uk/og-image.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<link rel="stylesheet" href="/service-page.css">
+<style>
+/* AVAIL BADGE LINK */
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+
+/* PROCESS SECTION */
+.sp-process {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sp-process h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 300; letter-spacing: -0.03em;
+  color: var(--text); margin-bottom: 48px;
+}
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.process-step {
+  background: var(--bg);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.process-step-num {
+  font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-faint);
+}
+.process-step-title {
+  font-size: 0.92rem; font-weight: 500; color: var(--text);
+  line-height: 1.3;
+}
+.process-step-desc {
+  font-size: 0.8rem; color: var(--text-muted); line-height: 1.7;
+  margin-top: auto;
+}
+
+/* STATS ROW */
+.sp-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 60px;
+}
+.sp-stat {
+  background: var(--bg);
+  padding: 36px 28px;
+}
+.sp-stat-value {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 300; letter-spacing: -0.04em;
+  color: var(--text); line-height: 1; margin-bottom: 8px;
+}
+.sp-stat-label {
+  font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;
+}
+
+/* TECH STRIP */
+.sp-tech {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sp-tech h2 {
+  font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 24px;
+}
+.tech-pills {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.tech-pill {
+  font-size: 0.78rem; color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  padding: 8px 18px;
+  transition: border-color .2s, color .2s;
+}
+.tech-pill:hover {
+  border-color: var(--text-faint);
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .sp-stats { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .process-steps { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+
+<nav>
+  <a href="/" class="logo"><img src="/webature-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li class="nav-has-dropdown">
+      <a href="/services" class="active">Services</a>
+      <div class="nav-dropdown">
+        <a href="/services/web-design" class="nav-dropdown-item">Web Design &amp; Development</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
+      </div>
+    </li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services/web-design" class="mob-drawer-link">Web Design &amp; Dev</a>
+  <a href="/services/digital-marketing" class="mob-drawer-link">Digital Marketing</a>
+  <a href="/about" class="mob-drawer-link">About</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom">
+    <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="sp-hero">
+  <div class="sp-hero-inner js-reveal">
+    <div class="sp-breadcrumb">
+      <a href="/services">Services</a> &nbsp;/&nbsp; Web Design &amp; Development
+    </div>
+    <h1>Websites that<br>work harder.</h1>
+    <p class="sp-hero-sub">We design and build websites that are fast, distinctive and built to convert — with SEO baked in from day one so people actually find you.</p>
+    <a href="/contact" class="sp-cta-btn">Start a project →</a>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="sp-body">
+  <div class="sp-body-inner">
+
+    <!-- INTRO -->
+    <div class="sp-intro">
+      <h2 class="js-reveal">Your website is your most important salesperson. We make sure it earns its keep.</h2>
+      <p class="js-reveal">Most websites look fine and do nothing. We build sites that are structured to convert — clear hierarchy, fast load times, mobile-first, and designed to push visitors toward action. Every page is built with a purpose.</p>
+      <p class="js-reveal">We handle everything from first concept to launch and beyond. Design, copy structure, development, SEO setup — you get one team, one process, one outcome: a site that drives your business forward.</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="sp-stats js-reveal">
+      <div class="sp-stat">
+        <div class="sp-stat-value">3–6</div>
+        <div class="sp-stat-label">Weeks from kickoff to launch, for most projects</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-stat-value">100%</div>
+        <div class="sp-stat-label">Mobile-first — every site tested across all screen sizes</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-stat-value">£2k+</div>
+        <div class="sp-stat-label">Starting price for a professional business website</div>
+      </div>
+    </div>
+
+    <!-- DELIVERABLES -->
+    <div class="sp-deliverables">
+      <h2 class="js-reveal">What's included</h2>
+      <div class="sp-items">
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">01</div>
+          <div>
+            <div class="sp-item-title">Discovery &amp; Strategy</div>
+            <div class="sp-item-desc">We start by understanding your business, your audience and your goals. Every design decision that follows is rooted in what actually needs to happen — not what looks impressive in a portfolio.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">02</div>
+          <div>
+            <div class="sp-item-title">Design &amp; Wireframes</div>
+            <div class="sp-item-desc">Clean, distinctive visual design — no templates, no generic layouts. We design your site from the ground up, with full attention to hierarchy, typography and the experience of navigating it on any device.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">03</div>
+          <div>
+            <div class="sp-item-title">Development &amp; Build</div>
+            <div class="sp-item-desc">Fast, clean code built for performance. Whether that's a custom HTML build, a CMS like Webflow or WordPress, or a headless setup — we match the tech to the project, not the other way around.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">04</div>
+          <div>
+            <div class="sp-item-title">SEO Foundation</div>
+            <div class="sp-item-desc">Every site we build ships with a solid SEO foundation: proper URL structure, meta data, heading hierarchy, image alt text, schema markup and Core Web Vitals compliance. So Google can find and rank you from day one.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">05</div>
+          <div>
+            <div class="sp-item-title">On-Page SEO &amp; Keyword Strategy</div>
+            <div class="sp-item-desc">We identify the searches your ideal clients are making and build content that targets them — service pages, location pages, blog structure. Ranking isn't luck; it's architecture.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">06</div>
+          <div>
+            <div class="sp-item-title">Local SEO &amp; Google Business</div>
+            <div class="sp-item-desc">If your clients are local, you need to show up on Google Maps and in local search results. We optimise your Google Business Profile and build the signals that get you ranking in your area.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">07</div>
+          <div>
+            <div class="sp-item-title">Technical SEO Audits</div>
+            <div class="sp-item-desc">Got an existing site that isn't performing? We run a full technical audit — crawl errors, duplicate content, page speed, mobile usability, backlink profile — and fix what's holding you back.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">08</div>
+          <div>
+            <div class="sp-item-title">Ongoing Maintenance &amp; Support</div>
+            <div class="sp-item-desc">We don't disappear after launch. Whether you need monthly updates, hosting support, performance monitoring or iterative improvements — we're available to keep your site sharp.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PROCESS -->
+    <div class="sp-process">
+      <h2 class="js-reveal">How it works</h2>
+      <div class="process-steps">
+        <div class="process-step js-reveal">
+          <div class="process-step-num">Step 01</div>
+          <div class="process-step-title">Discovery Call</div>
+          <div class="process-step-desc">We talk through your goals, audience and timeline. No obligation — just an honest conversation about what would actually make sense for your business.</div>
+        </div>
+        <div class="process-step js-reveal">
+          <div class="process-step-num">Step 02</div>
+          <div class="process-step-title">Proposal &amp; Scope</div>
+          <div class="process-step-desc">You get a clear proposal — what we'll build, what it costs, and when it'll be done. We fix the scope so there are no surprises mid-project.</div>
+        </div>
+        <div class="process-step js-reveal">
+          <div class="process-step-num">Step 03</div>
+          <div class="process-step-title">Design &amp; Build</div>
+          <div class="process-step-desc">We design, build and refine with regular check-ins. You'll have visibility at every stage and we move at a pace that keeps things on track.</div>
+        </div>
+        <div class="process-step js-reveal">
+          <div class="process-step-num">Step 04</div>
+          <div class="process-step-title">Launch &amp; Handover</div>
+          <div class="process-step-desc">We handle the launch, set up analytics and walk you through everything. You leave with a site you fully understand and own.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="sp-tech js-reveal">
+      <h2>Technologies we work with</h2>
+      <div class="tech-pills">
+        <span class="tech-pill">HTML / CSS / JS</span>
+        <span class="tech-pill">Webflow</span>
+        <span class="tech-pill">WordPress</span>
+        <span class="tech-pill">Shopify</span>
+        <span class="tech-pill">React</span>
+        <span class="tech-pill">Next.js</span>
+        <span class="tech-pill">Figma</span>
+        <span class="tech-pill">Google Analytics 4</span>
+        <span class="tech-pill">Google Search Console</span>
+        <span class="tech-pill">Screaming Frog</span>
+        <span class="tech-pill">Ahrefs</span>
+        <span class="tech-pill">Vercel / Netlify</span>
+      </div>
+    </div>
+
+    <!-- SUITABLE FOR -->
+    <div class="sp-suitable">
+      <h2 class="js-reveal">Who this is for</h2>
+      <div class="sp-tags">
+        <span>Established businesses needing a rebrand</span>
+        <span>New businesses launching online</span>
+        <span>Local businesses missing from Google</span>
+        <span>E-commerce brands</span>
+        <span>Professional services</span>
+        <span>Golf clubs &amp; leisure venues</span>
+        <span>Hospitality &amp; food &amp; drink</span>
+        <span>Startups &amp; scale-ups</span>
+        <span>Brands with a bad existing site</span>
+      </div>
+    </div>
+
+    <!-- OTHER SERVICES -->
+    <div class="sp-other js-reveal">
+      <h2>Also from Webature</h2>
+      <div class="sp-other-links">
+        <a href="/services/digital-marketing">Digital Marketing →</a>
+        <a href="/services/digital-marketing#social">Social Media Marketing →</a>
+        <a href="/services/digital-marketing#influencer">Influencer Marketing →</a>
+        <a href="/services/digital-marketing#campaigns">Campaign Development →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA SECTION -->
+<div class="sp-cta-section">
+  <div class="sp-cta-inner js-reveal">
+    <h2>Ready to build<br>something great?</h2>
+    <p>Tell us about your project and we'll come back with an honest assessment, a clear proposal and no hard sell.</p>
+    <a href="/contact" class="sp-cta-btn">Get in touch →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="/webature-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/shared.js"></script>
+</body>
+</html>
