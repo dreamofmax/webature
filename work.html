@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work — Webature</title>
   <!-- SEO -->
-  <meta name="description" content="Selected projects by Webature — social media marketing, influencer campaigns, web design and digital strategy for businesses.">
+  <meta name="description" content="Selected projects by Webature — web design, SEO, content and digital strategy for businesses.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://webature.co.uk/work">
 
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://webature.co.uk/work">
   <meta property="og:title" content="Our Work — Webature">
-  <meta property="og:description" content="Selected projects by Webature — social media marketing, influencer campaigns, web design and digital strategy for businesses.">
+  <meta property="og:description" content="Selected projects by Webature — web design, SEO, content and digital strategy for businesses.">
   <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
   <meta property="og:site_name" content="Webature">
 
@@ -28,321 +28,53 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
+/* AVAIL BADGE LINK */
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
 
-/* ─── FILTER BAR ─── */
 .filter-bar { max-width:1400px; margin:0 auto; padding:0 40px 40px; }
 .filter-inner { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-.filter-btn {
-  font-size:0.72rem; font-weight:400; letter-spacing:0.06em; color:var(--text-muted);
-  background:none; border:1px solid var(--border-mid); border-radius:100px;
-  padding:8px 18px; cursor:pointer; transition:all .2s;
-  font-family:'DM Sans',sans-serif;
-}
+.filter-btn { font-size:0.72rem; font-weight:400; letter-spacing:0.06em; color:var(--text-muted); background:none; border:1px solid var(--border-mid); border-radius:100px; padding:8px 18px; cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif; }
 .filter-btn:hover { color:var(--text); border-color:var(--text-muted); }
 .filter-btn.active { background:var(--text); color:var(--bg); border-color:var(--text); }
-
-/* ─── PROJECT LIST ─── */
 .project-list { max-width:1400px; margin:0 auto; padding:0 40px 40px; }
-
-.project-row {
-  display:grid;
-  grid-template-columns: 200px 1fr 220px 100px 180px;
-  gap:24px; align-items:center;
-  padding:32px 0;
-  border-top:1px solid var(--border);
-  cursor:pointer;
-  transition:background .2s;
-  position:relative;
-}
+.project-row { display:grid; grid-template-columns:200px 1fr 220px 100px 180px; gap:24px; align-items:center; padding:32px 0; border-top:1px solid var(--border); transition:background .2s; position:relative; }
 .project-row:last-child { border-bottom:1px solid var(--border); }
 .project-row:hover { background:var(--surface); }
-.project-row:hover .project-open-hint { opacity:1; }
-
-.project-logo-box {
-  width:180px; aspect-ratio:16/9;
-  background:var(--card-bg); border:1px solid var(--border);
-  border-radius:8px; overflow:hidden;
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; transition:border-color .3s;
-  position:relative;
-}
+.project-logo-box { width:180px; aspect-ratio:16/9; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:border-color .3s; }
 .project-row:hover .project-logo-box { border-color:var(--border-mid); }
 .project-logo-box img { width:100%; height:100%; object-fit:cover; }
-.project-logo-placeholder {
-  font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase;
-  color:var(--text-faint); font-weight:500; text-align:center; padding:8px;
-}
-
+.project-logo-placeholder { font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); font-weight:500; text-align:center; padding:8px; }
 .project-name { font-size:1.1rem; font-weight:400; margin-bottom:8px; color:var(--text); line-height:1.2; }
 .project-desc { font-size:0.82rem; color:var(--text-muted); line-height:1.6; max-width:460px; }
-
 .project-tags { display:flex; flex-wrap:wrap; gap:6px; }
-.project-tag {
-  font-size:0.62rem; letter-spacing:0.06em;
-  border:1px solid var(--border-mid); border-radius:100px;
-  padding:5px 12px; color:var(--text-muted); white-space:nowrap;
-}
+.project-tag { font-size:0.62rem; letter-spacing:0.06em; border:1px solid var(--border-mid); border-radius:100px; padding:5px 12px; color:var(--text-muted); white-space:nowrap; }
 .project-year { font-size:0.72rem; color:var(--text-faint); letter-spacing:0.08em; }
-
-.project-open-hint {
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
-  color:var(--text-muted);
-  border:1px solid var(--border-mid); border-radius:100px;
-  padding:10px 18px; white-space:nowrap; justify-self:end;
-  opacity:0; transition:opacity .2s, color .2s, border-color .2s;
-  font-family:'DM Sans',sans-serif;
-}
-.project-row:hover .project-open-hint { color:var(--text); border-color:var(--text-muted); }
-
-.empty-state { padding:80px 0; text-align:center; color:var(--text-faint); font-size:0.85rem; letter-spacing:0.1em; }
-
-/* ─── WORK CTA ─── */
+.project-cta { display:inline-flex; align-items:center; gap:8px; font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; border:1px solid var(--border-mid); border-radius:100px; padding:10px 18px; transition:all .25s; white-space:nowrap; justify-self:end; font-family:'DM Sans',sans-serif; background:none; cursor:pointer; }
+.project-cta:hover { color:var(--text); border-color:var(--text-muted); }
 .work-cta-bar { border-top:1px solid var(--border); padding:60px 40px 100px; }
 .work-cta-inner { max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
 .work-cta-text { font-size:clamp(1.4rem,3vw,2.4rem); font-weight:300; letter-spacing:-0.02em; color:var(--text); }
-.work-cta-btn {
-  font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:500;
-  letter-spacing:0.12em; text-transform:uppercase;
-  color:var(--bg); background:var(--text);
-  border-radius:100px; padding:16px 32px;
-  text-decoration:none; transition:opacity .2s; white-space:nowrap;
-}
+.work-cta-btn { font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border-radius:100px; padding:16px 32px; text-decoration:none; transition:opacity .2s; white-space:nowrap; }
 .work-cta-btn:hover { opacity:0.8; }
-
-
-/* ══════════════════════════════════════════
-   CASE STUDY OVERLAY
-══════════════════════════════════════════ */
-.cs-overlay {
-  position:fixed; inset:0; z-index:800;
-  pointer-events:none; opacity:0;
-  transition:opacity .35s ease;
+@media (max-width:900px) {
+  .work-cta-bar { padding:48px 20px 80px; }
+  .work-cta-inner { flex-direction:column; align-items:flex-start; }
 }
-.cs-overlay.open {
-  pointer-events:all; opacity:1;
-}
-
-/* dim the page behind */
-.cs-scrim {
-  position:absolute; inset:0;
-  background:rgba(0,0,0,0.72);
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px);
-  cursor:pointer;
-}
-[data-theme="light"] .cs-scrim { background:rgba(0,0,0,0.55); }
-
-/* the panel itself — slides up from bottom on mobile, from right on desktop */
-.cs-panel {
-  position:absolute;
-  top:0; right:0; bottom:0;
-  width:min(900px, 100vw);
-  background:var(--bg);
-  overflow-y:auto;
-  transform:translateX(60px);
-  transition:transform .4s cubic-bezier(.16,1,.3,1);
-  display:flex; flex-direction:column;
-}
-.cs-overlay.open .cs-panel {
-  transform:translateX(0);
-}
-
-/* close button */
-.cs-close {
-  position:sticky; top:0; z-index:10;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:20px 32px;
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
-  flex-shrink:0;
-}
-.cs-close-left {
-  font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase;
-  color:var(--text-faint);
-}
-.cs-close-btn {
-  display:flex; align-items:center; gap:8px;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
-  color:var(--text-muted); background:none;
-  border:1px solid var(--border-mid); border-radius:100px;
-  padding:8px 18px; cursor:pointer; transition:all .2s;
-}
-.cs-close-btn:hover { color:var(--text); border-color:var(--text-muted); }
-
-/* hero image */
-.cs-hero-img {
-  width:100%; aspect-ratio:16/7;
-  background:var(--card-bg);
-  overflow:hidden; flex-shrink:0;
-  position:relative;
-}
-.cs-hero-img img {
-  width:100%; height:100%; object-fit:cover;
-  display:block;
-}
-.cs-hero-img-placeholder {
-  position:absolute; inset:0;
-  display:flex; align-items:center; justify-content:center;
-  flex-direction:column; gap:12px;
-}
-.cs-hero-img-placeholder span {
-  font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase;
-  color:var(--text-faint);
-}
-/* gradient visual when no image */
-.cs-hero-gradient { width:100%; height:100%; }
-
-/* meta bar under hero */
-.cs-meta {
-  display:grid; grid-template-columns:repeat(4,1fr);
-  border-bottom:1px solid var(--border);
-  flex-shrink:0;
-}
-.cs-meta-cell {
-  padding:20px 24px;
-  border-right:1px solid var(--border);
-}
-.cs-meta-cell:last-child { border-right:none; }
-.cs-meta-label {
-  font-size:0.52rem; letter-spacing:0.2em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:6px;
-}
-.cs-meta-val {
-  font-size:0.78rem; color:var(--text-dim); line-height:1.4;
-}
-
-/* body content */
-.cs-body { padding:48px 40px 80px; flex:1; }
-.cs-project-title {
-  font-size:clamp(1.8rem,3.5vw,2.8rem);
-  font-weight:300; letter-spacing:-0.03em; line-height:1.1;
-  color:var(--text); margin-bottom:12px;
-}
-.cs-client-name {
-  font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:48px;
-}
-
-/* two-col intro */
-.cs-intro-grid {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:40px; margin-bottom:60px;
-  padding-bottom:48px; border-bottom:1px solid var(--border);
-}
-.cs-section-label {
-  font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:14px;
-}
-.cs-intro-grid p {
-  font-size:0.88rem; color:var(--text-muted); line-height:1.8;
-}
-
-/* results grid */
-.cs-results {
-  margin-bottom:60px;
-}
-.cs-results-label {
-  font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:24px;
-}
-.cs-results-grid {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:1px; background:var(--border);
-  border:1px solid var(--border);
-}
-.cs-result-cell {
-  background:var(--bg); padding:28px 24px;
-}
-.cs-result-num {
-  font-size:clamp(1.6rem,3vw,2.4rem);
-  font-weight:300; letter-spacing:-0.03em;
-  color:var(--text); margin-bottom:6px;
-}
-.cs-result-desc {
-  font-size:0.72rem; color:var(--text-muted); line-height:1.5;
-}
-
-/* image gallery */
-.cs-gallery {
-  display:grid; gap:2px; margin-bottom:60px;
-}
-.cs-gallery.cols-2 { grid-template-columns:1fr 1fr; }
-.cs-gallery.cols-1 { grid-template-columns:1fr; }
-.cs-gallery-img {
-  aspect-ratio:16/9; background:var(--card-bg);
-  overflow:hidden;
-}
-.cs-gallery-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.cs-gallery-placeholder {
-  width:100%; height:100%;
-  display:flex; align-items:center; justify-content:center;
-}
-.cs-gallery-placeholder span {
-  font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase;
-  color:var(--text-faint);
-}
-
-/* deliverables list */
-.cs-deliverables { margin-bottom:40px; }
-.cs-deliverables ul {
-  list-style:none; display:flex; flex-direction:column; gap:0;
-}
-.cs-deliverables ul li {
-  font-size:0.88rem; color:var(--text-muted); line-height:1.6;
-  padding:14px 0; border-bottom:1px solid var(--border);
-  display:flex; align-items:center; gap:16px;
-}
-.cs-deliverables ul li::before {
-  content:''; flex-shrink:0;
-  width:6px; height:6px; border-radius:50%;
-  background:var(--text-faint);
-}
-
-/* next project */
-.cs-next {
-  margin-top:60px; padding-top:40px;
-  border-top:1px solid var(--border);
-  display:flex; align-items:center; justify-content:space-between; gap:20px;
-  cursor:pointer; transition:opacity .2s;
-}
-.cs-next:hover { opacity:0.7; }
-.cs-next-label {
-  font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:6px;
-}
-.cs-next-title {
-  font-size:1rem; font-weight:400; color:var(--text);
-}
-.cs-next-arrow { font-size:1.4rem; color:var(--text-muted); flex-shrink:0; }
-
-/* ─── MOBILE ─── */
+.empty-state { padding:80px 0; text-align:center; color:var(--text-faint); font-size:0.85rem; letter-spacing:0.1em; }
+.img-extra-count { position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.55); color:#fff; font-size:0.6rem; letter-spacing:0.08em; border-radius:4px; padding:3px 8px; pointer-events:none; }
 @media (max-width:900px) {
   .filter-bar { padding:0 20px 32px; }
   .project-list { padding:0 20px 80px; }
   .project-row { grid-template-columns:1fr; gap:12px; padding:24px 0; }
   .project-logo-box { width:100%; aspect-ratio:16/9; height:auto; }
-  .project-open-hint { opacity:1; justify-self:start; }
-  .work-cta-bar { padding:48px 20px 80px; }
-  .work-cta-inner { flex-direction:column; align-items:flex-start; }
-
-  /* panel full-width on mobile */
-  .cs-panel { width:100vw; top:auto; height:92vh; border-radius:16px 16px 0 0; transform:translateY(60px); }
-  .cs-overlay.open .cs-panel { transform:translateY(0); }
-  .cs-meta { grid-template-columns:1fr 1fr; }
-  .cs-meta-cell:nth-child(2) { border-right:none; }
-  .cs-intro-grid { grid-template-columns:1fr; }
-  .cs-results-grid { grid-template-columns:1fr 1fr; }
-  .cs-body { padding:32px 20px 60px; }
-  .cs-close { padding:16px 20px; }
-  .cs-gallery.cols-2 { grid-template-columns:1fr; }
+  .project-cta { justify-self:start; }
 }
 </style>
 </head>
 <body>
 <div id="cur"></div>
-
 <nav>
   <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
   <ul class="nav-links">
@@ -355,7 +87,6 @@
         <a href="/services/digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
       </div>
     </li>
-    <li><a href="/about">About</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
   <div class="nav-right">
@@ -364,11 +95,9 @@
     <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="mob-drawer">
   <a href="/work" class="mob-drawer-link">Work</a>
   <a href="/services" class="mob-drawer-link">Services</a>
-  <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
   <div class="mob-drawer-bottom">
     <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
@@ -419,384 +148,45 @@
   </div>
 </footer>
 
-<!-- ══════════════ CASE STUDY OVERLAY ══════════════ -->
-<div class="cs-overlay" id="csOverlay" role="dialog" aria-modal="true" aria-label="Case study">
-  <div class="cs-scrim" id="csScrim"></div>
-  <div class="cs-panel" id="csPanel">
-
-    <!-- sticky close bar -->
-    <div class="cs-close">
-      <span class="cs-close-left" id="csCloseLabel">Case Study</span>
-      <button class="cs-close-btn" id="csCloseBtn">Close ✕</button>
-    </div>
-
-    <!-- dynamic content injected here -->
-    <div id="csPanelContent"></div>
-
-  </div>
-</div>
-
 <script src="shared.js"></script>
 <script>
-
-/* ════════════════════════════════════════
-   PROJECT DATA
-   Add your real projects here.
-   For images: put paths relative to site root.
-   results: array of { num, label } shown as stat cells.
-   gallery: array of image src strings (2 cols if 2+, 1 col if 1).
-   deliverables: array of strings.
-   challenge / outcome: paragraph text.
-════════════════════════════════════════ */
-const PROJECTS = [
-  {
-    id: 'byd-social',
-    title: 'Social Media Growth — 5K to 50K',
-    client: 'UK Automotive Brand',
-    desc: 'Grew a UK brand\'s Instagram from 5,000 to over 50,000 followers in under 12 months through organic content strategy, community management and posting consistency.',
-    category: 'Social Media Marketing',
-    tags: ['Social Media Marketing', 'Content Creation'],
-    year: '2024–2025',
-    image: '',
-    images: [],
-    gradient: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%)',
-    challenge: 'The brand had an established following but stagnant growth. Content felt disconnected from the audience and lacked a consistent visual identity or strategic posting rhythm.',
-    outcome: 'A full content audit and strategy reset — new content pillars, a posting schedule built around peak engagement windows, and community management that turned passive followers into active brand advocates. The account grew from 5,000 to over 50,000 followers without a single paid follower campaign.',
-    results: [
-      { num: '50K+', label: 'Followers reached' },
-      { num: '10×', label: 'Audience growth' },
-      { num: '100%', label: 'Organic — zero paid followers' }
-    ],
-    deliverables: [
-      'Full social media audit and competitive benchmarking',
-      'Content strategy and monthly content calendars',
-      'Caption writing and hashtag strategy',
-      'Community management and engagement',
-      'Monthly performance reports with actionable insights'
-    ]
-  },
-  {
-    id: 'web-design-01',
-    title: 'Full Website Build',
-    client: 'Professional Services Brand',
-    desc: 'End-to-end website design and build — clean layout, conversion-focused structure, mobile-first, and optimised for local search from day one.',
-    category: 'Web Design',
-    tags: ['Web Design', 'SEO & Online Visibility'],
-    year: '2025',
-    image: '',
-    images: [],
-    gradient: 'linear-gradient(135deg, #0f0f0f 0%, #1c1c1c 100%)',
-    challenge: 'The client had no website and was losing work to competitors simply because they weren\'t findable online. They needed a credible, fast-loading site that represented the quality of their work.',
-    outcome: 'A clean, fast two-page website designed and live within four weeks. Mobile-first throughout, with structured data markup and on-page SEO ensuring the site ranked for local search terms within 90 days of launch.',
-    results: [
-      { num: '4 wks', label: 'Concept to live site' },
-      { num: '90 days', label: 'To first page ranking' },
-      { num: '£2K', label: 'Starting price' }
-    ],
-    deliverables: [
-      'UX wireframes and visual design',
-      'Custom HTML/CSS build — no templates',
-      'Mobile-first, cross-browser tested',
-      'On-page SEO and structured data',
-      'Google Search Console setup and indexing'
-    ]
-  },
-  {
-    id: 'influencer-campaign-01',
-    title: 'Influencer Launch Campaign',
-    client: 'Consumer Brand',
-    desc: 'End-to-end influencer campaign for a product launch — creator identification, briefing, content review and performance reporting across Instagram and TikTok.',
-    category: 'Influencer Marketing',
-    tags: ['Influencer Marketing', 'Campaign Development'],
-    year: '2025',
-    image: '',
-    images: [],
-    gradient: 'linear-gradient(135deg, #0d0d0d 0%, #1a0a2e 100%)',
-    challenge: 'A new product entering a crowded market needed credible third-party voices to cut through — but the brand had no existing influencer relationships or in-house process for managing creator partnerships.',
-    outcome: 'Built the full influencer programme from scratch: audience research, creator longlist and shortlist, brief development, outreach, contract facilitation, content review and a final wrap report with reach, engagement and attribution data.',
-    results: [
-      { num: '15+', label: 'Creators activated' },
-      { num: '2M+', label: 'Estimated organic reach' },
-      { num: '4.8%', label: 'Average engagement rate' }
-    ],
-    deliverables: [
-      'Influencer strategy and audience mapping',
-      'Creator identification and vetting',
-      'Brief writing and brand guidelines for creators',
-      'Outreach and relationship management',
-      'Content approval process',
-      'Campaign wrap report with full analytics'
-    ]
-  },
-  {
-    id: 'social-content-system',
-    title: 'Social Content System',
-    client: 'Retail Brand',
-    desc: 'Built a repeatable monthly content system — strategy, templates and calendar — so the brand could post consistently without scrambling for ideas every week.',
-    category: 'Social Media Marketing',
-    tags: ['Social Media Marketing', 'Content Creation'],
-    year: '2024',
-    image: '',
-    images: [],
-    gradient: 'linear-gradient(135deg, #111 0%, #1a1a1a 100%)',
-    challenge: 'The brand was posting sporadically and reactively, with no strategy tying the content together. Engagement was low and the feed lacked a coherent identity.',
-    outcome: 'Developed a content system with four recurring content pillars, a visual identity guide for social, and a 30-day content calendar template that the internal team could operate independently. Then managed the first three months to bed it in.',
-    results: [
-      { num: '3×', label: 'Posting frequency increase' },
-      { num: '+65%', label: 'Engagement rate lift' },
-      { num: '30-day', label: 'Content calendar built out monthly' }
-    ],
-    deliverables: [
-      'Social media audit',
-      'Content pillar framework (4 pillars)',
-      'Visual identity guide for social',
-      'Monthly 30-day content calendar',
-      'Caption bank and tone of voice guide',
-      '3 months hands-on management'
-    ]
-  },
-  {
-    id: 'seo-campaign-01',
-    title: 'SEO & Online Visibility',
-    client: 'Local Business',
-    desc: 'Technical and on-page SEO audit, followed by a 3-month optimisation programme that moved the client from page 3 to the top 5 results for their core search terms.',
-    category: 'SEO & Online Visibility',
-    tags: ['SEO & Online Visibility', 'Web Design'],
-    year: '2024',
-    image: '',
-    images: [],
-    gradient: 'linear-gradient(135deg, #0a0a0a 0%, #0d1a0d 100%)',
-    challenge: 'The client had a functioning website but was invisible on Google — ranking on page 3 and beyond for every relevant search term, while competitors dominated the top positions.',
-    outcome: 'A full technical audit revealed crawl issues, missing meta data and poor internal linking. After fixing the technical foundation and rewriting key pages around target keywords, the site moved into the top 5 results for three core terms within 90 days.',
-    results: [
-      { num: 'Top 5', label: 'For 3 core search terms' },
-      { num: '90 days', label: 'To first page results' },
-      { num: '+140%', label: 'Organic traffic increase' }
-    ],
-    deliverables: [
-      'Technical SEO audit',
-      'Keyword research and mapping',
-      'On-page optimisation (meta, headings, copy)',
-      'Internal linking strategy',
-      'Local SEO setup (Google Business Profile)',
-      'Monthly rank tracking reports'
-    ]
-  }
+const defaultProjects=[
+  {id:'d1',title:'Sterling Pines Golf Club — Website Build & SEO',client:'Sterling Pines',desc:'End-to-end website design, build, and SEO optimisation for a golf club — clean layout, membership-focused structure, mobile-first, and fully optimised for local search.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2026',images:['project-golf-club-1.jpg','project-golf-club-2.jpg','project-golf-club-3.jpg'],image:'project-golf-club-1.jpg',link:'case-study-sterling-pines.html'},
+  {id:'d3',title:'Automotive Brand — Influencer Marketing Campaign',client:'NDA',desc:'Full-funnel influencer marketing campaign for an automotive brand across Instagram, TikTok, and YouTube. Coordinated a mix of creators from nano (5k) to mega (1m+) to drive reach, engagement, and brand awareness at scale.',category:'Influencer Marketing',tags:['Influencer Marketing','Campaign Development','Social Media Marketing'],year:'2025',images:[],image:'',link:'case-study-automotive.html'},
+  {id:'d2',title:'Kommersant — Telegram Growth (65k → 240k)',client:'Kommersant',desc:'Grew a major media brand\'s Telegram channel by 266% — from 65,000 to 240,000 subscribers — through a combination of content strategy and targeted paid advertising.',category:'Social Media Marketing',tags:['Social Media Marketing','Campaign Development'],year:'2024',images:[],image:'',link:'case-study-kommersant.html'},
+  {id:'d4',title:'Web Design — Business Website Rebuild',client:'Client Name',desc:'Full website redesign focused on conversion — clean layout, mobile-first build, and SEO structure from day one.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2025',images:[],image:'',link:''},
+  {id:'d5',title:'Social Media — Monthly Content System',client:'Client Name',desc:'End-to-end social media management across Instagram and LinkedIn — strategy, content calendar, and monthly reporting.',category:'Social Media Marketing',tags:['Social Media Marketing','Content Creation'],year:'2025',images:[],image:'',link:''},
+  {id:'d6',title:'Campaign — Lead Generation for Local Business',client:'Client Name',desc:'Paid social campaign targeting local audience — from strategy through creative to reporting. Delivered 3x ROI in 60 days.',category:'Campaign Development',tags:['Campaign Development','Social Media Marketing'],year:'2024',images:[],image:'',link:''},
+  {id:'d7',title:'Photography — Brand & Course Shoot',client:'Client Name',desc:'Professional photography for a website and social channels — course, lifestyle and team photography that showcases the full brand experience.',category:'Content Creation',tags:['Content Creation','Photography'],year:'2024',images:[],image:'',link:''},
 ];
-
-/* ════════════════════════════════════════
-   RENDER PROJECT LIST
-════════════════════════════════════════ */
-function getProjects() {
-  return PROJECTS;
-}
-
-function renderProjects(filter) {
-  const list = document.getElementById('projectList');
-  const projects = getProjects().filter(p =>
-    filter === 'all' || p.tags.includes(filter) || p.category === filter
-  );
-  if (!projects.length) {
-    list.innerHTML = '<div class="empty-state">No projects in this category yet.</div>';
-    return;
-  }
-  list.innerHTML = projects.map((p, i) => {
-    const thumb = (p.images && p.images[0]) || p.image || '';
+function getProjects(){return[...defaultProjects,...JSON.parse(localStorage.getItem('webature_projects')||'[]')];}
+function renderProjects(filter){
+  const list=document.getElementById('projectList');
+  const projects=getProjects().filter(p=>filter==='all'||p.tags.includes(filter)||p.category===filter);
+  if(!projects.length){list.innerHTML='<div class="empty-state">No projects in this category yet.</div>';return;}
+  list.innerHTML=projects.map(p=>{
+    const thumb = (p.images&&p.images[0]) || p.image || '';
+    const allImgs = p.images && p.images.length ? p.images : (p.image ? [p.image] : []);
     const imgEl = thumb
       ? `<img src="${thumb}" alt="${p.title}">`
-      : `<div class="project-logo-placeholder">${(p.client || p.title.split('—')[0]).trim()}</div>`;
-    return `
-      <div class="project-row" data-id="${p.id}" role="button" tabindex="0" aria-label="Open case study: ${p.title}">
-        <div>
-          <div class="project-logo-box">${imgEl}</div>
-        </div>
-        <div>
-          <div class="project-name">${p.title}</div>
-          <div class="project-desc">${p.desc}</div>
-        </div>
-        <div class="project-tags">${(p.tags || [p.category]).map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
-        <div class="project-year">${p.year}</div>
-        <div class="project-open-hint">View Case Study →</div>
-      </div>`;
-  }).join('');
-
-  // attach click listeners
-  list.querySelectorAll('.project-row').forEach(row => {
-    row.addEventListener('click', () => openCase(row.dataset.id));
-    row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openCase(row.dataset.id); });
-  });
-}
-
-/* ════════════════════════════════════════
-   CASE STUDY PANEL
-════════════════════════════════════════ */
-let currentProjectId = null;
-
-function openCase(id) {
-  const p = PROJECTS.find(x => x.id === id);
-  if (!p) return;
-  currentProjectId = id;
-
-  // build hero image or gradient
-  const heroContent = (p.images && p.images[0]) || p.image
-    ? `<img src="${(p.images && p.images[0]) || p.image}" alt="${p.title}">`
-    : `<div class="cs-hero-img-placeholder">
-        <div class="cs-hero-gradient" style="background:${p.gradient || 'linear-gradient(135deg,#0a0a0a,#1a1a1a)'}"></div>
-        <span style="position:absolute;">${p.client}</span>
-       </div>`;
-
-  // build results grid
-  const resultsHtml = p.results && p.results.length ? `
-    <div class="cs-results">
-      <div class="cs-results-label">Results</div>
-      <div class="cs-results-grid">
-        ${p.results.map(r => `
-          <div class="cs-result-cell">
-            <div class="cs-result-num">${r.num}</div>
-            <div class="cs-result-desc">${r.label}</div>
-          </div>`).join('')}
-      </div>
-    </div>` : '';
-
-  // gallery
-  const galleryImgs = (p.images && p.images.length > 1) ? p.images.slice(1) : [];
-  const galleryHtml = galleryImgs.length ? `
-    <div class="cs-gallery ${galleryImgs.length >= 2 ? 'cols-2' : 'cols-1'}">
-      ${galleryImgs.map(src => `
-        <div class="cs-gallery-img"><img src="${src}" alt="${p.title}"></div>`).join('')}
-    </div>` : `
-    <div class="cs-gallery cols-2" style="margin-bottom:60px;">
-      <div class="cs-gallery-img"><div class="cs-gallery-placeholder" style="background:var(--card-bg)"><span>Image — ${p.client}</span></div></div>
-      <div class="cs-gallery-img"><div class="cs-gallery-placeholder" style="background:var(--card-bg)"><span>Image — ${p.client}</span></div></div>
+      : `<div class="project-logo-placeholder">${(p.client||p.title.split('—')[0]).trim()}</div>`;
+    const extraCount = allImgs.length > 1 ? `<div class="img-extra-count">+${allImgs.length-1}</div>` : '';
+    return `<div class="project-row">
+      <div><div class="project-logo-box" style="position:relative">${imgEl}${extraCount}</div></div>
+      <div><div class="project-name">${p.title}</div><div class="project-desc">${p.desc}</div></div>
+      <div class="project-tags">${(p.tags||[p.category]).map(t=>`<span class="project-tag">${t}</span>`).join('')}</div>
+      <div class="project-year">${p.year}</div>
+      ${p.link?`<a href="${p.link}" target="_blank" class="project-cta">See Case Study →</a>`:`<span style="opacity:0"></span>`}
     </div>`;
-
-  // deliverables
-  const deliverablesHtml = p.deliverables && p.deliverables.length ? `
-    <div class="cs-deliverables">
-      <div class="cs-results-label">Deliverables</div>
-      <ul>${p.deliverables.map(d => `<li>${d}</li>`).join('')}</ul>
-    </div>` : '';
-
-  // next project
-  const allProjects = getProjects();
-  const idx = allProjects.findIndex(x => x.id === id);
-  const nextP = allProjects[(idx + 1) % allProjects.length];
-  const nextHtml = nextP ? `
-    <div class="cs-next" id="csNextBtn" data-next="${nextP.id}">
-      <div>
-        <div class="cs-next-label">Next project</div>
-        <div class="cs-next-title">${nextP.title}</div>
-      </div>
-      <div class="cs-next-arrow">→</div>
-    </div>` : '';
-
-  document.getElementById('csPanelContent').innerHTML = `
-    <div class="cs-hero-img" style="position:relative;">${heroContent}</div>
-
-    <div class="cs-meta">
-      <div class="cs-meta-cell">
-        <div class="cs-meta-label">Client</div>
-        <div class="cs-meta-val">${p.client}</div>
-      </div>
-      <div class="cs-meta-cell">
-        <div class="cs-meta-label">Service</div>
-        <div class="cs-meta-val">${p.category}</div>
-      </div>
-      <div class="cs-meta-cell">
-        <div class="cs-meta-label">Year</div>
-        <div class="cs-meta-val">${p.year}</div>
-      </div>
-      <div class="cs-meta-cell">
-        <div class="cs-meta-label">Tags</div>
-        <div class="cs-meta-val">${(p.tags || []).join(', ')}</div>
-      </div>
-    </div>
-
-    <div class="cs-body">
-      <h2 class="cs-project-title">${p.title}</h2>
-      <div class="cs-client-name">${p.client}</div>
-
-      <div class="cs-intro-grid">
-        <div>
-          <div class="cs-section-label">The challenge</div>
-          <p>${p.challenge || p.desc}</p>
-        </div>
-        <div>
-          <div class="cs-section-label">What we did</div>
-          <p>${p.outcome || 'Details coming soon.'}</p>
-        </div>
-      </div>
-
-      ${resultsHtml}
-      ${galleryHtml}
-      ${deliverablesHtml}
-      ${nextHtml}
-    </div>
-  `;
-
-  // wire up "next" button
-  const nextBtn = document.getElementById('csNextBtn');
-  if (nextBtn) {
-    nextBtn.addEventListener('click', e => {
-      e.stopPropagation();
-      openCase(nextBtn.dataset.next);
-      document.getElementById('csPanel').scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // open overlay
-  const overlay = document.getElementById('csOverlay');
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  // update URL without reload
-  history.pushState({ caseId: id }, '', `/work/${id}`);
+  }).join('');
 }
-
-function closeCase() {
-  document.getElementById('csOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-  currentProjectId = null;
-  history.pushState({}, '', '/work');
-}
-
-// close triggers
-document.getElementById('csCloseBtn').addEventListener('click', closeCase);
-document.getElementById('csScrim').addEventListener('click', closeCase);
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && currentProjectId) closeCase(); });
-
-// handle browser back
-window.addEventListener('popstate', e => {
-  if (!e.state || !e.state.caseId) {
-    if (currentProjectId) {
-      document.getElementById('csOverlay').classList.remove('open');
-      document.body.style.overflow = '';
-      currentProjectId = null;
-    }
-  }
-});
-
-// check URL on load (e.g. direct link to /work/project-id)
-(function checkUrlOnLoad() {
-  const path = window.location.pathname;
-  const match = path.match(/^\/work\/(.+)$/);
-  if (match) {
-    const id = match[1];
-    if (PROJECTS.find(p => p.id === id)) openCase(id);
-  }
-})();
-
-/* ════════════════════════════════════════
-   FILTERS
-════════════════════════════════════════ */
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
     renderProjects(btn.dataset.filter);
   });
 });
-
 renderProjects('all');
 </script>
 </body>

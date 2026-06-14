@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kommersant — Webature</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+
+/* ── CASE STUDY LAYOUT ── */
+.cs-wrap { max-width:1400px; margin:0 auto; padding:0 40px; }
+
+/* Header */
+.cs-header { padding:60px 0 40px; display:flex; align-items:flex-start; justify-content:space-between; gap:40px; }
+.cs-client-name { font-size:clamp(2rem,5vw,3.8rem); font-weight:300; letter-spacing:-0.03em; color:var(--text); line-height:1; }
+.cs-client-logo { font-size:clamp(1.4rem,3vw,2.4rem); font-weight:500; letter-spacing:-0.02em; color:var(--text); opacity:0.5; text-align:right; }
+
+.cs-divider { border:none; border-top:1px solid var(--border); margin:0; }
+
+/* Intro split */
+.cs-intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:72px 0; align-items:start; }
+.cs-intro-left { }
+.cs-intro-right { }
+.cs-overview-text { font-size:1rem; color:var(--text-muted); line-height:1.8; }
+
+/* Meta pills */
+.cs-meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
+.cs-meta-pill { font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid var(--border-mid); border-radius:100px; padding:6px 14px; color:var(--text-faint); }
+
+/* Stats bar */
+.cs-stats { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:0; }
+.cs-stat { padding:40px 0; border-right:1px solid var(--border); }
+.cs-stat:last-child { border-right:none; padding-left:40px; }
+.cs-stat:not(:first-child) { padding-left:40px; }
+.cs-stat-num { font-size:clamp(2.2rem,5vw,3.6rem); font-weight:300; letter-spacing:-0.04em; color:var(--text); line-height:1; margin-bottom:8px; }
+.cs-stat-label { font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-faint); }
+
+/* Image block — full bleed within max-width */
+.cs-image-block { width:100%; aspect-ratio:16/7; background:var(--card-bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin:0 0 0 0; position:relative; }
+.cs-image-block img { width:100%; height:100%; object-fit:cover; display:block; }
+.cs-image-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); }
+
+/* Section blocks */
+.cs-section { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:80px 0; border-top:1px solid var(--border); align-items:start; }
+.cs-section-label { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-bottom:20px; }
+.cs-section-headline { font-size:clamp(1.4rem,3vw,2.2rem); font-weight:300; letter-spacing:-0.02em; color:var(--text); line-height:1.2; }
+.cs-section-body { font-size:0.9rem; color:var(--text-muted); line-height:1.8; }
+.cs-section-body p { margin:0 0 16px; }
+.cs-section-body p:last-child { margin-bottom:0; }
+
+/* Checklist */
+.cs-checklist { list-style:none; padding:0; margin:20px 0 0; display:flex; flex-direction:column; gap:10px; }
+.cs-checklist li { display:flex; align-items:flex-start; gap:12px; font-size:0.88rem; color:var(--text-muted); line-height:1.5; }
+.cs-checklist li::before { content:''; width:16px; height:16px; min-width:16px; border:1px solid var(--border-mid); border-radius:50%; margin-top:2px; background:none; position:relative; }
+.cs-checklist li::before { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.5' fill='none' stroke='%23555' stroke-width='1'/%3E%3Cpath d='M4.5 8l2.5 2.5 4-5' fill='none' stroke='%23888' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-size:contain; background-repeat:no-repeat; border:none; }
+
+/* Full-width coloured image band */
+.cs-band { width:100%; margin:0; overflow:hidden; }
+.cs-band-img { width:100%; aspect-ratio:21/9; object-fit:cover; display:block; }
+.cs-band-placeholder { width:100%; aspect-ratio:21/9; background:var(--surface); display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); }
+
+/* More work footer */
+.cs-more { border-top:1px solid var(--border); padding:72px 0 100px; }
+.cs-more-label { font-size:clamp(1.6rem,3.5vw,2.8rem); font-weight:300; letter-spacing:-0.02em; color:var(--text); margin-bottom:48px; }
+.cs-more-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:48px; }
+.cs-more-card { display:block; text-decoration:none; border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color .25s; }
+.cs-more-card:hover { border-color:var(--border-mid); }
+.cs-more-thumb { width:100%; aspect-ratio:16/9; background:var(--card-bg); display:flex; align-items:center; justify-content:center; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); }
+.cs-more-info { padding:20px; border-top:1px solid var(--border); }
+.cs-more-title { font-size:0.95rem; font-weight:400; color:var(--text); margin-bottom:4px; }
+.cs-more-sub { font-size:0.78rem; color:var(--text-muted); }
+.cs-more-actions { display:flex; align-items:center; gap:24px; }
+.cs-all-work { font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:2px; transition:color .2s, border-color .2s; }
+.cs-all-work:hover { color:var(--text); border-color:var(--text-muted); }
+.cs-contact-btn { font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--bg); background:var(--text); border-radius:100px; padding:14px 28px; text-decoration:none; transition:opacity .2s; }
+.cs-contact-btn:hover { opacity:0.8; }
+
+@media (max-width:900px) {
+  .cs-wrap { padding:0 20px; }
+  .cs-header { flex-direction:column; gap:16px; padding:40px 0 32px; }
+  .cs-client-logo { text-align:left; }
+  .cs-intro { grid-template-columns:1fr; gap:32px; padding:48px 0; }
+  .cs-stats { grid-template-columns:1fr 1fr; }
+  .cs-stats .cs-stat:nth-child(3) { grid-column:1/-1; border-right:none; border-top:1px solid var(--border); }
+  .cs-section { grid-template-columns:1fr; gap:28px; padding:48px 0; }
+  .cs-more-grid { grid-template-columns:1fr; }
+  .cs-more { padding:48px 0 80px; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<nav>
+  <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work" class="active">Work</a></li>
+    <li class="nav-has-dropdown">
+      <a href="/services">Services</a>
+      <div class="nav-dropdown">
+        <a href="/services/web-design" class="nav-dropdown-item">Web Design &amp; Development</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
+      </div>
+    </li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom">
+    <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="cs-wrap">
+  <div class="cs-header">
+    <h1 class="cs-client-name">Kommersant</h1>
+    <div class="cs-client-logo">Kommersant.</div>
+  </div>
+</div>
+
+<hr class="cs-divider">
+
+<!-- INTRO -->
+<div class="cs-wrap">
+  <div class="cs-intro">
+    <div class="cs-intro-left">
+      <div class="cs-meta">
+        <span class="cs-meta-pill">Social Media Marketing</span>
+        <span class="cs-meta-pill">Paid Advertising</span>
+        <span class="cs-meta-pill">Content Strategy</span>
+        <span class="cs-meta-pill">2024</span>
+      </div>
+      <p class="cs-overview-text">Kommersant is one of Russia's oldest and most respected business and news publications, with a legacy spanning over three decades. Known for its authoritative financial and political reporting, the brand needed to establish a dominant presence on Telegram — the platform that had become the primary news channel for Russian-speaking audiences globally.</p>
+      <p class="cs-overview-text" style="margin-top:16px;">They came to us to grow their subscriber base aggressively, without compromising editorial credibility.</p>
+    </div>
+    <div class="cs-intro-right">
+      <div class="cs-image-block">
+        <div class="cs-image-placeholder">Project image — add yours here</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="cs-stats">
+    <div class="cs-stat">
+      <div class="cs-stat-num">266%</div>
+      <div class="cs-stat-label">Subscriber growth</div>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat-num">65k → 240k</div>
+      <div class="cs-stat-label">Subscribers gained</div>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat-num">2024</div>
+      <div class="cs-stat-label">Year delivered</div>
+    </div>
+  </div>
+</div>
+
+<!-- FULL BAND IMAGE -->
+<div class="cs-band" style="margin:60px 0 0;">
+  <div class="cs-band-placeholder">Full-width image — add yours here</div>
+</div>
+
+<!-- CHALLENGE -->
+<div class="cs-wrap">
+  <div class="cs-section">
+    <div>
+      <div class="cs-section-label">The Challenge</div>
+      <h2 class="cs-section-headline">A trusted name that needed to compete in a crowded feed</h2>
+    </div>
+    <div class="cs-section-body">
+      <p>Telegram's news ecosystem is brutally competitive. Thousands of channels fight for attention daily, and audience loyalty is fragile — one slow news cycle and readers move on. Kommersant had strong brand equity offline and on the web, but their Telegram presence hadn't kept pace.</p>
+      <p>At 65,000 subscribers, the channel was punching well below its weight relative to the brand's reach. Growth had plateaued, organic discovery was limited, and the content cadence wasn't optimised for the platform's consumption habits.</p>
+      <p>The goal: reach 200,000+ subscribers within the year, while keeping the tone and standards the brand is known for.</p>
+    </div>
+  </div>
+</div>
+
+<!-- APPROACH -->
+<div class="cs-wrap">
+  <div class="cs-section">
+    <div>
+      <div class="cs-section-label">The Approach</div>
+      <h2 class="cs-section-headline">Content precision combined with targeted paid growth</h2>
+    </div>
+    <div>
+      <div class="cs-section-body">
+        <p>We built a dual-track strategy: sharpen the organic content to retain and convert, then amplify with paid advertising to accelerate discovery.</p>
+      </div>
+      <ul class="cs-checklist">
+        <li>Content audit and posting cadence restructure — identifying peak engagement windows and aligning output to them</li>
+        <li>Editorial format development — shorter, sharper posts designed for Telegram's mobile-first read behaviour</li>
+        <li>Headline and hook optimisation — testing different opening lines to improve message preview click-through</li>
+        <li>Paid subscriber acquisition campaigns across Telegram Ads targeting Russian-speaking news audiences globally</li>
+        <li>Cross-promotion strategy with aligned channels to build credibility and reach</li>
+        <li>Monthly performance reporting with iterative creative and targeting adjustments</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECOND IMAGE BAND -->
+<div class="cs-band">
+  <div class="cs-band-placeholder">Full-width image — add yours here</div>
+</div>
+
+<!-- RESULTS -->
+<div class="cs-wrap">
+  <div class="cs-section">
+    <div>
+      <div class="cs-section-label">The Results</div>
+      <h2 class="cs-section-headline">From 65,000 to 240,000 — a 266% increase in under a year</h2>
+    </div>
+    <div class="cs-section-body">
+      <p>The channel grew from 65,000 to 240,000 subscribers over the course of the campaign — a 266% increase that placed Kommersant's Telegram firmly among the top-tier business news channels on the platform.</p>
+      <p>Engagement rates improved alongside subscriber numbers, validating the content strategy work. The audience that came in through paid acquisition stayed and read — not just subscribed and left.</p>
+      <p>Kommersant now has a Telegram presence that matches the weight of their wider editorial brand.</p>
+    </div>
+  </div>
+
+  <!-- MORE WORK -->
+  <div class="cs-more">
+    <div class="cs-more-label">More work like this</div>
+    <div class="cs-more-grid">
+      <a href="case-study-automotive.html" class="cs-more-card">
+        <div class="cs-more-thumb">Project image</div>
+        <div class="cs-more-info">
+          <div class="cs-more-title">Automotive Brand</div>
+          <div class="cs-more-sub">Influencer marketing across Instagram, TikTok &amp; YouTube</div>
+        </div>
+      </a>
+      <a href="case-study-sterling-pines.html" class="cs-more-card">
+        <div class="cs-more-thumb">Project image</div>
+        <div class="cs-more-info">
+          <div class="cs-more-title">Sterling Pines Golf Club</div>
+          <div class="cs-more-sub">Website build &amp; SEO optimisation</div>
+        </div>
+      </a>
+    </div>
+    <div class="cs-more-actions">
+      <a href="/work" class="cs-all-work">All Work</a>
+      <a href="/contact" class="cs-contact-btn">Let's talk →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="webature-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

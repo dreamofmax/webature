@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automotive Brand — Webature</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+
+.cs-wrap { max-width:1400px; margin:0 auto; padding:0 40px; }
+.cs-header { padding:60px 0 40px; display:flex; align-items:flex-start; justify-content:space-between; gap:40px; }
+.cs-client-name { font-size:clamp(2rem,5vw,3.8rem); font-weight:300; letter-spacing:-0.03em; color:var(--text); line-height:1; }
+.cs-nda-badge { display:inline-flex; align-items:center; gap:8px; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); border:1px solid var(--border-mid); border-radius:100px; padding:8px 16px; margin-top:14px; }
+.cs-client-logo { font-size:clamp(1.4rem,3vw,2.4rem); font-weight:500; letter-spacing:-0.02em; color:var(--text); opacity:0.5; text-align:right; }
+.cs-divider { border:none; border-top:1px solid var(--border); margin:0; }
+.cs-intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:72px 0; align-items:start; }
+.cs-overview-text { font-size:1rem; color:var(--text-muted); line-height:1.8; }
+.cs-meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
+.cs-meta-pill { font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid var(--border-mid); border-radius:100px; padding:6px 14px; color:var(--text-faint); }
+.cs-stats { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.cs-stat { padding:40px 0; border-right:1px solid var(--border); }
+.cs-stat:last-child { border-right:none; padding-left:40px; }
+.cs-stat:not(:first-child) { padding-left:40px; }
+.cs-stat-num { font-size:clamp(2.2rem,5vw,3.6rem); font-weight:300; letter-spacing:-0.04em; color:var(--text); line-height:1; margin-bottom:8px; }
+.cs-stat-label { font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-faint); }
+.cs-image-block { width:100%; aspect-ratio:16/7; background:var(--card-bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; position:relative; }
+.cs-image-block img { width:100%; height:100%; object-fit:cover; display:block; }
+.cs-image-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); }
+.cs-section { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:80px 0; border-top:1px solid var(--border); align-items:start; }
+.cs-section-label { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-bottom:20px; }
+.cs-section-headline { font-size:clamp(1.4rem,3vw,2.2rem); font-weight:300; letter-spacing:-0.02em; color:var(--text); line-height:1.2; }
+.cs-section-body { font-size:0.9rem; color:var(--text-muted); line-height:1.8; }
+.cs-section-body p { margin:0 0 16px; }
+.cs-section-body p:last-child { margin-bottom:0; }
+.cs-checklist { list-style:none; padding:0; margin:20px 0 0; display:flex; flex-direction:column; gap:10px; }
+.cs-checklist li { display:flex; align-items:flex-start; gap:12px; font-size:0.88rem; color:var(--text-muted); line-height:1.5; }
+.cs-checklist li::before { content:''; width:16px; height:16px; min-width:16px; border:none; border-radius:50%; margin-top:2px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.5' fill='none' stroke='%23555' stroke-width='1'/%3E%3Cpath d='M4.5 8l2.5 2.5 4-5' fill='none' stroke='%23888' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-size:contain; background-repeat:no-repeat; }
+
+/* Tier table */
+.cs-tier-table { width:100%; border-collapse:collapse; margin-top:20px; }
+.cs-tier-table th { font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); text-align:left; padding:10px 0; border-bottom:1px solid var(--border); font-weight:400; }
+.cs-tier-table td { font-size:0.85rem; color:var(--text-muted); padding:14px 0; border-bottom:1px solid var(--border); vertical-align:top; }
+.cs-tier-table td:first-child { color:var(--text); font-weight:500; padding-right:20px; }
+.cs-tier-table tr:last-child td { border-bottom:none; }
+
+.cs-band { width:100%; margin:0; overflow:hidden; }
+.cs-band-placeholder { width:100%; aspect-ratio:21/9; background:var(--surface); display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); }
+.cs-more { border-top:1px solid var(--border); padding:72px 0 100px; }
+.cs-more-label { font-size:clamp(1.6rem,3.5vw,2.8rem); font-weight:300; letter-spacing:-0.02em; color:var(--text); margin-bottom:48px; }
+.cs-more-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:48px; }
+.cs-more-card { display:block; text-decoration:none; border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color .25s; }
+.cs-more-card:hover { border-color:var(--border-mid); }
+.cs-more-thumb { width:100%; aspect-ratio:16/9; background:var(--card-bg); display:flex; align-items:center; justify-content:center; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); }
+.cs-more-info { padding:20px; border-top:1px solid var(--border); }
+.cs-more-title { font-size:0.95rem; font-weight:400; color:var(--text); margin-bottom:4px; }
+.cs-more-sub { font-size:0.78rem; color:var(--text-muted); }
+.cs-more-actions { display:flex; align-items:center; gap:24px; }
+.cs-all-work { font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:2px; transition:color .2s, border-color .2s; }
+.cs-all-work:hover { color:var(--text); border-color:var(--text-muted); }
+.cs-contact-btn { font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--bg); background:var(--text); border-radius:100px; padding:14px 28px; text-decoration:none; transition:opacity .2s; }
+.cs-contact-btn:hover { opacity:0.8; }
+
+@media (max-width:900px) {
+  .cs-wrap { padding:0 20px; }
+  .cs-header { flex-direction:column; gap:16px; padding:40px 0 32px; }
+  .cs-client-logo { text-align:left; }
+  .cs-intro { grid-template-columns:1fr; gap:32px; padding:48px 0; }
+  .cs-stats { grid-template-columns:1fr 1fr; }
+  .cs-stats .cs-stat:nth-child(3) { grid-column:1/-1; border-right:none; border-top:1px solid var(--border); }
+  .cs-section { grid-template-columns:1fr; gap:28px; padding:48px 0; }
+  .cs-more-grid { grid-template-columns:1fr; }
+  .cs-more { padding:48px 0 80px; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<nav>
+  <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work" class="active">Work</a></li>
+    <li class="nav-has-dropdown">
+      <a href="/services">Services</a>
+      <div class="nav-dropdown">
+        <a href="/services/web-design" class="nav-dropdown-item">Web Design &amp; Development</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
+      </div>
+    </li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom">
+    <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="cs-wrap">
+  <div class="cs-header">
+    <div>
+      <h1 class="cs-client-name">Automotive Brand</h1>
+      <div class="cs-nda-badge">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="8" height="5.5" rx="1" stroke="currentColor" stroke-width="1"/><path d="M3 4V3a2 2 0 0 1 4 0v1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+        Client name withheld under NDA
+      </div>
+    </div>
+    <div class="cs-client-logo">NDA.</div>
+  </div>
+</div>
+
+<hr class="cs-divider">
+
+<!-- INTRO -->
+<div class="cs-wrap">
+  <div class="cs-intro">
+    <div class="cs-intro-left">
+      <div class="cs-meta">
+        <span class="cs-meta-pill">Influencer Marketing</span>
+        <span class="cs-meta-pill">Instagram</span>
+        <span class="cs-meta-pill">TikTok</span>
+        <span class="cs-meta-pill">YouTube</span>
+        <span class="cs-meta-pill">2025</span>
+      </div>
+      <p class="cs-overview-text">An established automotive brand wanted to drive mass awareness and genuine cultural conversation around a new model launch. Traditional media alone wasn't enough — they needed to meet their audience where they actually spend time, and in a voice they actually trust.</p>
+      <p class="cs-overview-text" style="margin-top:16px;">We designed and executed a full-funnel influencer marketing campaign spanning Instagram, TikTok, and YouTube — coordinating creators from 5,000 to over 1 million followers to deliver reach, authenticity, and measurable impact at every level of the funnel.</p>
+      <p class="cs-overview-text" style="margin-top:16px;font-style:italic;font-size:0.82rem;">Due to NDA, the client name and specific campaign metrics are not disclosed.</p>
+    </div>
+    <div class="cs-intro-right">
+      <div class="cs-image-block">
+        <div class="cs-image-placeholder">Project image — add yours here</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="cs-stats">
+    <div class="cs-stat">
+      <div class="cs-stat-num">3</div>
+      <div class="cs-stat-label">Platforms activated</div>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat-num">5k–1m+</div>
+      <div class="cs-stat-label">Creator reach range</div>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat-num">2025</div>
+      <div class="cs-stat-label">Year delivered</div>
+    </div>
+  </div>
+</div>
+
+<!-- FULL BAND IMAGE -->
+<div class="cs-band" style="margin:60px 0 0;">
+  <div class="cs-band-placeholder">Full-width image — add yours here</div>
+</div>
+
+<!-- CHALLENGE -->
+<div class="cs-wrap">
+  <div class="cs-section">
+    <div>
+      <div class="cs-section-label">The Challenge</div>
+      <h2 class="cs-section-headline">Cutting through in a category where everyone is shouting</h2>
+    </div>
+    <div class="cs-section-body">
+      <p>The automotive space is one of the most contested categories in influencer marketing. Every brand is in creators' feeds, budgets are large, and audiences are increasingly sceptical of paid partnerships that feel transactional.</p>
+      <p>The brand needed a campaign that didn't just generate impressions — it needed to generate conviction. The brief called for authentic content that would reach car enthusiasts, lifestyle audiences, and younger first-time buyers simultaneously, across three very different platform cultures.</p>
+      <p>The challenge was coordination: getting the right message delivered in the right format, by the right voices, on the right platform — without it feeling like a corporate rollout.</p>
+    </div>
+  </div>
+</div>
+
+<!-- APPROACH -->
+<div class="cs-wrap">
+  <div class="cs-section">
+    <div>
+      <div class="cs-section-label">The Approach</div>
+      <h2 class="cs-section-headline">A tiered creator mix built for reach and resonance</h2>
+    </div>
+    <div>
+      <div class="cs-section-body">
+        <p>We structured the campaign around three creator tiers, each with a distinct role in the funnel:</p>
+      </div>
+      <table class="cs-tier-table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Size</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nano / Micro</td>
+            <td>5k – 50k</td>
+            <td>Authenticity and community trust — high engagement, niche audiences</td>
+          </tr>
+          <tr>
+            <td>Mid-tier</td>
+            <td>50k – 500k</td>
+            <td>Broad reach with retained credibility — the backbone of the campaign</td>
+          </tr>
+          <tr>
+            <td>Macro / Mega</td>
+            <td>500k – 1m+</td>
+            <td>Mass awareness and cultural moment — launch amplification</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="cs-checklist" style="margin-top:24px;">
+        <li>Platform-specific creative briefs — short-form vertical for TikTok &amp; Reels, long-form review content for YouTube</li>
+        <li>Creator vetting and outreach — selecting for audience alignment, not just follower count</li>
+        <li>Content review and approval workflow to maintain brand standards without stifling creator voice</li>
+        <li>Campaign tracking across all three platforms with unified reporting</li>
+        <li>Performance optimisation mid-campaign — doubling down on best-performing creators and formats</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECOND BAND -->
+<div class="cs-band">
+  <div class="cs-band-placeholder">Full-width image — add yours here</div>
+</div>
+
+<!-- RESULTS -->
+<div class="cs-wrap">
+  <div class="cs-section">
+    <div>
+      <div class="cs-section-label">The Results</div>
+      <h2 class="cs-section-headline">Multi-platform reach with measurable impact across all tiers</h2>
+    </div>
+    <div class="cs-section-body">
+      <p>The campaign delivered across all three objectives: reach, engagement, and sentiment. The tiered creator approach proved its value — micro creators drove exceptional engagement rates among niche enthusiasts, while macro creators produced the cultural moment the launch needed.</p>
+      <p>Platform-specific content outperformed generic brand content across every metric measured. TikTok drove the highest volume of organic reshares; YouTube reviews generated sustained long-tail views weeks after the launch window.</p>
+      <p>Specific metrics are withheld under NDA, but the campaign has since informed the brand's ongoing influencer strategy.</p>
+    </div>
+  </div>
+
+  <!-- MORE WORK -->
+  <div class="cs-more">
+    <div class="cs-more-label">More work like this</div>
+    <div class="cs-more-grid">
+      <a href="case-study-kommersant.html" class="cs-more-card">
+        <div class="cs-more-thumb">Project image</div>
+        <div class="cs-more-info">
+          <div class="cs-more-title">Kommersant</div>
+          <div class="cs-more-sub">266% Telegram growth — 65k to 240k subscribers</div>
+        </div>
+      </a>
+      <a href="case-study-sterling-pines.html" class="cs-more-card">
+        <div class="cs-more-thumb">Project image</div>
+        <div class="cs-more-info">
+          <div class="cs-more-title">Sterling Pines Golf Club</div>
+          <div class="cs-more-sub">Website build &amp; SEO optimisation</div>
+        </div>
+      </a>
+    </div>
+    <div class="cs-more-actions">
+      <a href="/work" class="cs-all-work">All Work</a>
+      <a href="/contact" class="cs-contact-btn">Let's talk →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="webature-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

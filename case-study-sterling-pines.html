@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sterling Pines Golf Club — Webature</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+
+.cs-wrap { max-width:1400px; margin:0 auto; padding:0 40px; }
+.cs-header { padding:60px 0 40px; display:flex; align-items:flex-start; justify-content:space-between; gap:40px; }
+.cs-client-name { font-size:clamp(2rem,5vw,3.8rem); font-weight:300; letter-spacing:-0.03em; color:var(--text); line-height:1; }
+.cs-client-logo { font-size:clamp(1.4rem,3vw,2.4rem); font-weight:500; letter-spacing:-0.02em; color:var(--text); opacity:0.5; text-align:right; }
+.cs-divider { border:none; border-top:1px solid var(--border); margin:0; }
+.cs-intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:72px 0; align-items:start; }
+.cs-overview-text { font-size:1rem; color:var(--text-muted); line-height:1.8; }
+.cs-meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
+.cs-meta-pill { font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid var(--border-mid); border-radius:100px; padding:6px 14px; color:var(--text-faint); }
+.cs-stats { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.cs-stat { padding:40px 0; border-right:1px solid var(--border); }
+.cs-stat:last-child { border-right:none; padding-left:40px; }
+.cs-stat:not(:first-child) { padding-left:40px; }
+.cs-stat-num { font-size:clamp(2.2rem,5vw,3.6rem); font-weight:300; letter-spacing:-0.04em; color:var(--text); line-height:1; margin-bottom:8px; }
+.cs-stat-label { font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-faint); }
+.cs-image-block { width:100%; aspect-ratio:16/7; background:var(--card-bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; position:relative; }
+.cs-image-block img { width:100%; height:100%; object-fit:cover; display:block; }
+.cs-image-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); }
+.cs-section { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:80px 0; border-top:1px solid var(--border); align-items:start; }
+.cs-section-label { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-bottom:20px; }
+.cs-section-headline { font-size:clamp(1.4rem,3vw,2.2rem); font-weight:300; letter-spacing:-0.02em; color:var(--text); line-height:1.2; }
+.cs-section-body { font-size:0.9rem; color:var(--text-muted); line-height:1.8; }
+.cs-section-body p { margin:0 0 16px; }
+.cs-section-body p:last-child { margin-bottom:0; }
+.cs-checklist { list-style:none; padding:0; margin:20px 0 0; display:flex; flex-direction:column; gap:10px; }
+.cs-checklist li { display:flex; align-items:flex-start; gap:12px; font-size:0.88rem; color:var(--text-muted); line-height:1.5; }
+.cs-checklist li::before { content:''; width:16px; height:16px; min-width:16px; border:none; border-radius:50%; margin-top:2px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.5' fill='none' stroke='%23555' stroke-width='1'/%3E%3Cpath d='M4.5 8l2.5 2.5 4-5' fill='none' stroke='%23888' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-size:contain; background-repeat:no-repeat; }
+.cs-band { width:100%; margin:0; overflow:hidden; }
+.cs-band-placeholder { width:100%; aspect-ratio:21/9; background:var(--surface); display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); }
+.cs-more { border-top:1px solid var(--border); padding:72px 0 100px; }
+.cs-more-label { font-size:clamp(1.6rem,3.5vw,2.8rem); font-weight:300; letter-spacing:-0.02em; color:var(--text); margin-bottom:48px; }
+.cs-more-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:48px; }
+.cs-more-card { display:block; text-decoration:none; border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color .25s; }
+.cs-more-card:hover { border-color:var(--border-mid); }
+.cs-more-thumb { width:100%; aspect-ratio:16/9; background:var(--card-bg); display:flex; align-items:center; justify-content:center; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); }
+.cs-more-info { padding:20px; border-top:1px solid var(--border); }
+.cs-more-title { font-size:0.95rem; font-weight:400; color:var(--text); margin-bottom:4px; }
+.cs-more-sub { font-size:0.78rem; color:var(--text-muted); }
+.cs-more-actions { display:flex; align-items:center; gap:24px; }
+.cs-all-work { font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:2px; transition:color .2s, border-color .2s; }
+.cs-all-work:hover { color:var(--text); border-color:var(--text-muted); }
+.cs-contact-btn { font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--bg); background:var(--text); border-radius:100px; padding:14px 28px; text-decoration:none; transition:opacity .2s; }
+.cs-contact-btn:hover { opacity:0.8; }
+
+/* Deliverables two-col list */
+.cs-two-col { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:20px; }
+.cs-two-col li { display:flex; align-items:flex-start; gap:12px; font-size:0.88rem; color:var(--text-muted); line-height:1.5; padding:10px 0; border-bottom:1px solid var(--border); list-style:none; }
+.cs-two-col li::before { content:''; width:16px; height:16px; min-width:16px; border:none; margin-top:2px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.5' fill='none' stroke='%23555' stroke-width='1'/%3E%3Cpath d='M4.5 8l2.5 2.5 4-5' fill='none' stroke='%23888' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-size:contain; background-repeat:no-repeat; }
+
+@media (max-width:900px) {
+  .cs-wrap { padding:0 20px; }
+  .cs-header { flex-direction:column; gap:16px; padding:40px 0 32px; }
+  .cs-client-logo { text-align:left; }
+  .cs-intro { grid-template-columns:1fr; gap:32px; padding:48px 0; }
+  .cs-stats { grid-template-columns:1fr 1fr; }
+  .cs-stats .cs-stat:nth-child(3) { grid-column:1/-1; border-right:none; border-top:1px solid var(--border); }
+  .cs-section { grid-template-columns:1fr; gap:28px; padding:48px 0; }
+  .cs-two-col { grid-template-columns:1fr; }
+  .cs-more-grid { grid-template-columns:1fr; }
+  .cs-more { padding:48px 0 80px; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<nav>
+  <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work" class="active">Work</a></li>
+    <li class="nav-has-dropdown">
+      <a href="/services">Services</a>
+      <div class="nav-dropdown">
+        <a href="/services/web-design" class="nav-dropdown-item">Web Design &amp; Development</a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="/services/digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
+      </div>
+    </li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom">
+    <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="cs-wrap">
+  <div class="cs-header">
+    <h1 class="cs-client-name">Sterling Pines<br>Golf Club</h1>
+    <div class="cs-client-logo">Sterling Pines.</div>
+  </div>
+</div>
+
+<hr class="cs-divider">
+
+<!-- INTRO -->
+<div class="cs-wrap">
+  <div class="cs-intro">
+    <div class="cs-intro-left">
+      <div class="cs-meta">
+        <span class="cs-meta-pill">Web Design</span>
+        <span class="cs-meta-pill">Web Development</span>
+        <span class="cs-meta-pill">SEO</span>
+        <span class="cs-meta-pill">2026</span>
+      </div>
+      <p class="cs-overview-text">Sterling Pines Golf Club is a private members' golf club focused on delivering a premium on-course experience. Despite a strong reputation locally, their digital presence didn't reflect the quality of what they offered — an outdated website that was difficult to navigate on mobile and all but invisible in local search.</p>
+      <p class="cs-overview-text" style="margin-top:16px;">We came in to do it properly: new website, built from scratch, with SEO woven in from the first line of code.</p>
+    </div>
+    <div class="cs-intro-right">
+      <div class="cs-image-block">
+        <div class="cs-image-placeholder">Project image — add yours here</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="cs-stats">
+    <div class="cs-stat">
+      <div class="cs-stat-num">100%</div>
+      <div class="cs-stat-label">Mobile-first build</div>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat-num">Day 1</div>
+      <div class="cs-stat-label">SEO optimised from launch</div>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat-num">2026</div>
+      <div class="cs-stat-label">Year delivered</div>
+    </div>
+  </div>
+</div>
+
+<!-- FULL BAND IMAGE -->
+<div class="cs-band" style="margin:60px 0 0;">
+  <div class="cs-band-placeholder">Full-width image — add yours here</div>
+</div>
+
+<!-- CHALLENGE -->
+<div class="cs-wrap">
+  <div class="cs-section">
+    <div>
+      <div class="cs-section-label">The Challenge</div>
+      <h2 class="cs-section-headline">A premium club with a website that didn't show it</h2>
+    </div>
+    <div class="cs-section-body">
+      <p>Golf clubs operate in a high-consideration category. Prospective members research thoroughly before making contact, and a website that loads slowly, looks dated on mobile, or can't be found in Google is often the end of the conversation before it starts.</p>
+      <p>Sterling Pines had a loyal existing membership but struggled to attract new members through digital channels. Their old site wasn't indexed correctly for local search terms, had no clear conversion path for membership enquiries, and wasn't usable on mobile — where the majority of their traffic was landing.</p>
+      <p>The brief was clear: build something that matches the club's standing and works hard for them in search.</p>
+    </div>
+  </div>
+</div>
+
+<!-- APPROACH -->
+<div class="cs-wrap">
+  <div class="cs-section">
+    <div>
+      <div class="cs-section-label">The Approach</div>
+      <h2 class="cs-section-headline">Design and SEO built together, not bolted on after</h2>
+    </div>
+    <div>
+      <div class="cs-section-body">
+        <p>We ran design and technical SEO in parallel from day one — not as separate phases. Structure, page naming, content hierarchy, and metadata were all planned before a single layout was finalised.</p>
+      </div>
+      <ul class="cs-checklist">
+        <li>Full discovery phase — understanding the member journey, key conversion goals, and local search landscape</li>
+        <li>Site architecture planned around SEO intent: membership, green fees, course information, and contact</li>
+        <li>Mobile-first design throughout — every layout built and tested on small screens first</li>
+        <li>Clean, fast codebase with performance-optimised images and minimal dependencies</li>
+        <li>On-page SEO implementation: title tags, meta descriptions, structured data, internal linking</li>
+        <li>Google Business Profile alignment to strengthen local search presence</li>
+        <li>Clear membership enquiry flow with reduced friction from landing to contact</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECOND BAND -->
+<div class="cs-band">
+  <div class="cs-band-placeholder">Full-width image — add yours here</div>
+</div>
+
+<!-- RESULTS -->
+<div class="cs-wrap">
+  <div class="cs-section">
+    <div>
+      <div class="cs-section-label">The Results</div>
+      <h2 class="cs-section-headline">A site that works as hard off the tee as on it</h2>
+    </div>
+    <div class="cs-section-body">
+      <p>Sterling Pines launched with a website that reflects the quality of the club — clean, fast, and built to be found. The membership-focused structure gives prospective members everything they need to make a decision, and a clear path to get in touch when they're ready.</p>
+      <p>The SEO foundations are in place from day one: correctly structured pages, optimised metadata, local schema, and a site fast enough to rank well on Core Web Vitals. Organic visibility is already improving month on month since launch.</p>
+      <p>The club now has a digital presence that matches what they've always delivered on the course.</p>
+    </div>
+  </div>
+
+  <!-- MORE WORK -->
+  <div class="cs-more">
+    <div class="cs-more-label">More work like this</div>
+    <div class="cs-more-grid">
+      <a href="case-study-automotive.html" class="cs-more-card">
+        <div class="cs-more-thumb">Project image</div>
+        <div class="cs-more-info">
+          <div class="cs-more-title">Automotive Brand</div>
+          <div class="cs-more-sub">Influencer marketing across Instagram, TikTok &amp; YouTube</div>
+        </div>
+      </a>
+      <a href="case-study-kommersant.html" class="cs-more-card">
+        <div class="cs-more-thumb">Project image</div>
+        <div class="cs-more-info">
+          <div class="cs-more-title">Kommersant</div>
+          <div class="cs-more-sub">266% Telegram growth — 65k to 240k subscribers</div>
+        </div>
+      </a>
+    </div>
+    <div class="cs-more-actions">
+      <a href="/work" class="cs-all-work">All Work</a>
+      <a href="/contact" class="cs-contact-btn">Let's talk →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="webature-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
