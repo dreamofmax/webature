@@ -129,6 +129,26 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .group-items li { font-size:0.8rem; color:var(--text-muted); padding-left:12px; position:relative; line-height:1.5; }
 .group-items li::before { content:'—'; position:absolute; left:0; color:var(--text-faint); }
 
+/* BRANDS MARQUEE */
+.brands-strip { background:var(--bg); padding:72px 0; border-top:1px solid var(--border); }
+.brands-label { text-align:center; font-size:0.58rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--text-faint); margin-bottom:40px; }
+.brands-track { overflow:hidden; }
+.brands-inner { display:flex; align-items:center; width:max-content; animation:bq-forward 38s linear infinite; }
+.brands-inner:hover { animation-play-state:paused; }
+.brand-logo { display:flex; align-items:center; padding:0 56px; }
+.brand-logo img {
+  height:28px;
+  width:auto;
+  display:block;
+  opacity:0.35;
+  filter:grayscale(1);
+  transition:opacity .3s, filter .3s;
+}
+.brand-logo img:hover { opacity:0.85; filter:grayscale(0); }
+[data-theme="light"] .brand-logo img { opacity:0.25; }
+[data-theme="light"] .brand-logo img:hover { opacity:0.75; }
+@keyframes bq-forward { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
 /* FAQ */
 .faq-section { background:var(--bg); padding:0 40px 120px; }
 .faq-inner { max-width:1400px; margin:0 auto; }
@@ -250,6 +270,27 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
         <li>Campaign Development</li>
       </ul>
     </a>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands-strip js-reveal">
+  <div class="brands-label">Brands we've worked with</div>
+  <div class="brands-track">
+    <div class="brands-inner">
+      <!-- set 1 -->
+      <div class="brand-logo"><img src="logos/vivienne-westwood.png" alt="Vivienne Westwood"></div>
+      <div class="brand-logo"><img src="logos/dilara-findikoglu.png" alt="Dilara Findikoglu"></div>
+      <div class="brand-logo"><img src="logos/byd.png" alt="BYD"></div>
+      <div class="brand-logo"><img src="logos/plus-samples.png" alt="Plus Samples"></div>
+      <div class="brand-logo"><img src="logos/kommersant.png" alt="Kommersant"></div>
+      <!-- set 2 — duplicate for seamless loop -->
+      <div class="brand-logo"><img src="logos/vivienne-westwood.png" alt="Vivienne Westwood"></div>
+      <div class="brand-logo"><img src="logos/dilara-findikoglu.png" alt="Dilara Findikoglu"></div>
+      <div class="brand-logo"><img src="logos/byd.png" alt="BYD"></div>
+      <div class="brand-logo"><img src="logos/plus-samples.png" alt="Plus Samples"></div>
+      <div class="brand-logo"><img src="logos/kommersant.png" alt="Kommersant"></div>
+    </div>
   </div>
 </section>
 
