@@ -46,8 +46,12 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .project-row:hover .project-logo-box { border-color:var(--border-mid); }
 .project-logo-box img { width:100%; height:100%; object-fit:cover; }
 .project-logo-placeholder { font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); font-weight:500; text-align:center; padding:8px; }
-.project-name { font-size:1.1rem; font-weight:400; margin-bottom:8px; color:var(--text); line-height:1.2; }
+.project-name { font-size:1.1rem; font-weight:400; margin-bottom:4px; color:var(--text); line-height:1.2; }
+.project-subtitle { font-size:0.82rem; font-weight:400; color:var(--text-faint); margin-bottom:10px; line-height:1.4; }
 .project-desc { font-size:0.82rem; color:var(--text-muted); line-height:1.6; max-width:460px; }
+.project-row--linked { cursor:pointer; }
+.project-row--linked .project-logo-box img { transition:transform .4s ease; }
+.project-row--linked:hover .project-logo-box img { transform:scale(1.04); }
 .project-tags { display:flex; flex-wrap:wrap; gap:6px; }
 .project-tag { font-size:0.62rem; letter-spacing:0.06em; border:1px solid var(--border-mid); border-radius:100px; padding:5px 12px; color:var(--text-muted); white-space:nowrap; }
 .project-year { font-size:0.72rem; color:var(--text-faint); letter-spacing:0.08em; }
@@ -112,10 +116,11 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="Web Design">Web Design</button>
     <button class="filter-btn" data-filter="Social Media Marketing">Social Media</button>
+    <button class="filter-btn" data-filter="Influencer Marketing">Influencer</button>
     <button class="filter-btn" data-filter="Content Creation">Content</button>
+    <button class="filter-btn" data-filter="Production">Production</button>
     <button class="filter-btn" data-filter="SEO &amp; Online Visibility">SEO</button>
     <button class="filter-btn" data-filter="Campaign Development">Campaigns</button>
-    <button class="filter-btn" data-filter="Influencer Marketing">Influencer</button>
   </div>
 </div>
 
@@ -151,9 +156,10 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 <script src="shared.js"></script>
 <script>
 const defaultProjects=[
-  {id:'d1',title:'Sterling Pines Golf Club — Website Build & SEO',client:'Sterling Pines',desc:'End-to-end website design, build, and SEO optimisation for a golf club — clean layout, membership-focused structure, mobile-first, and fully optimised for local search.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2026',images:['Images/sterlingpines_thumbnail.jpg'],image:'Images/sterlingpines_thumbnail.jpg',link:'case-study-sterling-pines.html'},
-  {id:'d3',title:'Automotive Brand — Influencer Marketing Campaign',client:'NDA',desc:'Full-funnel influencer marketing campaign for an automotive brand across Instagram, TikTok, and YouTube. Coordinated a mix of creators from nano (5k) to mega (1m+) to drive reach, engagement, and brand awareness at scale.',category:'Influencer Marketing',tags:['Influencer Marketing','Campaign Development','Social Media Marketing'],year:'2025',images:['Images/automotive_thumbnail.jpg'],image:'Images/automotive_thumbnail.jpg',link:'case-study-automotive.html'},
-  {id:'d2',title:'Kommersant — Telegram Growth (65k → 240k)',client:'Kommersant',desc:'Grew a major media brand\'s Telegram channel by 266% — from 65,000 to 240,000 subscribers — through a combination of content strategy and targeted paid advertising.',category:'Social Media Marketing',tags:['Social Media Marketing','Campaign Development'],year:'2024',images:['Images/kommersant_thumbnail.jpg'],image:'Images/kommersant_thumbnail.jpg',link:'case-study-kommersant.html'},
+  {id:'d1',client:'Sterling Pines Golf Club',subtitle:'Website Build & SEO',desc:'End-to-end website design, build, and SEO optimisation for a golf club — clean layout, membership-focused structure, mobile-first, and fully optimised for local search.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2026',images:['Images/sterlingpines_thumbnail.jpg'],image:'Images/sterlingpines_thumbnail.jpg',link:'case-study-sterling-pines.html'},
+  {id:'d3',client:'Automotive Brand',subtitle:'Influencer Marketing Campaign',desc:'Full-funnel influencer marketing campaign for an automotive brand across Instagram, TikTok, and YouTube. Coordinated a mix of creators from nano (5k) to mega (1m+) to drive reach, engagement, and brand awareness at scale.',category:'Influencer Marketing',tags:['Influencer Marketing','Campaign Development','Social Media Marketing'],year:'2025',images:['Images/automotive_thumbnail.jpg'],image:'Images/automotive_thumbnail.jpg',link:'case-study-automotive.html'},
+  {id:'d2',client:'Kommersant',subtitle:'Telegram Growth (65k → 240k)',desc:'Grew a major media brand\'s Telegram channel by 266% — from 65,000 to 240,000 subscribers — through a combination of content strategy and targeted paid advertising.',category:'Social Media Marketing',tags:['Social Media Marketing','Campaign Development'],year:'2024',images:['Images/kommersant_thumbnail.jpg'],image:'Images/kommersant_thumbnail.jpg',link:'case-study-kommersant.html'},
+  {id:'d4',client:'Sputnik1985',subtitle:'New Collection Lookbook',desc:'Lookbook production for Sputnik1985\'s new collection launch — concept through to final deliverables, built for editorial, digital, and social use.',category:'Campaign Development',tags:['Campaign Development','Production'],year:'2025',images:['Images/sputnik1985_thumbnail.jpg'],image:'Images/sputnik1985_thumbnail.jpg',link:'case-study-sputnik1985.html'},
 ];
 function getProjects(){return[...defaultProjects,...JSON.parse(localStorage.getItem('webature_projects')||'[]')];}
 function renderProjects(filter){
@@ -161,18 +167,26 @@ function renderProjects(filter){
   const projects=getProjects().filter(p=>filter==='all'||p.tags.includes(filter)||p.category===filter);
   if(!projects.length){list.innerHTML='<div class="empty-state">No projects in this category yet.</div>';return;}
   list.innerHTML=projects.map(p=>{
-    const thumb = (p.images&&p.images[0]) || p.image || '';
-    const allImgs = p.images && p.images.length ? p.images : (p.image ? [p.image] : []);
-    const imgEl = thumb
-      ? `<img src="${thumb}" alt="${p.title}">`
-      : `<div class="project-logo-placeholder">${(p.client||p.title.split('—')[0]).trim()}</div>`;
-    const extraCount = allImgs.length > 1 ? `<div class="img-extra-count">+${allImgs.length-1}</div>` : '';
-    return `<div class="project-row">
+    const thumb=(p.images&&p.images[0])||p.image||'';
+    const allImgs=p.images&&p.images.length?p.images:(p.image?[p.image]:[]);
+    const clientName=p.client||(p.title||'').split('—')[0].trim();
+    const subtitle=p.subtitle||'';
+    const imgEl=thumb
+      ?`<img src="${thumb}" alt="${clientName}">`
+      :`<div class="project-logo-placeholder">${clientName}</div>`;
+    const extraCount=allImgs.length>1?`<div class="img-extra-count">+${allImgs.length-1}</div>`:'';
+    const rowClass=p.link?'project-row project-row--linked':'project-row';
+    const rowAttr=p.link?`onclick="window.location='${p.link}'"`:''
+    return `<div class="${rowClass}" ${rowAttr}>
       <div><div class="project-logo-box" style="position:relative">${imgEl}${extraCount}</div></div>
-      <div><div class="project-name">${p.title}</div><div class="project-desc">${p.desc}</div></div>
+      <div>
+        <div class="project-name">${clientName}</div>
+        ${subtitle?`<div class="project-subtitle">${subtitle}</div>`:''}
+        <div class="project-desc">${p.desc}</div>
+      </div>
       <div class="project-tags">${(p.tags||[p.category]).map(t=>`<span class="project-tag">${t}</span>`).join('')}</div>
       <div class="project-year">${p.year}</div>
-      ${p.link?`<a href="${p.link}" class="project-cta">See Case Study →</a>`:`<span style="opacity:0"></span>`}
+      ${p.link?`<a href="${p.link}" class="project-cta" onclick="event.stopPropagation()">See Case Study →</a>`:`<span style="opacity:0"></span>`}
     </div>`;
   }).join('');
 }
