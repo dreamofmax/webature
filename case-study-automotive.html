@@ -20,6 +20,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .cs-client-logo { font-size:clamp(1.4rem,3vw,2.4rem); font-weight:500; letter-spacing:-0.02em; color:var(--text); opacity:0.5; text-align:right; }
 .cs-divider { border:none; border-top:1px solid var(--border); margin:0; }
 .cs-intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:72px 0; align-items:start; }
+.cs-intro.cs-intro--solo { grid-template-columns:1fr; max-width:660px; }
 .cs-overview-text { font-size:1rem; color:var(--text-muted); line-height:1.8; }
 .cs-meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
 .cs-meta-pill { font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid var(--border-mid); border-radius:100px; padding:6px 14px; color:var(--text-faint); }
@@ -121,7 +122,10 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
         Client name withheld under NDA
       </div>
     </div>
-    <div class="cs-client-logo">NDA.</div>
+    <div class="cs-client-logo" style="display:flex;align-items:center;gap:10px;opacity:0.4;">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="14" width="24" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 14V10a6 6 0 0 1 12 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="22" r="2" fill="currentColor"/></svg>
+      <span style="font-size:1.1rem;letter-spacing:0.06em;font-weight:400;">NDA</span>
+    </div>
   </div>
 </div>
 
@@ -129,7 +133,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 
 <!-- INTRO -->
 <div class="cs-wrap">
-  <div class="cs-intro">
+  <div class="cs-intro cs-intro--solo">
     <div class="cs-intro-left">
       <div class="cs-meta">
         <span class="cs-meta-pill">Influencer Marketing</span>
@@ -141,11 +145,6 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
       <p class="cs-overview-text">An established automotive brand wanted to drive mass awareness and genuine cultural conversation around a new model launch. Traditional media alone wasn't enough — they needed to meet their audience where they actually spend time, and in a voice they actually trust.</p>
       <p class="cs-overview-text" style="margin-top:16px;">We designed and executed a full-funnel influencer marketing campaign spanning Instagram, TikTok, and YouTube — coordinating creators from 5,000 to over 1 million followers to deliver reach, authenticity, and measurable impact at every level of the funnel.</p>
       <p class="cs-overview-text" style="margin-top:16px;font-style:italic;font-size:0.82rem;">Due to NDA, the client name and specific campaign metrics are not disclosed.</p>
-    </div>
-    <div class="cs-intro-right">
-      <div class="cs-image-block">
-        <img src="automotivebrand_thumbnail.jpeg" alt="Automotive Brand">
-      </div>
     </div>
   </div>
 
@@ -164,11 +163,6 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
       <div class="cs-stat-label">Year delivered</div>
     </div>
   </div>
-</div>
-
-<!-- FULL BAND IMAGE -->
-<div class="cs-band" style="margin:60px 0 0;">
-  <div class="cs-band-placeholder">Full-width image — add yours here</div>
 </div>
 
 <!-- CHALLENGE -->
@@ -234,11 +228,6 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   </div>
 </div>
 
-<!-- SECOND BAND -->
-<div class="cs-band">
-  <div class="cs-band-placeholder">Full-width image — add yours here</div>
-</div>
-
 <!-- RESULTS -->
 <div class="cs-wrap">
   <div class="cs-section">
@@ -258,14 +247,14 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
     <div class="cs-more-label">More work like this</div>
     <div class="cs-more-grid">
       <a href="case-study-kommersant.html" class="cs-more-card">
-        <div class="cs-more-thumb">Project image</div>
+        <div class="cs-more-thumb" style="background:var(--card-bg);overflow:hidden;"><img src="Images/kommersant_thumbnail.jpg" alt="Kommersant" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"></div>
         <div class="cs-more-info">
           <div class="cs-more-title">Kommersant</div>
           <div class="cs-more-sub">266% Telegram growth — 65k to 240k subscribers</div>
         </div>
       </a>
       <a href="case-study-sterling-pines.html" class="cs-more-card">
-        <div class="cs-more-thumb">Project image</div>
+        <div class="cs-more-thumb" style="background:var(--card-bg);overflow:hidden;"><img src="Images/sterlingpines_thumbnail.jpg" alt="Sterling Pines Golf Club" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"></div>
         <div class="cs-more-info">
           <div class="cs-more-title">Sterling Pines Golf Club</div>
           <div class="cs-more-sub">Website build &amp; SEO optimisation</div>

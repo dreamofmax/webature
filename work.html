@@ -151,13 +151,9 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 <script src="shared.js"></script>
 <script>
 const defaultProjects=[
-  {id:'d1',title:'Sterling Pines Golf Club — Website Build & SEO',client:'Sterling Pines',desc:'End-to-end website design, build, and SEO optimisation for a golf club — clean layout, membership-focused structure, mobile-first, and fully optimised for local search.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2026',images:['project-golf-club-1.jpg','project-golf-club-2.jpg','project-golf-club-3.jpg'],image:'project-golf-club-1.jpg',link:'case-study-sterling-pines.html'},
-  {id:'d3',title:'Automotive Brand — Influencer Marketing Campaign',client:'NDA',desc:'Full-funnel influencer marketing campaign for an automotive brand across Instagram, TikTok, and YouTube. Coordinated a mix of creators from nano (5k) to mega (1m+) to drive reach, engagement, and brand awareness at scale.',category:'Influencer Marketing',tags:['Influencer Marketing','Campaign Development','Social Media Marketing'],year:'2025',images:[],image:'',link:'case-study-automotive.html'},
-  {id:'d2',title:'Kommersant — Telegram Growth (65k → 240k)',client:'Kommersant',desc:'Grew a major media brand\'s Telegram channel by 266% — from 65,000 to 240,000 subscribers — through a combination of content strategy and targeted paid advertising.',category:'Social Media Marketing',tags:['Social Media Marketing','Campaign Development'],year:'2024',images:[],image:'',link:'case-study-kommersant.html'},
-  {id:'d4',title:'Web Design — Business Website Rebuild',client:'Client Name',desc:'Full website redesign focused on conversion — clean layout, mobile-first build, and SEO structure from day one.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2025',images:[],image:'',link:''},
-  {id:'d5',title:'Social Media — Monthly Content System',client:'Client Name',desc:'End-to-end social media management across Instagram and LinkedIn — strategy, content calendar, and monthly reporting.',category:'Social Media Marketing',tags:['Social Media Marketing','Content Creation'],year:'2025',images:[],image:'',link:''},
-  {id:'d6',title:'Campaign — Lead Generation for Local Business',client:'Client Name',desc:'Paid social campaign targeting local audience — from strategy through creative to reporting. Delivered 3x ROI in 60 days.',category:'Campaign Development',tags:['Campaign Development','Social Media Marketing'],year:'2024',images:[],image:'',link:''},
-  {id:'d7',title:'Photography — Brand & Course Shoot',client:'Client Name',desc:'Professional photography for a website and social channels — course, lifestyle and team photography that showcases the full brand experience.',category:'Content Creation',tags:['Content Creation','Photography'],year:'2024',images:[],image:'',link:''},
+  {id:'d1',title:'Sterling Pines Golf Club — Website Build & SEO',client:'Sterling Pines',desc:'End-to-end website design, build, and SEO optimisation for a golf club — clean layout, membership-focused structure, mobile-first, and fully optimised for local search.',category:'Web Design',tags:['Web Design','SEO & Online Visibility'],year:'2026',images:['Images/sterlingpines_thumbnail.jpg'],image:'Images/sterlingpines_thumbnail.jpg',link:'case-study-sterling-pines.html'},
+  {id:'d3',title:'Automotive Brand — Influencer Marketing Campaign',client:'NDA',desc:'Full-funnel influencer marketing campaign for an automotive brand across Instagram, TikTok, and YouTube. Coordinated a mix of creators from nano (5k) to mega (1m+) to drive reach, engagement, and brand awareness at scale.',category:'Influencer Marketing',tags:['Influencer Marketing','Campaign Development','Social Media Marketing'],year:'2025',images:['Images/automotive_thumbnail.jpg'],image:'Images/automotive_thumbnail.jpg',link:'case-study-automotive.html'},
+  {id:'d2',title:'Kommersant — Telegram Growth (65k → 240k)',client:'Kommersant',desc:'Grew a major media brand\'s Telegram channel by 266% — from 65,000 to 240,000 subscribers — through a combination of content strategy and targeted paid advertising.',category:'Social Media Marketing',tags:['Social Media Marketing','Campaign Development'],year:'2024',images:['Images/kommersant_thumbnail.jpg'],image:'Images/kommersant_thumbnail.jpg',link:'case-study-kommersant.html'},
 ];
 function getProjects(){return[...defaultProjects,...JSON.parse(localStorage.getItem('webature_projects')||'[]')];}
 function renderProjects(filter){
@@ -176,7 +172,7 @@ function renderProjects(filter){
       <div><div class="project-name">${p.title}</div><div class="project-desc">${p.desc}</div></div>
       <div class="project-tags">${(p.tags||[p.category]).map(t=>`<span class="project-tag">${t}</span>`).join('')}</div>
       <div class="project-year">${p.year}</div>
-      ${p.link?`<a href="${p.link}" target="_blank" class="project-cta">See Case Study →</a>`:`<span style="opacity:0"></span>`}
+      ${p.link?`<a href="${p.link}" class="project-cta">See Case Study →</a>`:`<span style="opacity:0"></span>`}
     </div>`;
   }).join('');
 }
