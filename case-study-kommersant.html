@@ -13,66 +13,39 @@ a.avail-badge--link { text-decoration:none; }
 a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
 [data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
 
-/* ── CASE STUDY LAYOUT ── */
 .cs-wrap { max-width:1400px; margin:0 auto; padding:0 40px; }
-
-/* Header */
-.cs-header { padding:60px 0 40px; display:flex; align-items:flex-start; justify-content:space-between; gap:40px; }
+.cs-header { padding:60px 0 40px; display:flex; align-items:center; justify-content:space-between; gap:40px; }
 .cs-client-name { font-size:clamp(2rem,5vw,3.8rem); font-weight:300; letter-spacing:-0.03em; color:var(--text); line-height:1; }
-.cs-client-logo { font-size:clamp(1.4rem,3vw,2.4rem); font-weight:500; letter-spacing:-0.02em; color:var(--text); opacity:0.5; text-align:right; }
-
+.cs-client-logo { text-align:right; flex-shrink:0; }
+.cs-client-logo img { max-height:52px; max-width:200px; width:auto; height:auto; object-fit:contain; opacity:0.6; display:block; }
 .cs-divider { border:none; border-top:1px solid var(--border); margin:0; }
-
-/* Intro split */
-.cs-intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:72px 0; align-items:start; }
-.cs-intro.cs-intro--solo { grid-template-columns:1fr; max-width:660px; }
-.cs-intro-left { }
-.cs-intro-right { }
+.cs-intro { display:grid; grid-template-columns:1fr; max-width:720px; padding:72px 0; }
 .cs-overview-text { font-size:1rem; color:var(--text-muted); line-height:1.8; }
-
-/* Meta pills */
 .cs-meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
 .cs-meta-pill { font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid var(--border-mid); border-radius:100px; padding:6px 14px; color:var(--text-faint); }
-
-/* Stats bar */
-.cs-stats { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:0; }
+.cs-stats { display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
 .cs-stat { padding:40px 0; border-right:1px solid var(--border); }
 .cs-stat:last-child { border-right:none; padding-left:40px; }
 .cs-stat:not(:first-child) { padding-left:40px; }
 .cs-stat-num { font-size:clamp(2.2rem,5vw,3.6rem); font-weight:300; letter-spacing:-0.04em; color:var(--text); line-height:1; margin-bottom:8px; }
 .cs-stat-label { font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-faint); }
-
-/* Image block — full bleed within max-width */
-.cs-image-block { width:100%; aspect-ratio:16/7; background:var(--card-bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin:0 0 0 0; position:relative; }
-.cs-image-block img { width:100%; height:100%; object-fit:cover; display:block; }
-.cs-image-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); }
-
-/* Section blocks */
 .cs-section { display:grid; grid-template-columns:1fr 1fr; gap:80px; padding:80px 0; border-top:1px solid var(--border); align-items:start; }
 .cs-section-label { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-bottom:20px; }
 .cs-section-headline { font-size:clamp(1.4rem,3vw,2.2rem); font-weight:300; letter-spacing:-0.02em; color:var(--text); line-height:1.2; }
 .cs-section-body { font-size:0.9rem; color:var(--text-muted); line-height:1.8; }
 .cs-section-body p { margin:0 0 16px; }
 .cs-section-body p:last-child { margin-bottom:0; }
-
-/* Checklist */
 .cs-checklist { list-style:none; padding:0; margin:20px 0 0; display:flex; flex-direction:column; gap:10px; }
 .cs-checklist li { display:flex; align-items:flex-start; gap:12px; font-size:0.88rem; color:var(--text-muted); line-height:1.5; }
-.cs-checklist li::before { content:''; width:16px; height:16px; min-width:16px; border:1px solid var(--border-mid); border-radius:50%; margin-top:2px; background:none; position:relative; }
-.cs-checklist li::before { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.5' fill='none' stroke='%23555' stroke-width='1'/%3E%3Cpath d='M4.5 8l2.5 2.5 4-5' fill='none' stroke='%23888' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-size:contain; background-repeat:no-repeat; border:none; }
-
-/* Full-width coloured image band */
-.cs-band { width:100%; margin:0; overflow:hidden; }
-.cs-band-img { width:100%; aspect-ratio:21/9; object-fit:cover; display:block; }
-.cs-band-placeholder { width:100%; aspect-ratio:21/9; background:var(--surface); display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); }
-
-/* More work footer */
+.cs-checklist li::before { content:''; width:16px; height:16px; min-width:16px; border:none; border-radius:50%; margin-top:2px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.5' fill='none' stroke='%23555' stroke-width='1'/%3E%3Cpath d='M4.5 8l2.5 2.5 4-5' fill='none' stroke='%23888' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-size:contain; background-repeat:no-repeat; }
 .cs-more { border-top:1px solid var(--border); padding:72px 0 100px; }
 .cs-more-label { font-size:clamp(1.6rem,3.5vw,2.8rem); font-weight:300; letter-spacing:-0.02em; color:var(--text); margin-bottom:48px; }
 .cs-more-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:48px; }
 .cs-more-card { display:block; text-decoration:none; border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color .25s; }
 .cs-more-card:hover { border-color:var(--border-mid); }
-.cs-more-thumb { width:100%; aspect-ratio:16/9; background:var(--card-bg); display:flex; align-items:center; justify-content:center; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); }
+.cs-more-thumb { width:100%; aspect-ratio:16/9; background:var(--card-bg); overflow:hidden; }
+.cs-more-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.cs-more-card:hover .cs-more-thumb img { transform:scale(1.04); }
 .cs-more-info { padding:20px; border-top:1px solid var(--border); }
 .cs-more-title { font-size:0.95rem; font-weight:400; color:var(--text); margin-bottom:4px; }
 .cs-more-sub { font-size:0.78rem; color:var(--text-muted); }
@@ -81,14 +54,12 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .cs-all-work:hover { color:var(--text); border-color:var(--text-muted); }
 .cs-contact-btn { font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--bg); background:var(--text); border-radius:100px; padding:14px 28px; text-decoration:none; transition:opacity .2s; }
 .cs-contact-btn:hover { opacity:0.8; }
-
 @media (max-width:900px) {
   .cs-wrap { padding:0 20px; }
-  .cs-header { flex-direction:column; gap:16px; padding:40px 0 32px; }
+  .cs-header { flex-direction:column; align-items:flex-start; gap:20px; padding:40px 0 32px; }
   .cs-client-logo { text-align:left; }
-  .cs-intro { grid-template-columns:1fr; gap:32px; padding:48px 0; }
+  .cs-intro { padding:48px 0; }
   .cs-stats { grid-template-columns:1fr 1fr; }
-  .cs-stats .cs-stat:nth-child(3) { grid-column:1/-1; border-right:none; border-top:1px solid var(--border); }
   .cs-section { grid-template-columns:1fr; gap:28px; padding:48px 0; }
   .cs-more-grid { grid-template-columns:1fr; }
   .cs-more { padding:48px 0 80px; }
@@ -109,6 +80,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
         <a href="/services/digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
       </div>
     </li>
+    <li><a href="/about">About</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
   <div class="nav-right">
@@ -120,6 +92,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 <div class="mob-drawer">
   <a href="/work" class="mob-drawer-link">Work</a>
   <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
   <div class="mob-drawer-bottom">
     <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
@@ -127,32 +100,30 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   </div>
 </div>
 
-<!-- HEADER -->
 <div class="cs-wrap">
   <div class="cs-header">
     <h1 class="cs-client-name">Kommersant</h1>
-    <div class="cs-client-logo"><img src="Images/kommersant_logo.png" alt="Kommersant" style="max-height:48px;max-width:220px;width:auto;object-fit:contain;opacity:0.7;"></div>
+    <div class="cs-client-logo">
+      <img src="Images/kommersant_logo.png" alt="Kommersant">
+    </div>
   </div>
 </div>
 
 <hr class="cs-divider">
 
-<!-- INTRO -->
 <div class="cs-wrap">
-  <div class="cs-intro cs-intro--solo">
-    <div class="cs-intro-left">
+  <div class="cs-intro">
+    <div>
       <div class="cs-meta">
         <span class="cs-meta-pill">Social Media Marketing</span>
         <span class="cs-meta-pill">Paid Advertising</span>
         <span class="cs-meta-pill">Content Strategy</span>
-        <span class="cs-meta-pill">2024</span>
       </div>
       <p class="cs-overview-text">Kommersant is one of Russia's oldest and most respected business and news publications, with a legacy spanning over three decades. Known for its authoritative financial and political reporting, the brand needed to establish a dominant presence on Telegram — the platform that had become the primary news channel for Russian-speaking audiences globally.</p>
       <p class="cs-overview-text" style="margin-top:16px;">They came to us to grow their subscriber base aggressively, without compromising editorial credibility.</p>
     </div>
   </div>
 
-  <!-- STATS -->
   <div class="cs-stats">
     <div class="cs-stat">
       <div class="cs-stat-num">266%</div>
@@ -162,14 +133,9 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
       <div class="cs-stat-num">65k → 240k</div>
       <div class="cs-stat-label">Subscribers gained</div>
     </div>
-    <div class="cs-stat">
-      <div class="cs-stat-num">2024</div>
-      <div class="cs-stat-label">Year delivered</div>
-    </div>
   </div>
 </div>
 
-<!-- CHALLENGE -->
 <div class="cs-wrap">
   <div class="cs-section">
     <div>
@@ -184,7 +150,6 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   </div>
 </div>
 
-<!-- APPROACH -->
 <div class="cs-wrap">
   <div class="cs-section">
     <div>
@@ -207,7 +172,6 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   </div>
 </div>
 
-<!-- RESULTS -->
 <div class="cs-wrap">
   <div class="cs-section">
     <div>
@@ -221,19 +185,18 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
     </div>
   </div>
 
-  <!-- MORE WORK -->
   <div class="cs-more">
     <div class="cs-more-label">More work like this</div>
     <div class="cs-more-grid">
       <a href="case-study-automotive.html" class="cs-more-card">
-        <div class="cs-more-thumb" style="background:var(--card-bg);overflow:hidden;"><img src="Images/automotive_thumbnail.jpg" alt="Automotive Brand" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"></div>
+        <div class="cs-more-thumb"><img src="Images/automotive_thumbnail.jpg" alt="Automotive Brand" onerror="this.style.display='none'"></div>
         <div class="cs-more-info">
           <div class="cs-more-title">Automotive Brand</div>
           <div class="cs-more-sub">Influencer marketing across Instagram, TikTok &amp; YouTube</div>
         </div>
       </a>
       <a href="case-study-sterling-pines.html" class="cs-more-card">
-        <div class="cs-more-thumb" style="background:var(--card-bg);overflow:hidden;"><img src="Images/sterlingpines_thumbnail.jpg" alt="Sterling Pines Golf Club" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"></div>
+        <div class="cs-more-thumb"><img src="Images/sterlingpines_thumbnail.jpg" alt="Sterling Pines Golf Club" onerror="this.style.display='none'"></div>
         <div class="cs-more-info">
           <div class="cs-more-title">Sterling Pines Golf Club</div>
           <div class="cs-more-sub">Website build &amp; SEO optimisation</div>

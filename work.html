@@ -39,7 +39,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .filter-btn:hover { color:var(--text); border-color:var(--text-muted); }
 .filter-btn.active { background:var(--text); color:var(--bg); border-color:var(--text); }
 .project-list { max-width:1400px; margin:0 auto; padding:0 40px 40px; }
-.project-row { display:grid; grid-template-columns:200px 1fr 220px 100px 180px; gap:24px; align-items:center; padding:32px 0; border-top:1px solid var(--border); transition:background .2s; position:relative; }
+.project-row { display:grid; grid-template-columns:200px 1fr 220px 180px; gap:24px; align-items:center; padding:32px 0; border-top:1px solid var(--border); transition:background .2s; position:relative; }
 .project-row:last-child { border-bottom:1px solid var(--border); }
 .project-row:hover { background:var(--surface); }
 .project-logo-box { width:180px; aspect-ratio:16/9; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:border-color .3s; }
@@ -91,6 +91,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
         <a href="/services/digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
       </div>
     </li>
+    <li><a href="/about">About</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
   <div class="nav-right">
@@ -102,6 +103,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 <div class="mob-drawer">
   <a href="/work" class="mob-drawer-link">Work</a>
   <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
   <div class="mob-drawer-bottom">
     <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
@@ -185,7 +187,7 @@ function renderProjects(filter){
         <div class="project-desc">${p.desc}</div>
       </div>
       <div class="project-tags">${(p.tags||[p.category]).map(t=>`<span class="project-tag">${t}</span>`).join('')}</div>
-      <div class="project-year">${p.year}</div>
+
       ${p.link?`<a href="${p.link}" class="project-cta" onclick="event.stopPropagation()">See Case Study →</a>`:`<span style="opacity:0"></span>`}
     </div>`;
   }).join('');
