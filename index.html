@@ -93,6 +93,9 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,var(--text),transparent); animation:scrollPulse 2s ease-in-out infinite; }
 @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
 .hero-bottom-right { position:absolute; bottom:52px; right:40px; z-index:2; }
+@media (max-width:640px) {
+  .hero-bottom-right { position:static; bottom:auto; right:auto; margin-top:28px; }
+}
 .hero-start-btn { font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border:none; border-radius:100px; padding:13px 24px; text-decoration:none; transition:opacity .2s; white-space:nowrap; display:inline-block; }
 .hero-start-btn:hover { opacity:0.85; }
 
@@ -173,6 +176,58 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .faq-a { display:none; font-size:0.87rem; color:var(--text-muted); line-height:1.8; max-width:680px; padding-bottom:24px; }
 .faq-item.open .faq-a { display:block; }
 @media (max-width:900px) { .faq-section { padding:0 20px 80px; } }
+
+/* ══════════════════════════════════════
+   INDEX — MOBILE OVERHAUL  ≤ 640px
+══════════════════════════════════════ */
+@media (max-width:640px) {
+
+  /* HERO */
+  .hero { padding: 0 20px 48px; }
+  .hero-line1 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
+  .hero-line2 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
+  /* Move CTA into text flow, below heading */
+  .hero-bottom-right {
+    position: static;
+    margin-top: 28px;
+  }
+  /* Scroll hint hidden on mobile — takes up room, confusing on touch */
+  .scroll-hint { display: none; }
+
+  /* MARQUEE */
+  .marquee-strip { padding: 14px 0; }
+  .marquee-inner span { font-size: 0.58rem; letter-spacing: 0.16em; padding: 0 24px; }
+
+  /* REEL (about block) */
+  .reel-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 64px 20px;
+  }
+  .reel-heading { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+  .reel-body { font-size: 0.9rem; margin-bottom: 28px; max-width: 100%; }
+
+  /* SERVICES PREVIEW */
+  .services-preview { padding: 0 20px 80px; }
+  .section-header { margin-bottom: 40px; padding-top: 60px; }
+  .section-header h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .service-groups { grid-template-columns: 1fr; }
+  .service-group { padding: 28px 24px; }
+  .group-name { font-size: 1rem; margin-bottom: 16px; }
+  .group-items li { font-size: 0.78rem; }
+
+  /* BRANDS */
+  .brands-strip { padding: 48px 0; }
+  .brand-logo { padding: 0 32px; }
+  .brand-logo img { height: 44px; }
+
+  /* FAQ */
+  .faq-section { padding: 0 20px 64px; }
+  .faq-header { padding-top: 60px; margin-bottom: 32px; }
+  .faq-header h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .faq-q { font-size: 0.9rem; padding: 20px 0; gap: 16px; }
+  .faq-a { font-size: 0.84rem; padding-bottom: 20px; max-width: 100%; }
+}
 </style>
 </head>
 <body>
@@ -205,7 +260,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   <a href="/services" class="mob-drawer-link">Services</a>
   <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
-  <div class="mob-drawer-bottom">
+  <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
     <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
   </div>
@@ -220,11 +275,11 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   <div class="hero-text">
     <div class="hero-line1">Webature</div>
     <div class="hero-line2">Grow your business online</div>
+    <div class="hero-bottom-right">
+      <a href="/contact" class="hero-start-btn">Start a project →</a>
+    </div>
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
-  <div class="hero-bottom-right">
-    <a href="/contact" class="hero-start-btn">Start a project →</a>
-  </div>
 </section>
 
 <div class="marquee-strip">

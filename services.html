@@ -176,7 +176,7 @@
 }
 .cta-btn:hover { background: var(--text); color: var(--bg); }
 
-/* MOBILE */
+/* MOBILE ≤ 900px */
 @media (max-width: 900px) {
   .services-intro { padding: 100px 20px 60px; }
   .services-layout { grid-template-columns: 1fr; padding: 0 20px; }
@@ -187,6 +187,34 @@
   .service-item-body { border-left: none; padding-left: 0; padding-top: 0; }
   .service-item-name { padding-bottom: 8px; }
   .services-cta-row { padding: 60px 20px 80px; flex-direction: column; align-items: flex-start; }
+}
+
+/* MOBILE DEEP ≤ 640px */
+@media (max-width: 640px) {
+  .services-intro { padding: 80px 20px 48px; }
+  .services-intro h1 { font-size: clamp(2.4rem, 10vw, 4rem); letter-spacing: -0.035em; margin-bottom: 16px; }
+  .services-intro p { font-size: 0.9rem; }
+
+  .services-layout { padding: 0 20px; }
+  .service-group { padding: 36px 0; }
+  .group-eyebrow { font-size: 0.58rem; letter-spacing: 0.18em; margin-bottom: 10px; }
+  .group-heading { font-size: clamp(1.6rem, 7vw, 2.2rem); margin-bottom: 32px; }
+
+  .service-item { padding: 0; }
+  .service-item-name {
+    font-size: 0.85rem;
+    padding: 18px 0 6px;
+    font-weight: 500;
+  }
+  .service-item-body { padding: 0 0 18px; }
+  .service-item-desc { font-size: 0.82rem; line-height: 1.7; }
+
+  .services-cta-row {
+    padding: 48px 20px 72px;
+    gap: 20px;
+  }
+  .services-cta-row p { font-size: 1rem; }
+  .cta-btn { font-size: 0.75rem; padding: 14px 24px; }
 }
 </style>
 </head>
@@ -220,7 +248,7 @@
   <a href="/services" class="mob-drawer-link">Services</a>
   <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
-  <div class="mob-drawer-bottom">
+  <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
     <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
   </div>

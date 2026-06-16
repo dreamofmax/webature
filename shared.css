@@ -204,6 +204,112 @@ footer { background: var(--footer-bg); border-top: 1px solid var(--border); padd
   footer { padding: 40px 20px 28px; }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   MOBILE — COMPREHENSIVE OVERHAUL
+   Target: all phones ≤ 480px and tablets ≤ 640px
+   Desktop (> 900px) is UNTOUCHED — all rules here are inside
+   media queries that never fire on desktop.
+═══════════════════════════════════════════════════════════ */
+
+/* ── Mobile base: better tap targets, no horizontal scroll ── */
+@media (max-width: 640px) {
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; }
+
+  /* ── NAV: tighter, cleaner ── */
+  nav { padding: 0 16px; height: 56px; }
+  .logo img { height: 22px; }
+  .mob-menu-btn { width: 44px; height: 44px; }
+
+  /* ── MOBILE DRAWER: feels native ── */
+  .mob-drawer { top: 56px; padding: 24px 20px 32px; gap: 0; }
+  .mob-drawer-link {
+    padding: 18px 0;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: -0.025em;
+  }
+  .mob-drawer-bottom {
+    margin-top: 32px;
+    gap: 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .mob-drawer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+  .mob-drawer-contact {
+    font-size: 0.78rem !important;
+    color: var(--text-muted) !important;
+  }
+
+  /* ── THEME TOGGLE: always visible, bottom-right on mobile ── */
+  .theme-toggle {
+    bottom: 20px;
+    left: auto;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* ── FOOTER ── */
+  footer { padding: 36px 20px 24px; }
+  .footer-top { flex-direction: column; align-items: flex-start; gap: 14px; padding-bottom: 20px; }
+  .footer-logo img { height: 16px; }
+  .footer-email { font-size: 0.78rem; }
+  .footer-social { margin-left: 0; gap: 16px; }
+  .footer-social a { font-size: 0.65rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .footer-copy { font-size: 0.58rem; }
+  .footer-legal { gap: 14px; }
+  .footer-legal a { font-size: 0.58rem; }
+
+  /* ── PAGE HEADER ── */
+  .page-header { padding: 84px 20px 48px; }
+  .page-header h1 { font-size: clamp(2.4rem, 10vw, 4rem); letter-spacing: -0.03em; }
+}
+
+/* ── Tablet range: 641–900px, already handled by existing 900px breakpoints ── */
+
+/* ── Fine-tuning smallest phones ── */
+@media (max-width: 390px) {
+  .mob-drawer-link { font-size: 1.7rem; }
+  .page-header h1 { font-size: 2.2rem; }
+}
+
+/* ── iOS: prevent auto-zoom on input focus ── */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* ── Nav dropdown: disable on touch (hover doesn't work) ── */
+@media (hover: none) {
+  .nav-dropdown { display: none; }
+  .nav-has-dropdown > a::after { display: inline-block; }
+}
+
+/* ── Smooth momentum scroll everywhere on iOS ── */
+* { -webkit-overflow-scrolling: touch; }
+
+/* ── Better tap highlight ── */
+a, button { -webkit-tap-highlight-color: rgba(255,255,255,0.08); }
+[data-theme="light"] a,
+[data-theme="light"] button { -webkit-tap-highlight-color: rgba(0,0,0,0.06); }
+
 /* ── AVAIL BADGE LINK ── */
 a.avail-badge--link { text-decoration: none; }
 a.avail-badge--link:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.3); color: var(--text); }
