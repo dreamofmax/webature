@@ -110,6 +110,41 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   .jobs-section { padding: 0 20px 80px; }
   .notify-input { width: 100%; }
 }
+
+/* ── CAREERS — DEEP MOBILE ≤ 640px ── */
+@media (max-width: 640px) {
+  .careers-hero { padding: 80px 20px 48px; gap: 32px; }
+  .careers-hero h1 { font-size: clamp(2.4rem, 10vw, 4rem); margin-bottom: 20px; }
+  .careers-hero p { font-size: 0.88rem; margin-bottom: 28px; max-width: 100%; }
+  .careers-contact-nudge { font-size: 0.7rem; }
+
+  .values-section { padding: 0 20px 64px; }
+  .values-label { margin-bottom: 32px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .value-card { padding: 28px 20px; }
+  .value-title { font-size: 0.95rem; }
+  .value-desc { font-size: 0.78rem; }
+
+  .jobs-section { padding: 0 20px 64px; }
+  .jobs-header { padding-top: 48px; margin-bottom: 32px; }
+  .jobs-header h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+
+  .no-jobs { padding: 48px 0 40px; gap: 16px; }
+  .no-jobs h3 { font-size: 1rem; }
+  .no-jobs p { font-size: 0.82rem; }
+
+  .notify-form { flex-direction: column; gap: 10px; }
+  .notify-input {
+    width: 100%;
+    font-size: 16px; /* prevent iOS zoom */
+    padding: 13px 16px;
+  }
+  .notify-btn {
+    width: 100%;
+    padding: 14px 20px;
+    text-align: center;
+  }
+}
 </style>
 </head>
 <body>
@@ -142,7 +177,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
   <a href="/services" class="mob-drawer-link">Services</a>
   <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
-  <div class="mob-drawer-bottom">
+  <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
     <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
   </div>

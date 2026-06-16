@@ -221,7 +221,7 @@
 }
 .about-cta-link:hover { background: var(--text); color: var(--bg); }
 
-/* ─── MOBILE ─── */
+/* ─── MOBILE 900px ─── */
 @media (max-width: 900px) {
   .about-hero { padding: 100px 20px 72px; }
   .about-what { grid-template-columns: 1fr; gap: 24px; padding: 72px 20px; }
@@ -232,6 +232,42 @@
   .about-location { grid-template-columns: 1fr; gap: 24px; padding: 0 20px 72px; }
   .map-container { aspect-ratio: 4/3; }
   .about-cta-band { padding: 72px 20px 100px; flex-direction: column; align-items: flex-start; }
+}
+
+/* ─── MOBILE DEEP ≤ 640px ─── */
+@media (max-width: 640px) {
+  .about-hero { padding: 80px 20px 56px; }
+  .about-hero h1 { font-size: clamp(2.4rem, 10vw, 4rem); letter-spacing: -0.035em; margin-bottom: 28px; }
+  .about-hero-sub { font-size: 0.9rem; }
+
+  .about-what { padding: 56px 20px; gap: 16px; }
+  .about-what-body p { font-size: 0.9rem; }
+
+  .about-mission { padding: 0 20px 56px; }
+  .about-mission-label { margin-bottom: 28px; }
+  .about-mission-statement {
+    font-size: clamp(1.2rem, 5.5vw, 1.8rem);
+    padding-left: 20px;
+    line-height: 1.45;
+  }
+
+  .about-pillars { padding: 0 20px 56px; }
+  .about-pillars-label { margin-bottom: 32px; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .pillar-card { padding: 28px 24px; }
+  .pillar-title { font-size: 1rem; }
+  .pillar-desc { font-size: 0.8rem; }
+
+  .about-services { padding: 0 20px 56px; gap: 16px; }
+  .service-chip { font-size: 0.76rem; padding: 9px 18px; }
+
+  .about-location { padding: 0 20px 56px; gap: 20px; }
+  .location-info p { font-size: 0.88rem; margin-bottom: 16px; }
+  .map-container { aspect-ratio: 1/1; border-radius: 8px; }
+
+  .about-cta-band { padding: 56px 20px 80px; gap: 24px; }
+  .about-cta-band h2 { font-size: clamp(2rem, 9vw, 3rem); }
+  .about-cta-link { font-size: 0.74rem; padding: 14px 24px; }
 }
 </style>
 </head>
@@ -265,7 +301,7 @@
   <a href="/services" class="mob-drawer-link">Services</a>
   <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
-  <div class="mob-drawer-bottom">
+  <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
     <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
   </div>
