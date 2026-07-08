@@ -2,8 +2,6 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/services/web-design", "destination": "/services-web.html" },
-    { "source": "/services/digital-marketing", "destination": "/services-marketing.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/blog", "destination": "/blog.html" },
     { "source": "/work/:slug", "destination": "/work.html" }

@@ -296,12 +296,6 @@ footer { background: var(--footer-bg); border-top: 1px solid var(--border); padd
   }
 }
 
-/* ── Nav dropdown: disable on touch (hover doesn't work) ── */
-@media (hover: none) {
-  .nav-dropdown { display: none; }
-  .nav-has-dropdown > a::after { display: inline-block; }
-}
-
 /* ── Smooth momentum scroll everywhere on iOS ── */
 * { -webkit-overflow-scrolling: touch; }
 
@@ -314,60 +308,3 @@ a, button { -webkit-tap-highlight-color: rgba(255,255,255,0.08); }
 a.avail-badge--link { text-decoration: none; }
 a.avail-badge--link:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.3); color: var(--text); }
 [data-theme="light"] a.avail-badge--link:hover { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.25); }
-
-/* ── SERVICES DROPDOWN ── */
-.nav-has-dropdown {
-  position: relative;
-}
-
-/* don't show the underline ::after on dropdown parent */
-.nav-has-dropdown > a::after { display: none; }
-
-.nav-dropdown {
-  position: absolute;
-  top: calc(100% + 20px);
-  left: 50%;
-  transform: translateX(-50%) translateY(-6px);
-  min-width: 260px;
-  background: var(--surface);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--border-mid);
-  border-radius: 14px;
-  padding: 8px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .22s ease, transform .22s ease;
-  z-index: 300;
-}
-.nav-has-dropdown:hover .nav-dropdown,
-.nav-has-dropdown:focus-within .nav-dropdown {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(-50%) translateY(0);
-}
-/* tiny bridge so mouse can move from link to dropdown */
-.nav-dropdown::before {
-  content: '';
-  position: absolute;
-  top: -20px; left: 0; right: 0; height: 20px;
-}
-.nav-dropdown-item {
-  display: block;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--text-muted);
-  transition: background .18s, color .18s;
-}
-.nav-dropdown-item:hover {
-  background: rgba(255,255,255,0.07);
-  color: var(--text);
-}
-[data-theme="light"] .nav-dropdown-item:hover {
-  background: rgba(0,0,0,0.06);
-}
-.nav-dropdown-divider {
-  height: 1px; background: var(--border); margin: 4px 8px;
-}

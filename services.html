@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Webature</title>
   <!-- SEO -->
-  <meta name="description" content="Digital services from Webature: web design, SEO, content creation, social media marketing, campaign development and digital strategy for businesses.">
+  <meta name="description" content="Professional web design and SEO services from Webature. We build fast, distinctive websites that convert visitors into clients — and get them found on Google.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://webature.co.uk/services">
 
@@ -15,206 +15,110 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://webature.co.uk/services">
   <meta property="og:title" content="Services — Webature">
-  <meta property="og:description" content="Digital services from Webature: web design, SEO, content creation, social media marketing, campaign development and digital strategy for businesses.">
+  <meta property="og:description" content="Professional web design and SEO services from Webature. We build fast, distinctive websites that convert visitors into clients — and get them found on Google.">
   <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
   <meta property="og:site_name" content="Webature">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Services — Webature">
-  <meta name="twitter:description" content="Digital services from Webature: web design, SEO, content creation, social media marketing, campaign development and digital strategy for businesses.">
+  <meta name="twitter:description" content="Professional web design and SEO services from Webature. We build fast, distinctive websites that convert visitors into clients — and get them found on Google.">
   <meta name="twitter:image" content="https://webature.co.uk/og-image.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="/shared.css">
+<link rel="stylesheet" href="/service-page.css">
 <style>
-
-/* PAGE INTRO */
-.services-intro {
-  max-width: 1400px; margin: 0 auto;
-  padding: 140px 40px 80px;
+/* PROCESS SECTION */
+.sp-process {
+  padding: 60px 0;
   border-bottom: 1px solid var(--border);
 }
-.services-intro h1 {
-  font-size: clamp(3rem, 6vw, 6rem);
-  font-weight: 300; letter-spacing: -0.04em; line-height: 1;
-  color: var(--text); margin-bottom: 24px;
+.sp-process h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 300; letter-spacing: -0.03em;
+  color: var(--text); margin-bottom: 48px;
 }
-.services-intro p {
-  font-size: 1rem; color: var(--text-muted); line-height: 1.7;
-  max-width: 500px;
-}
-
-/* STICKY LAYOUT */
-.services-layout {
-  max-width: 1400px; margin: 0 auto;
-  padding: 0 40px;
+.process-steps {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 0;
-  align-items: start;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.process-step {
+  background: var(--bg);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.process-step-num {
+  font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-faint);
+}
+.process-step-title {
+  font-size: 0.92rem; font-weight: 500; color: var(--text);
+  line-height: 1.3;
+}
+.process-step-desc {
+  font-size: 0.8rem; color: var(--text-muted); line-height: 1.7;
+  margin-top: auto;
 }
 
-/* LEFT STICKY NAV */
-.services-nav {
-  position: sticky;
-  top: 64px; /* nav height */
-  padding: 80px 0;
-  display: flex; flex-direction: column;
-  gap: 0;
+/* STATS ROW */
+.sp-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 60px;
 }
-.services-nav-item {
-  display: block;
-  padding: 14px 0;
-  font-size: 0.78rem; font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--text-faint);
-  text-decoration: none;
-  border: none; background: none;
-  text-align: left; cursor: pointer;
-  transition: color 0.3s;
-  border-bottom: 1px solid transparent;
-  font-family: 'DM Sans', sans-serif;
-  position: relative;
+.sp-stat {
+  background: var(--bg);
+  padding: 36px 28px;
 }
-.services-nav-item::before {
-  content: '';
-  position: absolute; left: -24px; top: 50%;
-  transform: translateY(-50%);
-  width: 8px; height: 1px;
-  background: var(--text);
-  opacity: 0;
-  transition: opacity 0.3s;
+.sp-stat-value {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 300; letter-spacing: -0.04em;
+  color: var(--text); line-height: 1; margin-bottom: 8px;
 }
-.services-nav-item.active {
+.sp-stat-label {
+  font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;
+}
+
+/* TECH STRIP */
+.sp-tech {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sp-tech h2 {
+  font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 24px;
+}
+.tech-pills {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.tech-pill {
+  font-size: 0.78rem; color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  padding: 8px 18px;
+  transition: border-color .2s, color .2s;
+}
+.tech-pill:hover {
+  border-color: var(--text-faint);
   color: var(--text);
 }
-.services-nav-item.active::before {
-  opacity: 1;
-}
 
-/* GROUP LABEL under each nav item */
-.services-nav-sub {
-  font-size: 0.62rem; letter-spacing: 0.12em;
-  color: var(--text-faint);
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.3s, max-height 0.3s;
-  padding-left: 0;
-}
-.services-nav-item.active + .services-nav-sub {
-  opacity: 0.5;
-  max-height: 40px;
-}
-
-/* RIGHT SCROLLABLE CONTENT */
-.services-content {
-  border-left: 1px solid var(--border);
-  padding-left: 80px;
-}
-
-.service-group {
-  padding: 80px 0;
-  border-bottom: 1px solid var(--border);
-}
-.service-group:last-child { border-bottom: none; }
-
-.group-eyebrow {
-  font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--text-faint); margin-bottom: 16px;
-}
-.group-heading {
-  font-size: clamp(2rem, 3vw, 3rem);
-  font-weight: 300; letter-spacing: -0.03em; line-height: 1.1;
-  color: var(--text); margin-bottom: 56px;
-}
-
-/* Individual services within group */
-.service-item {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 0;
-  border-top: 1px solid var(--border);
-}
-.service-item:last-child { border-bottom: 1px solid var(--border); }
-.service-item-name {
-  font-size: 0.88rem; font-weight: 500;
-  color: var(--text-dim);
-  padding: 22px 0; padding-right: 32px;
-  letter-spacing: 0.01em;
-  line-height: 1.4;
-}
-.service-item-body {
-  padding: 22px 0;
-  border-left: 1px solid var(--border);
-  padding-left: 32px;
-}
-.service-item-desc {
-  font-size: 0.85rem; color: var(--text-muted); line-height: 1.75;
-}
-
-/* CTA */
-.services-cta-row {
-  max-width: 1400px; margin: 0 auto;
-  padding: 80px 40px 100px;
-  border-top: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 24px;
-}
-.services-cta-row p {
-  font-size: 1.1rem; font-weight: 300;
-  letter-spacing: -0.02em; color: var(--text);
-}
-.cta-btn {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--text); text-decoration: none;
-  border: 1px solid var(--border-mid); border-radius: 100px;
-  padding: 16px 32px; transition: all .3s;
-}
-.cta-btn:hover { background: var(--text); color: var(--bg); }
-
-/* MOBILE ≤ 900px */
 @media (max-width: 900px) {
-  .services-intro { padding: 100px 20px 60px; }
-  .services-layout { grid-template-columns: 1fr; padding: 0 20px; }
-  .services-nav { display: none; }
-  .services-content { border-left: none; padding-left: 0; }
-  .service-group { padding: 52px 0; }
-  .service-item { grid-template-columns: 1fr; }
-  .service-item-body { border-left: none; padding-left: 0; padding-top: 0; }
-  .service-item-name { padding-bottom: 8px; }
-  .services-cta-row { padding: 60px 20px 80px; flex-direction: column; align-items: flex-start; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .sp-stats { grid-template-columns: 1fr; }
 }
-
-/* MOBILE DEEP ≤ 640px */
-@media (max-width: 640px) {
-  .services-intro { padding: 80px 20px 48px; }
-  .services-intro h1 { font-size: clamp(2.4rem, 10vw, 4rem); letter-spacing: -0.035em; margin-bottom: 16px; }
-  .services-intro p { font-size: 0.9rem; }
-
-  .services-layout { padding: 0 20px; }
-  .service-group { padding: 36px 0; }
-  .group-eyebrow { font-size: 0.58rem; letter-spacing: 0.18em; margin-bottom: 10px; }
-  .group-heading { font-size: clamp(1.6rem, 7vw, 2.2rem); margin-bottom: 32px; }
-
-  .service-item { padding: 0; }
-  .service-item-name {
-    font-size: 0.85rem;
-    padding: 18px 0 6px;
-    font-weight: 500;
-  }
-  .service-item-body { padding: 0 0 18px; }
-  .service-item-desc { font-size: 0.82rem; line-height: 1.7; }
-
-  .services-cta-row {
-    padding: 48px 20px 72px;
-    gap: 20px;
-  }
-  .services-cta-row p { font-size: 1rem; }
-  .cta-btn { font-size: 0.75rem; padding: 14px 24px; }
+@media (max-width: 600px) {
+  .process-steps { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -222,17 +126,10 @@
 <div id="cur"></div>
 
 <nav>
-  <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
+  <a href="/" class="logo"><img src="/webature-logo.png" alt="Webature"></a>
   <ul class="nav-links">
     <li><a href="/work">Work</a></li>
-    <li class="nav-has-dropdown">
-      <a href="/services" class="active">Services</a>
-      <div class="nav-dropdown">
-        <a href="/services/web-design" class="nav-dropdown-item">Web Design &amp; Development</a>
-        <div class="nav-dropdown-divider"></div>
-        <a href="/services/digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
-      </div>
-    </li>
+    <li><a href="/services" class="active">Services</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
@@ -248,90 +145,198 @@
   <a href="/services" class="mob-drawer-link">Services</a>
   <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
-  <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
-    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
+  <div class="mob-drawer-bottom">
+    <a href="/contact" class="mob-drawer-badge" style="text-decoration:none;"><span class="avail-dot"></span>Available For Work</a>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
   </div>
 </div>
 
-<!-- PAGE INTRO -->
-<div class="services-intro js-reveal">
-  <h1>What we<br>do best</h1>
-  <p>Webature helps businesses build their online presence, attract clients and grow across digital, content and strategy.</p>
+<!-- HERO -->
+<div class="sp-hero">
+  <div class="sp-hero-inner js-reveal">
+    <h1>Websites that<br>work harder.</h1>
+    <p class="sp-hero-sub">We design and build websites that are fast, distinctive and built to convert, with SEO baked in from day one so people actually find you.</p>
+    <a href="/contact" class="sp-cta-btn">Start a project →</a>
+  </div>
 </div>
 
-<!-- STICKY LAYOUT -->
-<div class="services-layout">
+<!-- BODY -->
+<div class="sp-body">
+  <div class="sp-body-inner">
 
-  <!-- LEFT NAV -->
-  <nav class="services-nav" aria-label="Service groups">
-    <a class="services-nav-item active" data-target="group-web" href="#group-web">Web Design &amp; Development</a>
-    <a class="services-nav-item" data-target="group-marketing" href="#group-marketing">Digital Marketing</a>
-  </nav>
+    <!-- INTRO -->
+    <div class="sp-intro">
+      <h2 class="js-reveal">Your website is your most important salesperson. We make sure it earns its keep.</h2>
+      <p class="js-reveal">Most websites look fine and do nothing. We build sites that are structured to convert: clear hierarchy, fast load times, mobile-first and designed to push visitors toward action. Every page is built with a purpose.</p>
+      <p class="js-reveal">We handle everything from first concept to launch and beyond. Design, copy structure, development, SEO setup. You get one team, one process, one outcome: a site that drives your business forward.</p>
+    </div>
 
-  <!-- RIGHT CONTENT -->
-  <div class="services-content">
-
-    <!-- GROUP 1: WEB DESIGN & DEVELOPMENT -->
-    <div class="service-group" id="group-web">
-      <div class="group-eyebrow">01 — Web Design &amp; Development</div>
-      <a href="/services/web-design" class="group-heading" style="text-decoration:none;color:inherit;display:block;transition:opacity .2s;">Build Your Online<br>Presence</a>
-
-      <div class="service-item">
-        <div class="service-item-name">Web Design</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Distinctive, fast websites built to convert visitors into clients. Clean design, mobile-first, and optimised for search from day one.</div>
-        </div>
+    <!-- STATS -->
+    <div class="sp-stats js-reveal">
+      <div class="sp-stat">
+        <div class="sp-stat-value">3–6</div>
+        <div class="sp-stat-label">Weeks from kickoff to launch, for most projects</div>
       </div>
+      <div class="sp-stat">
+        <div class="sp-stat-value">100%</div>
+        <div class="sp-stat-label">Mobile-first — every site tested across all screen sizes</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-stat-value">£2k+</div>
+        <div class="sp-stat-label">Starting price for a professional business website</div>
+      </div>
+    </div>
 
-      <div class="service-item">
-        <div class="service-item-name">SEO &amp; Online Visibility</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Getting your business found online: keyword strategy, on-page optimisation, local SEO and technical audits that move you up the rankings.</div>
+    <!-- DELIVERABLES -->
+    <div class="sp-deliverables">
+      <h2 class="js-reveal">What's included</h2>
+      <div class="sp-items">
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">01</div>
+          <div>
+            <div class="sp-item-title">Discovery &amp; Strategy</div>
+            <div class="sp-item-desc">We start by understanding your business, your audience and your goals. Every design decision that follows is rooted in what actually needs to happen, not what looks impressive in a portfolio.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">02</div>
+          <div>
+            <div class="sp-item-title">Design &amp; Wireframes</div>
+            <div class="sp-item-desc">Clean, distinctive visual design with no templates and no generic layouts. We design your site from the ground up, with full attention to hierarchy, typography and the experience of navigating it on any device.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">03</div>
+          <div>
+            <div class="sp-item-title">Development &amp; Build</div>
+            <div class="sp-item-desc">Fast, clean code built for performance. Whether that's a custom HTML build, a CMS like Webflow or WordPress, or a headless setup, we match the tech to the project, not the other way around.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">04</div>
+          <div>
+            <div class="sp-item-title">SEO Foundation</div>
+            <div class="sp-item-desc">Every site we build ships with a solid SEO foundation: proper URL structure, meta data, heading hierarchy, image alt text, schema markup and Core Web Vitals compliance. So Google can find and rank you from day one.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">05</div>
+          <div>
+            <div class="sp-item-title">On-Page SEO &amp; Keyword Strategy</div>
+            <div class="sp-item-desc">We identify the searches your ideal clients are making and build content that targets them: service pages, location pages, blog structure. Ranking isn't luck; it's architecture.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">06</div>
+          <div>
+            <div class="sp-item-title">Local SEO &amp; Google Business</div>
+            <div class="sp-item-desc">If your clients are local, you need to show up on Google Maps and in local search results. We optimise your Google Business Profile and build the signals that get you ranking in your area.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">07</div>
+          <div>
+            <div class="sp-item-title">Technical SEO Audits</div>
+            <div class="sp-item-desc">Got an existing site that isn't performing? We run a full technical audit: crawl errors, duplicate content, page speed, mobile usability, backlink profile, and fix what's holding you back.</div>
+          </div>
+        </div>
+
+        <div class="sp-item js-reveal">
+          <div class="sp-item-num">08</div>
+          <div>
+            <div class="sp-item-title">Ongoing Maintenance &amp; Support</div>
+            <div class="sp-item-desc">We don't disappear after launch. Whether you need monthly updates, hosting support, performance monitoring or iterative improvements, we're available to keep your site sharp.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PROCESS -->
+    <div class="sp-process">
+      <h2 class="js-reveal">How it works</h2>
+      <div class="process-steps">
+        <div class="process-step js-reveal">
+          <div class="process-step-num">Step 01</div>
+          <div class="process-step-title">Discovery Call</div>
+          <div class="process-step-desc">We talk through your goals, audience and timeline. No obligation — just an honest conversation about what would actually make sense for your business.</div>
+        </div>
+        <div class="process-step js-reveal">
+          <div class="process-step-num">Step 02</div>
+          <div class="process-step-title">Proposal &amp; Scope</div>
+          <div class="process-step-desc">You get a clear proposal — what we'll build, what it costs, and when it'll be done. We fix the scope so there are no surprises mid-project.</div>
+        </div>
+        <div class="process-step js-reveal">
+          <div class="process-step-num">Step 03</div>
+          <div class="process-step-title">Design &amp; Build</div>
+          <div class="process-step-desc">We design, build and refine with regular check-ins. You'll have visibility at every stage and we move at a pace that keeps things on track.</div>
+        </div>
+        <div class="process-step js-reveal">
+          <div class="process-step-num">Step 04</div>
+          <div class="process-step-title">Launch &amp; Handover</div>
+          <div class="process-step-desc">We handle the launch, set up analytics and walk you through everything. You leave with a site you fully understand and own.</div>
         </div>
       </div>
     </div>
 
-    <!-- GROUP 2: DIGITAL MARKETING -->
-    <div class="service-group" id="group-marketing">
-      <div class="group-eyebrow">02 — Digital Marketing</div>
-      <a href="/services/digital-marketing" class="group-heading" style="text-decoration:none;color:inherit;display:block;transition:opacity .2s;">Grow Your Audience,<br>Win More Clients</a>
-
-      <div class="service-item">
-        <div class="service-item-name">Social Media Marketing</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">End-to-end social management including strategy, content calendar, posting, community management and performance reporting across Instagram, LinkedIn and beyond.</div>
-        </div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-item-name">Influencer Marketing</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Strategic creator partnerships that put your brand in front of the right audience. We handle identification, outreach, briefs and performance tracking.</div>
-        </div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-item-name">Campaign Development</div>
-        <div class="service-item-body">
-          <div class="service-item-desc">Full-cycle campaign planning and execution from the core idea through to paid media, content and reporting. Designed to bring in clients, not just impressions.</div>
-        </div>
+    <!-- TECH STACK -->
+    <div class="sp-tech js-reveal">
+      <h2>Technologies we work with</h2>
+      <div class="tech-pills">
+        <span class="tech-pill">HTML / CSS / JS</span>
+        <span class="tech-pill">Webflow</span>
+        <span class="tech-pill">WordPress</span>
+        <span class="tech-pill">Shopify</span>
+        <span class="tech-pill">React</span>
+        <span class="tech-pill">Next.js</span>
+        <span class="tech-pill">Figma</span>
+        <span class="tech-pill">Google Analytics 4</span>
+        <span class="tech-pill">Google Search Console</span>
+        <span class="tech-pill">Screaming Frog</span>
+        <span class="tech-pill">Ahrefs</span>
+        <span class="tech-pill">Vercel / Netlify</span>
       </div>
     </div>
 
-  </div><!-- /services-content -->
-</div><!-- /services-layout -->
+    <!-- SUITABLE FOR -->
+    <div class="sp-suitable">
+      <h2 class="js-reveal">Who this is for</h2>
+      <div class="sp-tags">
+        <span>Established businesses needing a rebrand</span>
+        <span>New businesses launching online</span>
+        <span>Local businesses missing from Google</span>
+        <span>E-commerce brands</span>
+        <span>Professional services</span>
+        <span>Golf clubs &amp; leisure venues</span>
+        <span>Hospitality &amp; food &amp; drink</span>
+        <span>Startups &amp; scale-ups</span>
+        <span>Brands with a bad existing site</span>
+      </div>
+    </div>
 
-<!-- CTA -->
-<div class="services-cta-row js-reveal">
-  <p>Ready to grow your brand online?</p>
-  <a href="/contact" class="cta-btn">Get in touch →</a>
+  </div>
+</div>
+
+<!-- CTA SECTION -->
+<div class="sp-cta-section">
+  <div class="sp-cta-inner js-reveal">
+    <h2>Ready to build<br>something great?</h2>
+    <p>Tell us about your project and we'll come back with an honest assessment, a clear proposal and no hard sell.</p>
+    <a href="/contact" class="sp-cta-btn">Get in touch →</a>
+  </div>
 </div>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <a href="/" class="footer-logo"><img src="webature-logo.png" alt="Webature"></a>
+      <a href="/" class="footer-logo"><img src="/webature-logo.png" alt="Webature"></a>
       <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
       <div class="footer-social">
         <a href="https://instagram.com/webature" target="_blank">Instagram</a>
@@ -348,53 +353,6 @@
   </div>
 </footer>
 
-<script src="shared.js"></script>
-<script>
-// Sticky left nav — highlight active group on scroll
-(function () {
-  const navItems = document.querySelectorAll('.services-nav-item');
-  const groups = document.querySelectorAll('.service-group');
-
-  if (!navItems.length || !groups.length) return;
-
-  function setActive(id) {
-    navItems.forEach(item => {
-      item.classList.toggle('active', item.dataset.target === id);
-    });
-  }
-
-  // IntersectionObserver — watch each group
-  const io = new IntersectionObserver((entries) => {
-    // Find the topmost intersecting group
-    let topEntry = null;
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        if (!topEntry || entry.boundingClientRect.top < topEntry.boundingClientRect.top) {
-          topEntry = entry;
-        }
-      }
-    });
-    if (topEntry) setActive(topEntry.target.id);
-  }, {
-    rootMargin: '-30% 0px -60% 0px',
-    threshold: 0
-  });
-
-  groups.forEach(g => io.observe(g));
-
-  // Click: smooth scroll
-  navItems.forEach(item => {
-    item.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.getElementById(item.dataset.target);
-      if (target) {
-        const offset = 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
-})();
-</script>
+<script src="/shared.js"></script>
 </body>
 </html>
