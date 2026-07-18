@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webature — Digital Studio for progressive brands</title>
+  <!-- SEO -->
+  <meta name="description" content="Webature is a London-based web design studio helping businesses grow online — with fast, distinctive websites and SEO built in from day one.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webature.co.uk/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webature.co.uk/">
+  <meta property="og:title" content="Webature — Digital Studio for progressive brands">
+  <meta property="og:description" content="Webature is a London-based web design studio helping businesses grow online — with fast, distinctive websites and SEO built in from day one.">
+  <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
+  <meta property="og:site_name" content="Webature">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Webature — Digital Studio for progressive brands">
+  <meta name="twitter:description" content="Webature is a London-based web design studio helping businesses grow online — with fast, distinctive websites and SEO built in from day one.">
+  <meta name="twitter:image" content="https://webature.co.uk/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Webature",
+  "url": "https://webature.co.uk",
+  "logo": "https://webature.co.uk/webature-logo.png",
+  "description": "London-based web design studio helping businesses grow online — web design, development and SEO.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "128 City Road",
+    "addressLocality": "London",
+    "postalCode": "EC1V 2NX",
+    "addressCountry": "GB"
+  },
+  "telephone": "+447774286043",
+  "email": "contact@webature.co.uk",
+  "areaServed": "Worldwide",
+  "serviceType": ["Web Design", "Web Development", "Search Engine Optimization (SEO)"]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* AVAIL BADGE LINK */
+a.avail-badge--link { text-decoration:none; }
+a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
+[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+
+/* HERO */
+.hero { position:relative; width:100vw; height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 40px 52px; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 55% at 50% 40%, rgba(128,128,128,0.04) 0%, transparent 70%); pointer-events:none; z-index:0; }
+.hero-bg { position:absolute; inset:0; z-index:0; background:var(--bg); overflow:hidden; }
+.hero-video {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+/* dark overlay so text reads over grid */
+.hero-bg::after {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(
+    to top,
+    var(--bg) 0%,
+    rgba(0,0,0,0.55) 40%,
+    rgba(0,0,0,0.3) 100%
+  );
+  z-index:1;
+  pointer-events:none;
+}
+[data-theme="light"] .hero-bg::after {
+  background:linear-gradient(
+    to top,
+    var(--bg) 0%,
+    rgba(255,255,255,0.5) 40%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
+.hero-text { position:relative; z-index:2; }
+.hero-line1 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:400; line-height:1.05; letter-spacing:-0.02em; color:var(--text); animation:fadeSlideUp .9s .1s both; }
+.hero-line2 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:300; line-height:1.05; letter-spacing:-0.02em; color:var(--text-muted); animation:fadeSlideUp .9s .25s both; }
+@keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+.scroll-hint { position:absolute; right:40px; top:50%; transform:translateY(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.22; }
+.scroll-hint span { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; writing-mode:vertical-rl; transform:rotate(180deg); color:var(--text); }
+.scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,var(--text),transparent); animation:scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+.hero-bottom-right { position:absolute; bottom:52px; right:40px; z-index:2; }
+@media (max-width:640px) {
+  .hero-bottom-right { position:static; bottom:auto; right:auto; margin-top:28px; }
+}
+.hero-start-btn { font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border:none; border-radius:100px; padding:13px 24px; text-decoration:none; transition:opacity .2s; white-space:nowrap; display:inline-block; }
+.hero-start-btn:hover { opacity:0.85; }
+
+/* MARQUEE */
+.marquee-strip { border-top:1px solid var(--border); border-bottom:1px solid var(--border); overflow:hidden; padding:18px 0; background:var(--bg); }
+.marquee-inner { display:flex; width:max-content; animation:mq 34s linear infinite; }
+.marquee-inner span { font-size:0.62rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-faint); padding:0 36px; white-space:nowrap; }
+.marquee-inner span.sep { color:var(--border-mid); padding:0 12px; }
+@keyframes mq { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ABOUT */
+.reel { background:var(--bg); border-top:1px solid var(--border); }
+.reel-inner { max-width:1400px; margin:0 auto; padding:100px 40px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.reel-label { font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-faint); margin-bottom:20px; }
+.reel-heading { font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; line-height:1.2; letter-spacing:-0.02em; color:var(--text); }
+.reel-heading strong { font-weight:500; }
+.reel-body { font-size:0.93rem; color:var(--text-muted); line-height:1.8; max-width:420px; margin-bottom:36px; }
+.reel-cta { display:inline-flex; align-items:center; gap:12px; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:4px; transition:color .2s, border-color .2s, gap .3s; }
+.reel-cta:hover { color:var(--text); border-color:var(--text-muted); gap:20px; }
+.reel-cta::after { content:'→'; font-size:1rem; }
+
+/* SERVICES PREVIEW */
+.services-preview { background:var(--bg); padding:0 40px 120px; }
+.section-header { max-width:1400px; margin:0 auto 60px; display:flex; align-items:flex-end; justify-content:space-between; padding-top:80px; border-top:1px solid var(--border); flex-wrap:wrap; gap:20px; }
+.section-header h2 { font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; letter-spacing:-0.03em; color:var(--text); }
+.see-all { font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-faint); text-decoration:none; transition:color .2s; }
+.see-all:hover { color:var(--text); }
+.do-panel { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.do-label { font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-faint); margin-bottom:20px; }
+.do-heading { font-size:clamp(2rem,3.4vw,3.2rem); font-weight:300; letter-spacing:-0.03em; line-height:1.1; color:var(--text); margin-bottom:24px; }
+.do-desc { font-size:0.92rem; color:var(--text-muted); line-height:1.8; max-width:420px; margin-bottom:32px; }
+.do-cta { display:inline-flex; align-items:center; gap:10px; font-size:0.75rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:4px; transition:color .2s, border-color .2s, gap .3s; }
+.do-cta:hover { color:var(--text); border-color:var(--text-muted); gap:16px; }
+.do-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); }
+.do-item { background:var(--bg); padding:32px 28px; transition:background .3s; }
+.do-item:hover { background:var(--card-hover); }
+.do-item-num { font-size:0.58rem; letter-spacing:0.2em; color:var(--text-faint); margin-bottom:16px; }
+.do-item-title { font-size:0.92rem; font-weight:500; color:var(--text); margin-bottom:8px; }
+.do-item-desc { font-size:0.78rem; color:var(--text-muted); line-height:1.6; }
+
+/* BRANDS MARQUEE */
+.brands-strip { background:var(--bg); padding:72px 0; border-top:1px solid var(--border); }
+.brands-label { text-align:center; font-size:0.58rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--text-faint); margin-bottom:40px; }
+.brands-track { overflow:hidden; }
+.brands-inner { display:flex; align-items:center; width:max-content; animation:bq-forward 38s linear infinite; }
+.brands-inner:hover { animation-play-state:paused; }
+.brand-logo { display:flex; align-items:center; padding:0 56px; }
+.brand-logo img {
+  height:64px;
+  width:auto;
+  display:block;
+  opacity:0.35;
+  filter:grayscale(1);
+  transition:opacity .3s, filter .3s;
+}
+.brand-logo img:hover { opacity:0.85; filter:grayscale(0); }
+[data-theme="light"] .brand-logo img { opacity:0.25; }
+[data-theme="light"] .brand-logo img:hover { opacity:0.75; }
+@keyframes bq-forward { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* FAQ */
+.faq-section { background:var(--bg); padding:0 40px 120px; }
+.faq-inner { max-width:1400px; margin:0 auto; }
+.faq-header { display:flex; align-items:flex-end; justify-content:space-between; padding-top:80px; border-top:1px solid var(--border); margin-bottom:48px; flex-wrap:wrap; gap:20px; }
+.faq-header h2 { font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; letter-spacing:-0.03em; color:var(--text); }
+.faq-list { display:flex; flex-direction:column; }
+.faq-item { border-top:1px solid var(--border); }
+.faq-item:last-child { border-bottom:1px solid var(--border); }
+.faq-q {
+  width:100%; background:none; border:none; text-align:left; cursor:pointer;
+  font-family:'DM Sans',sans-serif; font-size:0.95rem; font-weight:400;
+  color:var(--text); padding:24px 0;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  transition:color .2s;
+}
+.faq-q:hover { color:var(--text-muted); }
+.faq-icon { flex-shrink:0; width:20px; height:20px; position:relative; }
+.faq-icon::before, .faq-icon::after { content:''; position:absolute; background:var(--text-faint); transition:transform .3s, opacity .3s; }
+.faq-icon::before { width:12px; height:1px; top:50%; left:50%; transform:translate(-50%,-50%); }
+.faq-icon::after  { width:1px; height:12px; top:50%; left:50%; transform:translate(-50%,-50%); }
+.faq-item.open .faq-icon::after { transform:translate(-50%,-50%) rotate(90deg); opacity:0; }
+.faq-a { display:none; font-size:0.87rem; color:var(--text-muted); line-height:1.8; max-width:680px; padding-bottom:24px; }
+.faq-item.open .faq-a { display:block; }
+@media (max-width:900px) { .faq-section { padding:0 20px 80px; } .do-panel { grid-template-columns:1fr; gap:40px; } }
+
+/* ══════════════════════════════════════
+   INDEX — MOBILE OVERHAUL  ≤ 640px
+══════════════════════════════════════ */
+@media (max-width:640px) {
+
+  /* HERO */
+  .hero { padding: 0 20px 48px; }
+  .hero-line1 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
+  .hero-line2 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
+  /* Move CTA into text flow, below heading */
+  .hero-bottom-right {
+    position: static;
+    margin-top: 28px;
+  }
+  /* Scroll hint hidden on mobile — takes up room, confusing on touch */
+  .scroll-hint { display: none; }
+
+  /* MARQUEE */
+  .marquee-strip { padding: 14px 0; }
+  .marquee-inner span { font-size: 0.58rem; letter-spacing: 0.16em; padding: 0 24px; }
+
+  /* REEL (about block) */
+  .reel-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 64px 20px;
+  }
+  .reel-heading { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+  .reel-body { font-size: 0.9rem; margin-bottom: 28px; max-width: 100%; }
+
+  /* SERVICES PREVIEW */
+  .services-preview { padding: 0 20px 80px; }
+  .section-header { margin-bottom: 40px; padding-top: 60px; }
+  .section-header h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .do-panel { gap: 32px; }
+  .do-heading { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .do-desc { font-size: 0.88rem; margin-bottom: 24px; }
+  .do-grid { grid-template-columns: 1fr; }
+  .do-item { padding: 24px 20px; }
+
+  /* BRANDS */
+  .brands-strip { padding: 48px 0; }
+  .brand-logo { padding: 0 32px; }
+  .brand-logo img { height: 44px; }
+
+  /* FAQ */
+  .faq-section { padding: 0 20px 64px; }
+  .faq-header { padding-top: 60px; margin-bottom: 32px; }
+  .faq-header h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .faq-q { font-size: 0.9rem; padding: 20px 0; gap: 16px; }
+  .faq-a { font-size: 0.84rem; padding-bottom: 20px; max-width: 100%; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+
+<nav>
+  <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/about" class="mob-drawer-link">About</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
+    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-bg">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-text">
+    <div class="hero-line1">Webature</div>
+    <div class="hero-line2">Elevate your digital presence</div>
+    <div class="hero-bottom-right">
+      <a href="/contact" class="hero-start-btn">Start a project →</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
+</section>
+
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Web Design</span><span class="sep">✦</span><span>SEO &amp; Online Visibility</span><span class="sep">✦</span><span>Web Development</span><span class="sep">✦</span>
+    <span>Web Design</span><span class="sep">✦</span><span>SEO &amp; Online Visibility</span><span class="sep">✦</span><span>Web Development</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<section class="reel" id="about">
+  <div class="reel-inner js-reveal">
+    <div>
+      <div class="reel-label">Who we are</div>
+      <h2 class="reel-heading"><strong>We build stunning websites</strong><br>that turn search traffic<br>into real clients.</h2>
+    </div>
+    <div>
+      <p class="reel-body">Webature helps brands scale through high-performance digital platforms. We design stunning user experiences, develop robust technical infrastructure, and implement data-driven SEO strategies that capture highly targeted organic traffic.</p>
+      <a href="/work" class="reel-cta">View our work</a>
+    </div>
+  </div>
+</section>
+
+<section class="services-preview">
+  <div class="section-header js-reveal">
+    <h2>What We Do</h2>
+    <a href="/services" class="see-all">All services →</a>
+  </div>
+  <div class="do-panel js-reveal">
+    <div>
+      <div class="do-label">Web Design &amp; Development</div>
+      <div class="do-heading">Build Your Online<br>Presence</div>
+      <p class="do-desc">Distinctive, fast websites built to convert visitors into clients — designed, developed and optimised for search from day one.</p>
+      <a href="/services" class="do-cta">Explore the service →</a>
+    </div>
+    <div class="do-grid">
+      <div class="do-item">
+        <div class="do-item-num">01</div>
+        <div class="do-item-title">Web Design</div>
+        <div class="do-item-desc">Clean, distinctive, mobile-first.</div>
+      </div>
+      <div class="do-item">
+        <div class="do-item-num">02</div>
+        <div class="do-item-title">Development</div>
+        <div class="do-item-desc">Fast builds, right tech for the job.</div>
+      </div>
+      <div class="do-item">
+        <div class="do-item-num">03</div>
+        <div class="do-item-title">SEO Foundation</div>
+        <div class="do-item-desc">Built to rank from day one.</div>
+      </div>
+      <div class="do-item">
+        <div class="do-item-num">04</div>
+        <div class="do-item-title">Ongoing Support</div>
+        <div class="do-item-desc">We don't disappear after launch.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands-strip js-reveal">
+  <div class="brands-label">Brands we've worked with</div>
+  <div class="brands-track">
+    <div class="brands-inner">
+      <!-- set 1 -->
+      <div class="brand-logo"><img src="logos/logo-1.png" alt="Brand"></div>
+      <div class="brand-logo"><img src="logos/logo-2.png" alt="Brand"></div>
+      <div class="brand-logo"><img src="logos/logo-3.png" alt="Brand"></div>
+      <div class="brand-logo"><img src="logos/logo-4.png" alt="Brand"></div>
+      <div class="brand-logo"><img src="logos/logo-5.png" alt="Brand"></div>
+      <!-- set 2 — duplicate for seamless loop -->
+      <div class="brand-logo"><img src="logos/logo-1.png" alt="Brand"></div>
+      <div class="brand-logo"><img src="logos/logo-2.png" alt="Brand"></div>
+      <div class="brand-logo"><img src="logos/logo-3.png" alt="Brand"></div>
+      <div class="brand-logo"><img src="logos/logo-4.png" alt="Brand"></div>
+      <div class="brand-logo"><img src="logos/logo-5.png" alt="Brand"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header js-reveal">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list js-reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What is SEO and why does my business need it?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">SEO determines where your business appears when people search on Google. If you're not on the first page, you're invisible — most users never scroll past it. We handle technical SEO, keyword strategy, on-page optimisation and local search so your site ranks for the terms your customers are actually using. Unlike paid ads, good SEO compounds over time and keeps working without a budget behind it.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How long does SEO take to work?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">Most businesses start seeing meaningful movement within 3–6 months, with stronger results building over 6–12 months. The timeline depends on your current site health, competition in your niche and how consistently we're publishing and optimising. We give you monthly reporting so you always know exactly what's improving and why.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do I need a new website to improve my SEO?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">Not always. We start with a technical audit to see what's already working and what's holding you back. Often the biggest gains come from fixing site speed, improving page structure and rewriting content — without rebuilding from scratch. If a new site is genuinely the right move, we'll tell you, and we can handle both.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How much does a website cost and how long does it take?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">A professional business website with Webature typically starts from £2,000 and goes live within 3–6 weeks. That covers design, development, mobile optimisation and SEO foundations. Every project gets a clear quote and timeline upfront — no surprises mid-build.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is SEO and why does my business need it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO determines where your business appears when people search on Google. If you're not on the first page, you're invisible — most users never scroll past it. We handle technical SEO, keyword strategy, on-page optimisation and local search so your site ranks for the terms your customers are actually using. Unlike paid ads, good SEO compounds over time and keeps working without a budget behind it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does SEO take to work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most businesses start seeing meaningful movement within 3–6 months, with stronger results building over 6–12 months. The timeline depends on your current site health, competition in your niche and how consistently we're publishing and optimising. We give you monthly reporting so you always know exactly what's improving and why."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a new website to improve my SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always. We start with a technical audit to see what's already working and what's holding you back. Often the biggest gains come from fixing site speed, improving page structure and rewriting content — without rebuilding from scratch. If a new site is genuinely the right move, we'll tell you, and we can handle both."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a website cost and how long does it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A professional business website with Webature typically starts from £2,000 and goes live within 3–6 weeks. That covers design, development, mobile optimisation and SEO foundations. Every project gets a clear quote and timeline upfront — no surprises mid-build."
+      }
+    }
+  ]
+}
+</script>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="webature-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+</script>
+</html>
