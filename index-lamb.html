@@ -60,9 +60,14 @@ nav.scrolled {
 .nav-links a { font-size:1rem; }
 
 /* AVAIL BADGE LINK */
-a.avail-badge--link { text-decoration:none; }
-a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); color:var(--text); }
-[data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
+.member-login-link {
+  font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500;
+  color:var(--text); text-decoration:none; white-space:nowrap;
+  border:1px solid var(--border); border-radius:100px; padding:9px 20px;
+  transition:background-color .2s, border-color .2s;
+}
+.member-login-link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); }
+[data-theme="light"] .member-login-link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
 
 /* HERO */
 .hero { position:relative; width:100vw; height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 40px 52px; overflow:hidden; }
@@ -143,6 +148,9 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 ══════════════════════════════════════ */
 @media (max-width:640px) {
 
+  /* NAV */
+  .member-login-link { display: none; }
+
   /* HERO */
   .hero { padding: 0 20px 48px; }
   .hero-line1 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
@@ -180,21 +188,23 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 <nav>
   <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
   <ul class="nav-links">
-    <li><a href="/work">Work</a></li>
-    <li><a href="/services">Services</a></li>
+    <li><a href="/membership">Membership</a></li>
+    <li><a href="/events">Events</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
   <div class="nav-right">
+    <a href="/member-login" class="member-login-link">Member Login</a>
     <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="mob-drawer">
-  <a href="/work" class="mob-drawer-link">Work</a>
-  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/membership" class="mob-drawer-link">Membership</a>
+  <a href="/events" class="mob-drawer-link">Events</a>
   <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
+  <a href="/member-login" class="mob-drawer-link">Member Login</a>
   <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
     <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
