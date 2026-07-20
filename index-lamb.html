@@ -67,7 +67,6 @@ nav.scrolled {
   transition:background-color .3s ease, border-color .3s ease, color .3s ease;
 }
 .member-login-link:hover { background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3); }
-[data-theme="light"] .member-login-link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
 /* Nav is scrolled/black — button flips to filled white to match the hero-start-btn look */
 nav.scrolled .member-login-link { background:#fff; color:#000; border-color:#fff; }
 nav.scrolled .member-login-link:hover { background:#fff; border-color:#fff; opacity:0.85; }
@@ -94,14 +93,6 @@ nav.scrolled .member-login-link:hover { background:#fff; border-color:#fff; opac
   );
   z-index:1;
   pointer-events:none;
-}
-[data-theme="light"] .hero-bg::after {
-  background:linear-gradient(
-    to top,
-    var(--bg) 0%,
-    rgba(255,255,255,0.5) 40%,
-    rgba(255,255,255,0.2) 100%
-  );
 }
 .hero-text { position:relative; z-index:2; }
 .hero-line1 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:400; line-height:1.05; letter-spacing:-0.02em; color:var(--text); animation:fadeSlideUp .9s .1s both; }
@@ -197,7 +188,7 @@ nav.scrolled .member-login-link:hover { background:#fff; border-color:#fff; opac
   <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
   <a href="/member-login" class="mob-drawer-link">Member Login</a>
-  <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
+  <div class="mob-drawer-bottom">
     <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
   </div>
