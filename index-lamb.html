@@ -131,6 +131,20 @@ nav.scrolled .member-login-link:hover { background:#fff; border-color:#fff; opac
 
 @media (max-width:900px) { .do-panel { grid-template-columns:1fr; gap:40px; } }
 
+/* FOOTER */
+footer { background:#000; padding:64px 40px 40px; }
+.footer-inner { max-width:1400px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:28px; text-align:center; }
+.footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:16px 36px; }
+.footer-links a { font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:#fff; text-decoration:none; transition:opacity .2s; }
+.footer-links a:hover { opacity:0.6; }
+.footer-social { display:flex; align-items:center; gap:14px; }
+.footer-social a { width:34px; height:34px; border-radius:50%; background:#fff; color:#000; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:opacity .2s; }
+.footer-social a:hover { opacity:0.75; }
+.footer-legal-text { display:flex; flex-direction:column; gap:6px; max-width:640px; }
+.footer-legal-text p { font-family:'DM Sans',sans-serif; font-size:0.72rem; line-height:1.6; color:rgba(255,255,255,0.4); margin:0; }
+.footer-legal-text a { color:rgba(255,255,255,0.4); text-decoration:underline; text-underline-offset:2px; transition:color .2s; }
+.footer-legal-text a:hover { color:#fff; }
+
 /* ══════════════════════════════════════
    INDEX — MOBILE OVERHAUL  ≤ 640px
 ══════════════════════════════════════ */
@@ -162,6 +176,10 @@ nav.scrolled .member-login-link:hover { background:#fff; border-color:#fff; opac
   .do-grid { grid-template-columns: 1fr; }
   .do-item { padding: 24px 20px; }
 
+  /* FOOTER */
+  footer { padding: 48px 20px 32px; }
+  .footer-links { gap: 14px 24px; }
+
 }
 </style>
 </head>
@@ -177,7 +195,7 @@ nav.scrolled .member-login-link:hover { background:#fff; border-color:#fff; opac
     <li><a href="/contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="/member-login" class="member-login-link">Member Login</a>
+    <a href="https://crossmember.co.uk/my-membership/" target="_blank" rel="noopener" class="member-login-link">Member Login</a>
     <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -187,7 +205,7 @@ nav.scrolled .member-login-link:hover { background:#fff; border-color:#fff; opac
   <a href="/events" class="mob-drawer-link">Events</a>
   <a href="/about" class="mob-drawer-link">About</a>
   <a href="/contact" class="mob-drawer-link">Contact</a>
-  <a href="/member-login" class="mob-drawer-link">Member Login</a>
+  <a href="https://crossmember.co.uk/my-membership/" target="_blank" rel="noopener" class="mob-drawer-link">Member Login</a>
   <div class="mob-drawer-bottom">
     <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
     <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
@@ -256,20 +274,25 @@ nav.scrolled .member-login-link:hover { background:#fff; border-color:#fff; opac
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <a href="/" class="footer-logo"><img src="webature-logo.png" alt="Webature"></a>
-      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
-      <div class="footer-social">
-        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
-        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
-      </div>
+    <div class="footer-links">
+      <a href="/terms">Terms &amp; Conditions</a>
+      <a href="/privacy">Privacy Policy</a>
     </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Webature</span>
-      <div class="footer-legal">
-        <a href="/terms">Terms &amp; Conditions</a>
-        <a href="/privacy">Privacy Policy</a>
-      </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/lamborghiniclubuk" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://facebook.com/lamborghiniclubuk" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.5 21v-7.9h2.66l.4-3.09h-3.06V8.04c0-.9.25-1.5 1.54-1.5h1.64V3.77C16.47 3.68 15.5 3.6 14.38 3.6c-2.34 0-3.94 1.43-3.94 4.05v2.36H7.77v3.09h2.67V21h3.06z"/></svg>
+      </a>
+      <a href="https://youtube.com/@lamborghiniclubuk" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="5"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+    <div class="footer-legal-text">
+      <p>Copyright © 2026 Lamborghini Club UK. All Rights Reserved.</p>
+      <p>Lamborghini Club UK is an independent club for Lamborghini owners and enthusiasts. It has no connection to or association with Automobili Lamborghini S.p.A.</p>
+      <p>Website by <a href="https://webature.co.uk" target="_blank" rel="noopener">Webature</a></p>
     </div>
   </div>
 </footer>
