@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Webature</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<div id="cur"></div>
+
+<!-- Nav remains completely unchanged -->
+<nav>
+  <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Mobile drawer unchanged -->
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/about" class="mob-drawer-link">About</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
+    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<!-- Blog Header -->
+<div class="bg-dot-pattern"></div>
+<header class="page-header blog-header js-reveal">
+  <h1>Blog</h1>
+  <p class="blog-subtitle">Product updates, announcements, and stories from the Webature team.</p>
+</header>
+
+<!-- Blog Grid -->
+<section class="blog-grid-section js-reveal">
+  <div class="blog-grid">
+    
+    <!-- Card 1 -->
+    <a href="/blog-post" class="blog-card">
+      <div class="blog-meta-date">MAY 11, 2026</div>
+      <h2 class="blog-card-title">Introducing Webature 2.0</h2>
+      <p class="blog-card-excerpt">A new era for distinct, high-performance websites.</p>
+      <div class="blog-card-author">By Webature</div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="/blog-post" class="blog-card">
+      <div class="blog-meta-date">APR 28, 2026</div>
+      <h2 class="blog-card-title">Welcome to Webature</h2>
+      <p class="blog-card-excerpt">Turn any idea into a high-converting web platform.</p>
+      <div class="blog-card-author">By Webature</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- Footer remains completely unchanged -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="webature-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
