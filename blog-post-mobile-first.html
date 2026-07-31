@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why We Build Every Site Mobile-First — Webature</title>
+  <!-- SEO -->
+  <meta name="description" content="The technical and business case for designing every website mobile-first, from the Webature team.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webature.co.uk/blog/why-we-build-mobile-first">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://webature.co.uk/blog/why-we-build-mobile-first">
+  <meta property="og:title" content="Why We Build Every Site Mobile-First — Webature">
+  <meta property="og:description" content="The technical and business case for designing every website mobile-first, from the Webature team.">
+  <meta property="og:image" content="https://webature.co.uk/og-image.jpg">
+  <meta property="og:site_name" content="Webature">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ── POST HEADER ── */
+.post-header { padding: 140px 40px 0; max-width: 900px; margin: 0 auto; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-muted); text-decoration: none; margin-bottom: 48px; transition: color .2s;
+}
+.back-link::before { content: '←'; }
+.back-link:hover { color: var(--text); }
+.post-date {
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 22px;
+}
+.post-title {
+  font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 300; letter-spacing: -0.03em;
+  line-height: 1.08; color: var(--text); margin-bottom: 22px;
+}
+.post-subtitle { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); max-width: 620px; margin-bottom: 20px; }
+.post-byline {
+  font-size: 0.78rem; color: var(--text-faint);
+  padding-bottom: 44px; margin-bottom: 44px; border-bottom: 1px solid var(--border);
+}
+
+/* ── POST BODY ── */
+.post-body { max-width: 720px; margin: 0 auto; padding: 0 40px 140px; }
+.post-body p { font-size: 1rem; color: var(--text-dim); line-height: 1.9; margin-bottom: 28px; }
+
+@media (max-width: 640px) {
+  .post-header { padding: 96px 20px 0; }
+  .back-link { margin-bottom: 36px; }
+  .post-byline { padding-bottom: 32px; margin-bottom: 32px; }
+  .post-body { padding: 0 20px 90px; }
+  .post-body p { font-size: 0.94rem; }
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+
+<nav>
+  <a href="/" class="logo"><img src="webature-logo.png" alt="Webature"></a>
+  <ul class="nav-links">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/contact" class="avail-badge avail-badge--link"><span class="avail-dot"></span>Available For Work</a>
+    <span id="clock">00:00 GMT</span>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-drawer">
+  <a href="/work" class="mob-drawer-link">Work</a>
+  <a href="/services" class="mob-drawer-link">Services</a>
+  <a href="/about" class="mob-drawer-link">About</a>
+  <a href="/contact" class="mob-drawer-link">Contact</a>
+  <div class="mob-drawer-bottom"><button class="theme-toggle" aria-label="Toggle theme"><span class="theme-toggle-icon">🌙</span></button>
+    <div class="mob-drawer-badge"><span class="avail-dot"></span>Available For Work</div>
+    <a href="mailto:contact@webature.co.uk" class="mob-drawer-contact" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">contact@webature.co.uk</a>
+  </div>
+</div>
+
+<section class="post-header js-reveal">
+  <a href="blog.html" class="back-link">Back to blog</a>
+  <div class="post-date">Jun 08, 2026</div>
+  <h1 class="post-title">Why We Build Every Site Mobile-First</h1>
+  <p class="post-subtitle">The technical case behind our design process — and what it means for your conversions.</p>
+  <div class="post-byline">By Webature</div>
+</section>
+
+<article class="post-body js-reveal">
+  <p>For most businesses we work with, more visitors now arrive on a phone than a laptop. Despite that, it's still common for a site to be designed on a wide desktop monitor first, with the mobile version treated as a smaller version of the same layout squeezed to fit. We build the other way round, and it changes almost everything about the result.</p>
+
+  <p>Starting on the smallest screen forces real decisions early. There's no room for a headline, three supporting lines, a stat block and two buttons all fighting for attention above the fold — so we're forced to decide what actually matters first. That discipline carries through to the desktop version too, which tends to end up clearer as a result, not just smaller elements spread across more space.</p>
+
+  <p>There's a technical upside as well. Mobile-first builds are naturally leaner: fewer heavy assets loaded that then need to be hidden or resized, simpler markup, and layouts that don't rely on complex overrides to behave on a small screen. That translates directly into faster load times, which matters for visitors and for Google — mobile-first indexing means the mobile version of your site is what's largely used to determine how you rank, not the desktop one.</p>
+
+  <p>The business case is just as direct. A visitor who can read your offer, understand what to do next, and fill in a form with their thumb without frustration is far more likely to actually get in touch. Every extra pinch-to-zoom, every button that's too small to tap accurately, is a small piece of friction between someone being interested and someone leaving.</p>
+
+  <p>It's a small shift in process with a disproportionate effect on the outcome. Every Webature project starts on a phone-sized canvas, and we think it shows in how the finished sites perform — for the people using them, and in the numbers behind the scenes.</p>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-logo"><img src="webature-logo.png" alt="Webature"></a>
+      <a href="mailto:contact@webature.co.uk" class="footer-email">contact@webature.co.uk</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/webature" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/webature" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Webature</span>
+      <div class="footer-legal">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
