@@ -362,10 +362,11 @@ a.avail-badge--link:hover { background: rgba(255,255,255,0.09); border-color: rg
 }
 
 /* Blog Cards */
+/* Blog Cards */
 .blog-card {
   display: flex;
   flex-direction: column;
-  background: var(--bg);
+  background: var(--surface); /* Brighter base state */
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 32px;
@@ -373,7 +374,7 @@ a.avail-badge--link:hover { background: rgba(255,255,255,0.09); border-color: rg
   transition: background 0.3s, border-color 0.3s;
 }
 .blog-card:hover {
-  background: var(--card-hover);
+  background: var(--border); /* Even brighter hover state */
   border-color: var(--border-mid);
 }
 .blog-meta-date {
