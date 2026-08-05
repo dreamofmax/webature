@@ -54,36 +54,37 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 [data-theme="light"] a.avail-badge--link:hover { background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.25); }
 
 /* HERO */
-.hero { position:relative; width:100vw; height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 40px 52px; overflow:hidden; }
-.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 55% at 50% 40%, rgba(128,128,128,0.04) 0%, transparent 70%); pointer-events:none; z-index:0; }
+.hero { position:relative; width:100vw; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 40px; overflow:hidden; text-align:center; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 55% at 50% 50%, rgba(128,128,128,0.05) 0%, transparent 70%); pointer-events:none; z-index:0; }
 .hero-bg { position:absolute; inset:0; z-index:0; background:var(--bg); overflow:hidden; }
-.hero-video {
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover;
-  display:block;
-}
-/* dark overlay so text reads over grid */
+/* soft grounding shadow so the bubble pile doesn't end in a hard edge */
 .hero-bg::after {
   content:'';
   position:absolute; inset:0;
-  background:linear-gradient(
-    to top,
-    var(--bg) 0%,
-    rgba(0,0,0,0.55) 40%,
-    rgba(0,0,0,0.3) 100%
-  );
+  background:linear-gradient(to top, var(--bg) 0%, transparent 24%);
   z-index:1;
   pointer-events:none;
 }
-[data-theme="light"] .hero-bg::after {
-  background:linear-gradient(
-    to top,
-    var(--bg) 0%,
-    rgba(255,255,255,0.5) 40%,
-    rgba(255,255,255,0.2) 100%
-  );
+
+/* physics bubble stage — populated by hero-bubbles.js, desktop only */
+.hero-bubbles { position:absolute; inset:0; z-index:1; }
+@media (max-width:640px) { .hero-bubbles { display:none; } }
+
+.bubble {
+  position:absolute; top:0; left:0;
+  padding:13px 20px;
+  font-family:'DM Sans',sans-serif;
+  font-size:0.92rem; font-weight:500; line-height:1.3;
+  white-space:nowrap;
+  user-select:none; -webkit-user-select:none;
+  cursor:grab; touch-action:none; will-change:transform;
+  box-shadow:0 10px 24px rgba(0,0,0,0.28), 0 2px 6px rgba(0,0,0,0.16);
+  opacity:0; transition:opacity .35s ease;
 }
+.bubble:active { cursor:grabbing; }
+.bubble-blue { background:#3D5CDB; color:#fff; border-radius:20px 20px 20px 5px; }
+.bubble-green { background:#0C8046; color:#fff; border-radius:20px 20px 5px 20px; }
+
 .hero-text { position:relative; z-index:2; }
 .hero-line1 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:400; line-height:1.05; letter-spacing:-0.02em; color:var(--text); animation:fadeSlideUp .9s .1s both; }
 .hero-line2 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:300; line-height:1.05; letter-spacing:-0.02em; color:var(--text-muted); animation:fadeSlideUp .9s .25s both; }
@@ -92,11 +93,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .scroll-hint span { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; writing-mode:vertical-rl; transform:rotate(180deg); color:var(--text); }
 .scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,var(--text),transparent); animation:scrollPulse 2s ease-in-out infinite; }
 @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
-.hero-bottom-right { position:absolute; bottom:52px; right:40px; z-index:2; }
-@media (max-width:640px) {
-  .hero-bottom-right { position:static; bottom:auto; right:auto; margin-top:28px; }
-}
-.hero-start-btn { font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border:none; border-radius:100px; padding:13px 24px; text-decoration:none; transition:opacity .2s; white-space:nowrap; display:inline-block; }
+.hero-start-btn { font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border:none; border-radius:100px; padding:13px 24px; text-decoration:none; transition:opacity .2s; white-space:nowrap; display:inline-block; margin-top:32px; animation:fadeSlideUp .9s .4s both; }
 .hero-start-btn:hover { opacity:0.85; }
 
 /* MARQUEE */
@@ -187,14 +184,9 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 @media (max-width:640px) {
 
   /* HERO */
-  .hero { padding: 0 20px 48px; }
+  .hero { padding: 0 20px; }
   .hero-line1 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
   .hero-line2 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
-  /* Move CTA into text flow, below heading */
-  .hero-bottom-right {
-    position: static;
-    margin-top: 28px;
-  }
   /* Scroll hint hidden on mobile — takes up room, confusing on touch */
   .scroll-hint { display: none; }
 
@@ -265,17 +257,12 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 </div>
 
 <section class="hero">
-  <div class="hero-bg">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="hero-video.mp4" type="video/mp4">
-    </video>
-  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-bubbles" id="heroBubbles" aria-hidden="true"></div>
   <div class="hero-text">
     <div class="hero-line1">Webature</div>
     <div class="hero-line2">Elevate your digital presence</div>
-    <div class="hero-bottom-right">
-      <a href="/contact" class="hero-start-btn">Start a project →</a>
-    </div>
+    <a href="/contact" class="hero-start-btn">Start a project →</a>
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
@@ -465,6 +452,7 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 </footer>
 
 <script src="shared.js"></script>
+<script src="hero-bubbles.js" defer></script>
 <script>
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn => {
