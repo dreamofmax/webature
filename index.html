@@ -85,15 +85,15 @@ a.avail-badge--link:hover { background:rgba(255,255,255,0.09); border-color:rgba
 .bubble-blue { background:#3D5CDB; color:#fff; border-radius:20px 20px 20px 5px; }
 .bubble-green { background:#0C8046; color:#fff; border-radius:20px 20px 5px 20px; }
 
-.hero-text { position:relative; z-index:2; }
+.hero-text { position:relative; z-index:2; pointer-events:none; user-select:none; }
 .hero-line1 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:400; line-height:1.05; letter-spacing:-0.02em; color:var(--text); animation:fadeSlideUp .9s .1s both; }
 .hero-line2 { font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:300; line-height:1.05; letter-spacing:-0.02em; color:var(--text-muted); animation:fadeSlideUp .9s .25s both; }
 @keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-.scroll-hint { position:absolute; right:40px; top:50%; transform:translateY(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.22; }
+.scroll-hint { position:absolute; right:40px; top:50%; transform:translateY(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.22; pointer-events:none; user-select:none; }
 .scroll-hint span { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; writing-mode:vertical-rl; transform:rotate(180deg); color:var(--text); }
 .scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,var(--text),transparent); animation:scrollPulse 2s ease-in-out infinite; }
 @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
-.hero-start-btn { font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border:none; border-radius:100px; padding:13px 24px; text-decoration:none; transition:opacity .2s; white-space:nowrap; display:inline-block; margin-top:32px; animation:fadeSlideUp .9s .4s both; }
+.hero-start-btn { font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--bg); background:var(--text); border:none; border-radius:100px; padding:13px 24px; text-decoration:none; transition:opacity .2s; white-space:nowrap; display:inline-block; margin-top:32px; animation:fadeSlideUp .9s .4s both; pointer-events:auto; }
 .hero-start-btn:hover { opacity:0.85; }
 
 /* MARQUEE */
