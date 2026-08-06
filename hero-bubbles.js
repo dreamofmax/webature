@@ -132,19 +132,23 @@
 
     Composite.add(engine.world, bodies.concat([floor, leftWall, rightWall]));
 
+    // NOTE: do not set mouse.pixelRatio here — that property exists for
+    // canvas-backed setups only. Since we're syncing to real DOM elements
+    // (all in CSS pixels already), leaving it at its default of 1 keeps
+    // the mouse's coordinates lined up with the bubbles.
     var mouse = Mouse.create(stage);
-    mouse.pixelRatio = window.devicePixelRatio || 1;
     var mouseConstraint = MouseConstraint.create(engine, {
       mouse: mouse,
       constraint: { stiffness: 0.18, damping: 0.12, render: { visible: false } }
     });
     Composite.add(engine.world, mouseConstraint);
 
-    // Matter's Mouse module blocks page-scroll by default (it calls
-    // preventDefault on wheel events over the stage) — remove that
-    // so visitors can still scroll normally while hovering bubbles.
-    mouse.element.removeEventListener('mousewheel', mouse.mousewheel);
-    mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
+    // Matter's Mouse module blocks page-scroll by default — it adds a
+    // non-passive 'wheel' listener over the whole stage and calls
+    // preventDefault() on every scroll/trackpad event that lands on it.
+    // Remove that specific listener so the page scrolls normally
+    // everywhere, bubbles included.
+    mouse.element.removeEventListener('wheel', mouse.mousewheel);
 
     // Match the site's custom cursor hover state on bubble hover.
     var cur = document.getElementById('cur');
